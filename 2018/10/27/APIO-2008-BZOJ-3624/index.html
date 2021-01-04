@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 3624 APIO2008-免费道路</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 3624 APIO2008-免费道路 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/27
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Kruskal.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给一个 $n$ 个点, $m$ 条边的无向图, 其中有一些是特殊边, 构造一颗生成树, 使得恰好包含 $k$ 条特殊边, 或输出无解.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>考虑kruskal的过程, 假如我们优先假如非特殊边, 那么仍然需要使用的特殊边就一定会出现在最终方案中.</p>
+<p>那么我们做两次kruskal就可以了.</p>
+<p>注意判断一些诸如图不连通, 需要的特殊边过多, 可用的特殊边过少等情况.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+const int maxn = 2e+4 + 5;
+const int maxm = 1e+5 + 5;
+
+struct edge &#123;
+  int frm, to, typ;
+  int tag;
+  bool operator &lt; (const edge &amp;rhs)&#123;
+    return typ &gt; rhs.typ;
+  &#125;
+&#125;e[maxm];
+
+int n, m, k;
+int f[maxn];
+
+int find(int x) &#123;
+  return (f[x] == x) ? x : f[x] = find(f[x]);
+&#125;
+bool link(int x, int y) &#123;
+  int fx = find(x), fy = find(y);
+  if (fx != fy) &#123;
+    f[fx] = fy;
+    return true;
+  &#125;
+  return false;
+&#125;
+bool my_cmp(edge a, edge b) &#123;
+  return (a.tag == b.tag) ? a.typ &lt; b.typ : a.tag &gt; b.tag;
+&#125;
+
+int main() &#123;
+  vector&lt;int&gt; vec;
+  scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k); 
+  int tmp = 0, ptr = 0;
+  for (int i = 1; i &lt;= n; ++i) 
+    f[i] = i;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    scanf(&quot;%d%d%d&quot;, &amp;e[i].frm, &amp;e[i].to, &amp;e[i].typ);
+  &#125;
+  sort(e + 1, e + 1 + m);
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    if (!e[i].typ) ptr++;
+    if (link(e[i].frm, e[i].to)) &#123;
+      if(!e[i].typ) tmp++, e[i].tag = 1;
+    &#125;
+  &#125;
+  int cnt = 0;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (i == find(i)) cnt++;
+  &#125;
+  if (ptr &lt; k || tmp &gt; k || cnt &gt; 1) &#123;
+    puts(&quot;no solution&quot;);
+  &#125; else &#123;
+    sort(e + 1, e + 1 + m, my_cmp);
+    for (int i = 1; i &lt;= n; ++i) f[i] = i;
+    int lim = 0;
+    for (int i = 1; i &lt;= m; ++i) &#123;
+      if (lim == k &amp;&amp; e[i].typ == 0) continue;
+      if (link(e[i].frm, e[i].to)) &#123;
+        vec.push_back(i);
+        if (!e[i].typ) lim++;
+      &#125;
+    &#125;
+    if (lim &lt; k) &#123;
+      puts(&quot;no solution&quot;);
+      return 0;
+    &#125;
+    for (vector&lt;int&gt;::iterator i = vec.begin(); i != vec.end(); ++i) &#123;
+      printf(&quot;%d %d %d\n&quot;, e[*i].frm, e[*i].to, e[*i].typ);
+    &#125;
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

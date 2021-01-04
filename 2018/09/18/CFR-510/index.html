@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Codeforces Round 510 Div.2</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Codeforces Round 510 Div.2 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/18
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Codeforces" style=color:#ff7d73>
+                    Codeforces
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><del>(马后炮)</del>解题报告.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>本来是register了, 但是因为上课所以并没有打. 比赛的时候口胡了两个题, 下场调了一会倒是过了, AB比较水就另说. 然后又口胡了一下E, 大概是个期望维护个前缀和就可以转移了的说. 大概也就能做到这样子. F还是有点仙的, 不过不难理解.</p>
+<h2 id="A-Benches"><a href="#A-Benches" class="headerlink" title="A. Benches"></a>A. Benches</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>长凳上已经坐了一些人, 又要来一些人, 问所有长凳上最多的人的最大可能和最小可能.</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>堆+贪心乱搞一通.</p>
+<pre><code class="c++">//maki
+#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 105;
+
+int n, a[maxn], m;
+priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt;q;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 1; i &lt;= n; ++i) cin &gt;&gt; a[i], q.push(a[i]);
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        int u = q.top(); q.pop();
+        u++;
+        q.push(u);
+    &#125;
+    int mx = 0;
+    while(!q.empty()) mx = max(mx, q.top()), q.pop();
+    cout &lt;&lt; mx &lt;&lt; &quot; &quot;;
+    sort(a + 1, a + 1 + n);
+    cout &lt;&lt; a[n] + m &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="B-Vitamins"><a href="#B-Vitamins" class="headerlink" title="B. Vitamins"></a>B. Vitamins</h2><h3 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h3><p>每种商品含若干种维他命, 问获取所有维他命的最小花费, 种类 $\le 3$. </p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>要是种类很多可以DP吧? 不过3嘛, 嘿嘿嘿.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1005;
+
+int n, co[maxn];
+int a, b, c, ab, bc, ac, abc;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    string s;
+
+    a = b = c = 400005;
+    ac = bc = ab = abc = 400005;
+
+    cin &gt;&gt; n;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        cin &gt;&gt; co[i] &gt;&gt; s;
+        if(s.size() == 1)
+        &#123;
+            if(s[0] == &#39;A&#39;)
+                a = min(a, co[i]);
+            else if(s[0] == &#39;B&#39;)
+                b = min(b, co[i]);
+            else c = min(c, co[i]);
+        &#125;
+        else if(s.size() == 2)
+        &#123;
+            int has[3] = &#123;0,0,0&#125;;
+            has[s[0]-&#39;A&#39;] = 1;
+            has[s[1]-&#39;A&#39;] = 1;
+            if(has[0] &amp;&amp; has[1]) ab = min(ab, co[i]);
+            else if(has[1] &amp;&amp; has[2]) bc = min(bc, co[i]);
+            else ac = min(ac, co[i]);
+        &#125;
+        else
+        &#123;
+            abc = min(abc, co[i]);
+        &#125;
+    &#125;
+    int ans = 400005;
+    ans = min(ans, min(a + b + c, abc));
+    ans = min(ans, min(ab + bc, ab + ac));
+    ans = min(ans, ac + bc);
+    ans = min(ans, min(ab + c, bc + a));
+    ans = min(ans, ac + b);
+    if(ans &lt; 400005) cout &lt;&lt; ans &lt;&lt; endl;
+    else puts(&quot;-1&quot;);
+    return 0;
+&#125;</code></pre>
+<h2 id="C-Array-Product"><a href="#C-Array-Product" class="headerlink" title="C. Array Product"></a>C. Array Product</h2><h3 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h3><p>有两种操作, 第一种是把两个数乘起来放到一个位置, 另一个删掉, 第二种是删掉一个数. 删除后下标不变, 但不能使用. 最大化剩下的一个数的结果.</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>有正有负, 肯定就看负数能不能乘出一个整数嘛, 不能就和0合并一下然后删掉.</p>
+<p>能的话, 就把0合并一下, 然后删掉.</p>
+<p>剩下的无脑乘到第一个没有被删除的位置上就好了.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 2e+5 + 5;
+
+vector&lt;int&gt; zrs;
+int n, a[maxn], negabs = 0x3f3f3f3f, negpos, negcnt;
+int vis[maxn];
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        cin &gt;&gt; a[i];
+        if(a[i] &lt; 0)
+        &#123;
+            if(abs(a[i]) &lt; negabs) negabs = -a[i], negpos = i;
+            negcnt ^= 1;
+        &#125;
+        if(a[i] == 0) zrs.push_back(i);
+    &#125;
+    if(!negcnt)
+    &#123;
+        if(zrs.size())
+        &#123;
+            for(int i = 1; i &lt; zrs.size(); ++i)
+                printf(&quot;1 %d %d\n&quot;, zrs[i], zrs[0]), vis[zrs[i]] = 1;
+            if((int)zrs.size() == n) return 0;
+            printf(&quot;2 %d\n&quot;, zrs[0]); vis[zrs[0]] = 1;
+        &#125;
+        for(int i = 1; i &lt;= n; ++i)
+        &#123;
+            if(!vis[i])
+            &#123;
+                for(int j = i + 1; j &lt;= n; ++j)
+                    if(!vis[j]) printf(&quot;1 %d %d\n&quot;, j, i);
+                return 0;
+            &#125;
+        &#125;
+    &#125;
+    else
+    &#123;
+        if(zrs.size())
+            for(int i = 0; i &lt; zrs.size(); ++i)
+                printf(&quot;1 %d %d\n&quot;, zrs[i], negpos), vis[zrs[i]] = 1;
+        if((int)zrs.size() == n - 1) return 0;
+        printf(&quot;2 %d\n&quot;, negpos); vis[negpos] = 1;
+
+        for(int i = 1; i &lt;= n; ++i)
+        &#123;
+            if(!vis[i])
+            &#123;
+                for(int j = i + 1; j &lt;= n; ++j)
+                    if(!vis[j]) printf(&quot;1 %d %d\n&quot;, j, i);
+                return 0;
+            &#125;
+        &#125;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<h2 id="D-Petya-and-Array"><a href="#D-Petya-and-Array" class="headerlink" title="D. Petya and Array"></a>D. Petya and Array</h2><h3 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h3><p>给一个数组, 求所有和小于 $t$ 的子区间个数.</p>
+<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p>如果都是非负数的话, 双指针就好了, 但是有负数.</p>
+<p>一个经典思路<del>然而我并没想到, 好像还讲过</del>, 分治, 每次只考虑跨越当前区间中点的答案, 这样在左边维护后缀和, 右边维护前缀和, 排序以后, 是可以双指针的.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 2e+5 + 5;
+
+typedef long long ll;
+
+int a[maxn], n;
+ll pre[maxn], suf[maxn];
+ll ans, t;
+
+void DaC(int l, int r)
+&#123;
+    if(l == r)
+    &#123;
+        if(a[l] &lt; t) ans++;
+        return;
+    &#125;
+    //cout &lt;&lt; l &lt;&lt; &quot; &quot; &lt;&lt; r &lt;&lt; endl;
+    int mid = (l + r) &gt;&gt; 1;
+    vector&lt;ll&gt; suf, pre; ll sum = 0;
+    for(int i = mid; i &gt;= l; --i)
+        sum += a[i], suf.push_back(sum);
+    sum = 0;
+    for(int i = mid + 1; i &lt;= r; ++i)
+        sum += a[i], pre.push_back(sum);
+    int llen = suf.size(), rlen = pre.size();
+    sort(suf.begin(), suf.end());
+    sort(pre.begin(), pre.end());
+    int j = rlen;
+    //cout &lt;&lt; &quot;--&quot; &lt;&lt; endl;
+    for(int i = 1; i &lt;= llen; ++i)
+    &#123;
+        while(j &amp;&amp; suf[i - 1] + pre[j - 1] &gt;= t) --j;
+        //cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;
+        ans += j;
+    &#125;
+    DaC(l, mid); DaC(mid + 1, r);
+&#125;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; t;
+    for(int i = 1; i &lt;= n; ++i) cin &gt;&gt; a[i];
+
+    DaC(1, n);
+    cout &lt;&lt; ans &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="E-Vasya-and-Magic-Matrix"><a href="#E-Vasya-and-Magic-Matrix" class="headerlink" title="E. Vasya and Magic Matrix"></a>E. Vasya and Magic Matrix</h2><h3 id="Description-4"><a href="#Description-4" class="headerlink" title="Description"></a>Description</h3><p>给一个矩阵, 每个点有值, 每次操作只能从当前的跳到更小值的格子去, 得分是欧几里得距离的平方. 求得分期望.</p>
+<h3 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h3><p>先列式子嘛.<br>$$<br>E_i = \frac{\sum_{j = 1}^{i - 1}{(x_i - x_j)^2 + (y_i - y_j)^2}}{i - 1} + \sum E<br>$$</p>
+<p>然后是转移.</p>
+<p>先把式子打开.<br>$$<br>E_i =\ \frac{1}{i-1}\times ((i-1)(x_i^2 + y_i^2) + \sum x_j^2 + \sum y_j^2 - 2\sum{x_ix_j} - 2\sum{y_iy_j} ) + \sum E<br>$$<br>这样增量的时候, 把该减的减掉该加的加上就可以增量了, 维护一些前缀和, 前缀平方和, 前缀期望和之类的.</p>
+<p>记得相等的值要同时做.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 1005;
+const ll p = 998244353;
+
+struct node
+&#123;
+    ll x, y;
+    ll v;
+    bool operator &lt; (const node &amp;rhs) const
+        &#123;
+            return v &lt; rhs.v;
+        &#125;
+&#125;;
+int n, m;
+ll sumx, sumy, sumxs, sumys, sumf;
+ll r, c, f[maxn][maxn], mtr[maxn][maxn];
+vector&lt;node&gt; vec;
+
+inline ll quick_power(ll base, ll index)
+&#123;
+    ll ret = 1;
+    while(index)
+    &#123;
+        if(index &amp; 1) ret = (ret * base) % p;
+        index &gt;&gt;= 1;
+        base = base * base % p;
+    &#125;
+    return ret;
+&#125;
+inline void add(ll &amp;res, ll num)
+&#123;
+    res += num;
+    while(res &gt;= p) res -= p;
+    while(res &lt; 0) res += p;
+&#125;
+inline ll prod(ll a, ll b)
+&#123;
+    return a * b % p;
+&#125;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 0; i &lt; n; ++i)
+        for(int j = 0; j &lt; m; ++j)
+        &#123;
+            cin &gt;&gt; mtr[i][j];
+        &#125;
+    cin &gt;&gt; r &gt;&gt; c;
+    r--; c--;
+
+    for(int i = 0; i &lt; n; ++i)
+        for(int j = 0; j &lt; m; ++j)
+            vec.push_back((node)&#123;i, j, mtr[i][j]&#125;);
+
+    sort(vec.begin(), vec.end());
+
+    int i = 0;
+    while(i &lt; (int)vec.size())
+    &#123;
+        int j = i;
+        while(j &lt; (int)vec.size() &amp;&amp; vec[j].v == vec[i].v) ++j;
+
+        ll inv = -1;
+        if(i) inv = quick_power(i, p - 2);
+        for(int k = i; k &lt; j; ++k)
+        &#123;
+            ll xx = vec[k].x, yy = vec[k].y;
+            if(inv == -1)
+            &#123;
+                f[xx][yy] = 0;
+                continue;
+            &#125;
+            add(f[xx][yy], prod(sumf, inv));
+            add(f[xx][yy], prod(xx, xx));
+            add(f[xx][yy], prod(yy, yy));
+            add(f[xx][yy], prod(sumxs, inv));
+            add(f[xx][yy], prod(sumys, inv));
+            add(f[xx][yy], prod(prod(-xx * 2ll, sumx), inv));
+            add(f[xx][yy], prod(prod(-yy * 2ll, sumy), inv));
+
+        &#125;
+        for(int k = i; k &lt; j; ++k)
+        &#123;
+            ll xx = vec[k].x, yy = vec[k].y;
+            add(sumf, f[xx][yy]);
+            add(sumxs, prod(xx, xx));
+            add(sumys, prod(yy, yy));
+            add(sumx, xx);
+            add(sumy, yy);
+        &#125;
+        i = j;
+    &#125;
+
+    cout &lt;&lt; f[r][c] &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="F-Leaf-Sets"><a href="#F-Leaf-Sets" class="headerlink" title="F. Leaf Sets"></a>F. Leaf Sets</h2><h3 id="Description-5"><a href="#Description-5" class="headerlink" title="Description"></a>Description</h3><p>把一颗树的叶子节点划分成若干集合, 使得每个集合内最远点对的距离小于等于 $k$. 求最小集合数.</p>
+<h3 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h3><p>本来想二分答案, 比如按深度排个序然后顺次验证什么的, 但是不太可做.</p>
+<p>有一个性质, 就是在当前节点 $v$, 记她到某个孩子的子树内最深节点的距离为 $d$. </p>
+<p>这样就有了若干个 $d$, 当然是要合并了, 这样才能减少集合, 考虑合并的条件, 当且仅当$d_a + d_b \le k$, 合并后的集合, 应该有: $d_u = max(d_a, d_b)$.</p>
+<p>再考虑不能合并, 如果有 $d_a + d_b &gt; k$, 且$d_a \le d_b$. 那么$b$接下来一定没有用了, 因为能和她合并的就能和 $a$ 合并. 而她又不能再合并, 所以弹掉, 答案+1.</p>
+<p>最后做到根节点会剩一些一定合并的集合, 记得答案+1.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1e+6 + 5;
+
+struct edge
+&#123;
+    int to, nxt;
+&#125;e[maxn &lt;&lt; 1];
+int ptr, lnk[maxn], dep[maxn], ans, dgr[maxn], rt, n, k;
+set&lt;int&gt; st;
+
+inline void add(int bgn, int end)
+&#123;
+    e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+    lnk[bgn] = ptr;
+&#125;
+int dfs(int x, int fa)
+&#123;
+    if(dgr[x] == 1) return 0;
+    vector&lt;int&gt; s;
+    for(int p = lnk[x]; p; p = e[p].nxt)
+    &#123;
+        int y = e[p].to;
+        if(y == fa) continue;
+        int tmp = dfs(y, x);
+        s.push_back(tmp + 1);
+    &#125;
+    //cout &lt;&lt; &quot;dealing&quot; &lt;&lt; x &lt;&lt; endl;
+    sort(s.begin(), s.end());
+    for(int i = int(s.size()) - 1; i &gt;= 1; --i)
+    &#123;
+        if(s[i] + s[i-1] &lt;= k) break;
+        ans++;
+        s.pop_back();
+    &#125;
+
+    return s.back();
+&#125;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; k;
+    for(int i = 1; i &lt; n; ++i)
+    &#123;
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        add(u, v); add(v, u);
+        dgr[u]++; dgr[v]++;
+    &#125;
+    for(int i = 1; i &lt;= n; ++i) if(dgr[i] != 1) &#123;rt = i; break;&#125;
+    dfs(rt, 0);
+
+    cout &lt;&lt; ans + 1 &lt;&lt; endl;//remaining elements in vector(rt);
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || GTK Develop Notes</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>GTK Develop Notes </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/5/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Develop" style=color:#00bcd4>
+                    Develop
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>This won’t help in a long, long visible future.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="GTK-Develop-Notes"><a href="#GTK-Develop-Notes" class="headerlink" title="GTK Develop Notes"></a>GTK Develop Notes</h1><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>Today I began to learn a bit of GTK+ Development with C++, this is a note while learning.</p>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><p>Install <code>libgtkmm-3.0-dev</code>.</p>
+<p>Learn to use <code>make</code>.</p>
+<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><p>First declare a basic application body of type <code>Glib::RefPtr&lt;Gtk::Application&gt;</code>, a smart-pointer, or <code>auto</code> instead:), and with constructor <code>Gtk::Application::create(argc, argv, &quot;org.gtkmm.example&quot;)</code>. Notice that <code>argv</code> must not be <code>const</code>.</p>
+<ul>
+<li><input disabled="" type="checkbox"> To Do: Get to know about the third parameter.</li>
+</ul>
+<p>Then declare a window <code>MyWindow</code>, maybe other containers in the future. As for now, we often define a sub class of <code>Gtk::Window</code> to deal the work.</p>
+<p>Return <code>app-&gt;run(Window)</code> at the end of main function.</p>
+<h2 id="Buttons"><a href="#Buttons" class="headerlink" title="Buttons"></a>Buttons</h2><h3 id="Gtk-Button"><a href="#Gtk-Button" class="headerlink" title="Gtk::Button"></a><code>Gtk::Button</code></h3><p>Set a button’s label with constructor like <code>MyButton = Gtk::Button(&quot;Label&quot;)</code> or later with <code>MyButton.set_label(&quot;Label&quot;)</code>. To add label with pictures, use <code>MyButton.add_pixlabel(&quot;name.xpm&quot;, &quot;textlabel&quot;)</code>, there will be a label made of an icon followed with text.</p>
+<p>Define an accelerator key for keyboard navigation with a underline before label, and a <code>true</code> second parameter, like: <code>MyButton = Gtk::Button(&quot;_Label&quot;, true)</code>.<del>Though I haven’t known about how to set key bindings yet</del>.</p>
+<ul>
+<li><input disabled="" type="checkbox"> To Do: Get to know about accelerator key.</li>
+</ul>
+<p>In an window, use <code>add(Gtk::Button MyButton)</code>to add the button to it. And call <code>MyButton.show()</code> to show the button. To display all elements in the window, call <code>show_all_children()</code>.</p>
+<p>And to deal the events, we should know the concept of signal, it isn’t strange to C++ programmers. The <code>Gtk::Button</code> provides five signals but only <code>clicked</code> is recommended now.</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> To Do: Get to know about <code>Gtk::Widget::signal_button_press_event()</code> and others.</li>
+</ul>
+<p>To connect the signal emitted by the button and our handler, we should use <code>MyButton.signal_clicked().connect(sigc::mem_fun(*this, &amp;Buttons::ButtonClicked))</code>. In this example, we have a class <code>Buttons : Gtk::Window</code>, and the handler <code>ButtonClicked</code> is a member function, of course <code>MyButton</code> is a member of this class with type <code>Gtk::Button</code> .</p>
+<p><code>mem_fun</code> means the handler is a member of the first parameter. If the handler is an independent function, use <code>sigc::ptr_fun(&amp;Func)</code>.</p>
+<p>To deal other signals, like press, first we should let the window to report this signal. That is <code>Gdk::Window::set_events(EventMask mask)</code>. For instance, in <code>MyWindow</code>, execute <code>set_events(Gdk::BUTTON_PRESS_MASK)</code> will let the window report all press signals. Then the button pressed will be able to emit signals. And the <strong>Slot Prototype</strong> is a boolean function with a parameter <code>GdkEventButton</code>, see the official document.</p>
+<p>Another question: the relationship between <code>Gtk::Window</code> and <code>Gdk::Window</code>. Seems that a <code>Gtk::Window</code> can register with a <code>Gdk::Window</code> and then receive events like <code>signal_button_press_event()</code>.   The usage of this signal might be the same as clicked? And we should  know that other 4 signals can be only detected in the X Window System.</p>
+<p>Sometimes we may just press enter to activate a button, that’s a default button, use: <code>MyButton.set_can_default(bool = true)</code> to ensure it can be a default button, and use <code>MyButton.grab_default()</code> to make it default. <code>focus</code> is another property like this.</p>
+<p>We can <code>set_sensitive(boolean)</code> to decide whether the button will response to our click, and it’s appearance will follow the sensibility(valid / invalid).</p>
+<h3 id="Gtk-ToggleButton"><a href="#Gtk-ToggleButton" class="headerlink" title="Gtk::ToggleButton"></a><code>Gtk::ToggleButton</code></h3><p>To get the status of a toggle button use <code>get_active()</code> which returns a boolean value. If want to force the state of button, use <code>set_active()</code>, however it is not recommended for a <code>clicked</code> signal might be emitted. To change the button’s state, just use <code>toggled()</code>, which emitted <code>toggled</code> signal instead of <code>clicked</code>.</p>
+<p>It is more like a base class for other types of buttons.</p>
+<h3 id="Gtk-CheckButton"><a href="#Gtk-CheckButton" class="headerlink" title="Gtk::CheckButton"></a><code>Gtk::CheckButton</code></h3><p>Usage is the same as Toggle Button, with difference in appearance.</p>
+<h3 id="Gtk-RadioButton"><a href="#Gtk-RadioButton" class="headerlink" title="Gtk::RadioButton"></a><code>Gtk::RadioButton</code></h3><p>Some  Radio Button gather together as a group, and at the same time only one  in the group will be activated. There are 2 ways to set the group.</p>
+<pre><code class="c++">Gtk::RadioButton b1(&quot;b1&quot;), b2(&quot;b2&quot;), b3(&quot;b3&quot;);
+b2.join_group(b1);
+b3.join_group(b1);</code></pre>
+<p>And another:</p>
+<pre><code class="c++">Gtk::RadioButton::Group g;
+Gtk::RadioButton* b1 = Gtk::make_managed&lt;Gtk::RadioButton&gt;(g, &quot;b1&quot;);
+//other two are the same.</code></pre>
+<p>All Radio Buttons are off at first, so we should call <code>Button1.set_active()</code>, to make one activated.</p>
+<p>To align several Radio Buttons, use <code>Gtk::Box</code>. Like:</p>
+<pre><code class="c++">UpBox.pack_start(RadioButton1);
+UpBox.pack_start(RadioButton2);
+UpBox.pack_start(RadioButton3);</code></pre>
+<p><code>Box</code> can do many other things. </p>
+<h2 id="Range-Widgets"><a href="#Range-Widgets" class="headerlink" title="Range Widgets"></a>Range Widgets</h2><p>There  are 2 main kind of range widgets, scale and scrollbar. Both widgets  need an adjustment to make effect. To construct a scale. use <code>MyScale(MyAdjustment, Gtk::ORIENTATION_VERTICAL)</code>,  scrollbar doesn’t need the second parameter, and for scale, the second  can be replaced by horizontal. Once they(adjustments) are changed, they  emit a <code>signal_value_changed()</code> signal, and we can get their current value using <code>get_value()</code>, which returns a <code>double</code>, to deal other things. </p>
+<p>Let’s check some properties of the them.</p>
+<p><code>set_digits(int)</code>: range from(possibly) 0 to 5, set the number of decimals after the dot.</p>
+<p><code>set_value_pos(Gtk::PositionType)</code>:  set where to show the value of scales.</p>
+<p><code>set_draw_value(bool)</code>: set whether to show the value or not.</p>
+<p>And now take a look at constructor of an adjustment:</p>
+<p><code>Value</code>: the initial value of the scale.</p>
+<p><code>lower, upper</code>: the range of scale’s value. upper exclusive, lower inclusive.</p>
+<p><code>step_increment</code>: the $\Delta$, as we often use, when we press up or down.</p>
+<p><code>page_size</code>: page is a abstract concept, we should know that the actual upper is <code>upper - page_size</code>.</p>
+<p><code>page_increment</code>: the $\Delta$ when press Pg-up or Pg-Dn, usually the same as <code>page_size</code>.</p>
+<p>Thus there’re 2 more method to adjust properties: <code>set_page_size(double)</code> and <code>set_page_increment(double)</code>.</p>
+<p>Notice again that the changed signals are emitted by adjustments rather than scales.</p>
+<p><strong>We often use Box in these sections, a box can be generated by  setting orientation(vertical or horizontal) and the padding. To put  things(child boxes, buttons, etc) into it, use MyBox.pack_start(Things), they will be aligned by the way we set.</strong></p>
+<h2 id="Miscellaneous-Widgets"><a href="#Miscellaneous-Widgets" class="headerlink" title="Miscellaneous Widgets"></a>Miscellaneous Widgets</h2><h3 id="Gtk-Label"><a href="#Gtk-Label" class="headerlink" title="Gtk::Label"></a><code>Gtk::Label</code></h3><p>Label is used to show non-editable text. It support <code>\n</code> to start a new line, and it is self-justed.</p>
+<p>We can set the way it just, or set simple format, using <code>set_text()</code>, <code>set_mark_up()</code>, <code>set_justify()</code>, <code>set_line_wrap()</code> and so on.</p>
+<h3 id="Gtk-Frame"><a href="#Gtk-Frame" class="headerlink" title="Gtk::Frame"></a><code>Gtk::Frame</code></h3><p>A frame can be filled with label(s?) (and other?), with a title. We can set its title with constructor, and use <code>Frame1.add(Label1)</code> to add label to it.</p>
+<h3 id="Gtk-Entry"><a href="#Gtk-Entry" class="headerlink" title="Gtk::Entry"></a><code>Gtk::Entry</code></h3><p>Entry is like a Text box(?) in other GUI languages, where you can type(maybe not if it is set as non-editable).</p>
+<h4 id="Simple-Entry"><a href="#Simple-Entry" class="headerlink" title="Simple Entry"></a>Simple Entry</h4><p>It has max_length, text, editable, visibility(used for password), and they can be set and get.</p>
+<p>We can also set <code>select_region(int lower, int upper)</code>, to make text in the entry from <code>lower</code> to <code>upper</code> selected.</p>
+<p><code>get_text_length()</code> can counts how many characters there are now.</p>
+<p>Once the text is changed, the entry will emit a <code>changed</code> signal. And when a entry is chosen, it emits an <code>activate</code> signal. Also, there’s a <code>focus_out_event</code> signal when focus leaves.</p>
+<h4 id="Entry-Completion"><a href="#Entry-Completion" class="headerlink" title="Entry Completion"></a>Entry Completion</h4><p>To use a drop down menu and complete the entry, we shall define an <code>Gtk::EntryCompletion</code>, using <code>Gtk::EntryCompletion::create()</code>, may be a smart-pointer. Then set the completion for out entry by <code>MyEntry.set_completion(completion)</code>.</p>
+<p>To build a drop menu, we may use a <code>Gtk::TreeModel</code>.</p>
+<p>In brief, we should define a <code>class ModelColumns : public Gtk::TreeModel::ColumnRecord</code>. And define an instance of the class, <code>MyColumn</code>. Then create a list to fill the completion, by <code>auto refCompletionModel = Gtk::ListStore::create(MyColumn)</code>, and <code>completion-&gt;set_model(refCompletionModel)</code>.</p>
+<p>If we want to use our own matching method instead of a default one, call <code>completion-&gt;set_match_func(sigc::mem_fun(*this, &amp;exampleWindow::CompletionMatching))</code>. Just like set a signal handler.</p>
+<p>To add record to the list, using:</p>
+<pre><code class="c++">Gtk::TreeModel::Row row = *(refCompletionModel-&gt;append());
+row[MyColumn.ColumnId] = 1; // 2, 3, 4, ...
+row[MyColumn.ColumnName] = &quot;Name Name&quot; // Alice, Bob, ...</code></pre>
+<p>Seems it overrides the <code>operator[]</code> to reach the records at the end of list just using members of that instance.</p>
+<p>If we don’t set a matching function, we should set a default column to look for a match, like: <code>completion-&gt;set_text_column(MyColumn.ColumnName)</code>. It can even represent the kind of record columns!</p>
+<p>For further use, we have a way to insert actions at the bottom of completion. That’s <code>completion-&gt;insert_action_text(title, positon)</code>, when the <strong>title</strong> action is activated, it emits a signal with an integer to handle, which is just the <strong>position</strong>. To check the validity of the action, we can use a map to store them. It can be replaced by other data structures I guess.</p>
+<p>In the end let’s see how to implement the sub class:</p>
+<pre><code class="C++">class ModelColumns : public Gtk::TreeModel::ColumnRecord &#123;
+public:
+    ModelColumns() &#123;
+        add(ColumnId);
+        add(ColumnName);
+    &#125;
+    Gtk::TreeModelColumn&lt;unsigned int&gt; ColumnId;
+    Gtk::TreeModelColumn&lt;Glib::ustring&gt; ColumnName;
+&#125;;
+
+ModelColumns MyColumn;</code></pre>
+<h4 id="Entry-Icon"><a href="#Entry-Icon" class="headerlink" title="Entry Icon"></a>Entry Icon</h4><blockquote>
+<p>An <code>Entry</code> widget can show an icon at the start or<br>end of the text area. The icon can be specifed by methods such as<br><code>set_icon_from_pixbuf()</code> or<br><code>set_icon_from_icon_name()</code>. An application can respond to the<br>user pressing the icon by handling the<br><code>signal_icon_press</code> signal.</p>
+<p>From developer.gnome.org</p>
+</blockquote>
+<h4 id="Entry-Progress-Bar"><a href="#Entry-Progress-Bar" class="headerlink" title="Entry Progress Bar"></a>Entry Progress Bar</h4><p>A progress bar can be shown under the text and in the entry area, by calling <code>set_progress_fraction(double)</code>. To make it update periodically, we can handle the signal <code>Glib::signal_timeout()</code>. Notice that besides the usual <code>sigc</code> parameter, there’s a period parameter count in ms.</p>
+<h3 id="Gtk-SpinButton"><a href="#Gtk-SpinButton" class="headerlink" title="Gtk::SpinButton"></a><code>Gtk::SpinButton</code></h3><p>Like a scale, it works with an adjustment with value, lower, upper, step_increment, and page_increment, but no page_size.</p>
+<p>Other properties are like entry and scale.</p>
+<ul>
+<li><input disabled="" type="checkbox"> To Do: Get to know about the acceleration.</li>
+</ul>
+<h3 id="Gtk-ProgressBar"><a href="#Gtk-ProgressBar" class="headerlink" title="Gtk::ProgressBar"></a><code>Gtk::ProgressBar</code></h3><p>It can be update like the progress bar in the entry, however another method <code>pulse()</code> that the entry doesn’t have is provided to display the process of work that cannot be calculated as value. Of course we can <code>set_pulse_step()</code>. They work under <strong>activity mode</strong>.</p>
+<p>And the orientation and text above the bar can both be set, using <code>set_halign()</code> and <code>set_valign()</code>.</p>
+<h3 id="Gtk-InfoBar"><a href="#Gtk-InfoBar" class="headerlink" title="Gtk::InfoBar"></a><code>Gtk::InfoBar</code></h3><p>Info  bar can jump out and hide so it needs a dynamic container. We can let  the info bar apply for a content area, and define a container, then add a  <code>Label</code> to it. It can emit a <code>signal_response()</code> (when widgets in it emit another signal?). Usually we hide it, and it can be activated by <code>show()</code>; We can also set the kind of the info bar, for example, <code>Gtk::MESSAGE_INFO</code> by <code>MyInfoBar.set_message_type()</code>.</p>
+<h3 id="Tooltips"><a href="#Tooltips" class="headerlink" title="Tooltips"></a>Tooltips</h3><p>It’s  a small frame with texts, sometimes with images besides, which will  appear for a few seconds over current widget to show information or  help.</p>
+<p>Check the example at <a target="_blank" rel="noopener" href="https://developer.gnome.org/">developer.gnome.org </a> to know how to write a Tool-tips, which can catch the position of cursor and appear at the appropriate position.</p>
+<h2 id="Container-Widgets"><a href="#Container-Widgets" class="headerlink" title="Container Widgets"></a>Container Widgets</h2><p>Such as <code>Gtk::Grid</code> or <code>Gtk::Frame</code>.</p>
+<h3 id="Single-Item-Widgets-or-fixed-number-Items"><a href="#Single-Item-Widgets-or-fixed-number-Items" class="headerlink" title="Single-Item Widgets (or fixed number Items)"></a>Single-Item Widgets (or fixed number Items)</h3><p>Some kinds, some usages. Like frame, paned, scrolled-window, etc.</p>
+<h4 id="Gtk-Frame-1"><a href="#Gtk-Frame-1" class="headerlink" title="Gtk::Frame"></a><code>Gtk::Frame</code></h4><p>A frame is like a rectangle and there’s one and only one item in it. To set the title of frame, using <code>MyFrame_set_label(&quot;string&quot;)</code>. And the title (or label)’s position can be set through <code>set_label_align</code>, the orientation notations is in API Reference.  There’s also <code>set_shadow_type()</code> to control the style of frame. About adding widget to a frame, we have talked before.</p>
+<h4 id="Gtk-Paned"><a href="#Gtk-Paned" class="headerlink" title="Gtk::Paned"></a><code>Gtk::Paned</code></h4><p>A paned has two parts and we can drag the middle space between them to adjust the size of each. It has <code>add1()</code> and <code>add2()</code> to insert widgets.</p>
+<h4 id="Gtk-ScrolledWindow"><a href="#Gtk-ScrolledWindow" class="headerlink" title="Gtk::ScrolledWindow"></a><code>Gtk::ScrolledWindow</code></h4><p>An important property of scroll window is whether the scroll bar is always shown.</p>
+<p><code>set_policy()</code> controls the behaviors of bars, with two parameters for horizontal and vertical. And the only valid value of parameter is <code>Gtk::POLICY_AUTOMATIC</code> and <code>Gtk::POLICY_ALWAYS</code>.</p>
+<h4 id="Gtk-AspectFrame"><a href="#Gtk-AspectFrame" class="headerlink" title="Gtk::AspectFrame"></a><code>Gtk::AspectFrame</code></h4><p>A Frame with fixed ratio of length and width. Check Reference for more information.</p>
+<h4 id="Gtk-Alignment"><a href="#Gtk-Alignment" class="headerlink" title="Gtk::Alignment"></a><code>Gtk::Alignment</code></h4><p>A abstract container which can set the orientation of widget in it, like <code>Gtk::ProgressBar</code>.</p>
+<h3 id="Multi-Item-Widgets-or-dynamic-Items"><a href="#Multi-Item-Widgets-or-dynamic-Items" class="headerlink" title="Multi-Item Widgets (or dynamic Items)"></a>Multi-Item Widgets (or dynamic Items)</h3><p>Some kinds, some usages. Like Grid, Notebook, Assistant, Box, etc.</p>
+<h4 id="Packing"><a href="#Packing" class="headerlink" title="Packing"></a>Packing</h4><p>Packing  is not a container, it’s a way to arrange widgets in a container, like  响应式开发 in other GUI designing and developing progress.</p>
+<h4 id="Gtk-Box"><a href="#Gtk-Box" class="headerlink" title="Gtk::Box"></a><code>Gtk::Box</code></h4><h5 id="Per-child-adding-options"><a href="#Per-child-adding-options" class="headerlink" title="Per child adding options"></a>Per child adding options</h5><p>The  position(from the beginning or the end), ways of adjustment(no spare  spaces, spaces between child widgets and adjusting the size of child  widgets) and extra border area of a child widget can all be set, by <code>MyBox.pack_atart(Widget&amp;, PackOptions, padding)</code>, or <code>pack_end()</code> instead.</p>
+<h5 id="Pre-container-adding-options"><a href="#Pre-container-adding-options" class="headerlink" title="Pre-container adding options"></a>Pre-container adding options</h5><p>The  orientation(horizontal and vertical), spaces between widgets and  whether all children are of the same size can be set, with constructor, <code>set_spacing(int)</code> and <code>set_homogeneous(bool)</code>.</p>
+<blockquote>
+<p>What’s the difference between spacing (set when the box is created)<br>and padding (set when elements are packed)? Spacing is added between<br>objects, and padding is added on either side of a widget.</p>
+<p>From developer.gnome.org</p>
+</blockquote>
+<h4 id="Gtk-ButtonBox"><a href="#Gtk-ButtonBox" class="headerlink" title="Gtk::ButtonBox"></a><code>Gtk::ButtonBox</code></h4><p>Using <code>add()</code> to add buttons to it and using <code>set_layout(ButtonBoxStyle)</code> and <code>set_spacing(int)</code> to change its appearances.</p>
+<h4 id="Gtk-Grid"><a href="#Gtk-Grid" class="headerlink" title="Gtk::Grid"></a><code>Gtk::Grid</code></h4><p>Grid has simple method <code>add()</code>, or we can let a widget span multiple rows and columns using <code>attach()</code> and <code>attach_next_to()</code>.</p>
+<p>To let all rows or columns be of the same height or width, call <code>set_row_homogeneous()</code> and <code>set_column_homogeneous()</code>.</p>
+<blockquote>
+<p>You can set the margin and expand properties of the<br>child Widgets to control their spacing and their behavior when the Grid is resized.</p>
+<p>From developer.gnome.org</p>
+</blockquote>
+<p><strong>sigc::bind<typename> is now often appears in signal handling, it is use to bind our signal handler(mem_fun() or ptr_fun()) with more information as a parameter to the real handler. The usage is signal.connect(sigc::bind<typename>(sigc::mem_fun(object, &amp;func), typename data)).</strong></p>
+<h4 id="Gtk-Notebook"><a href="#Gtk-Notebook" class="headerlink" title="Gtk::Notebook"></a><code>Gtk::Notebook</code></h4><p>Notebook is a window with multiple tabs. Using <code>MyNoteBook.append_page(Widget Content, ustring tab)</code> to add a new page. Method <code>prepend_page()</code> and <code>insert_page()</code> are also provided.</p>
+<p>When current page is switched, the notebook emits a <code>signal_switch_page()</code>, with the page contents and page id.</p>
+<p>We can reach the contents using <code>get_current_page()</code> and <code>get_nth_page()</code>, and force the selected page by <code>set_current_page()</code>.</p>
+<h4 id="Gtk-Assistant"><a href="#Gtk-Assistant" class="headerlink" title="Gtk::Assistant"></a><code>Gtk::Assistant</code></h4><p>Assistant divides complicated work into several steps, we can set pages like <code>Gtk::Notebook</code>.  It can emit cancel signal and apply signal when corresponding button is  clicked. Closed signal is emitted when the assistant is closed. And the  prepare signal is emitted before each page will be shown.</p>
+<p>For more usage check <a target="_blank" rel="noopener" href="https://developer.gnome.org/">developer.gnome.org</a>.</p>
+<h2 id="The-TreeView-widget"><a href="#The-TreeView-widget" class="headerlink" title="The TreeView widget"></a>The TreeView widget</h2><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>Model stores the data which is displayed by View. <code>ListStore</code> and <code>TreeStore</code> are normally used for Model.</p>
+<h4 id="ListStore"><a href="#ListStore" class="headerlink" title="ListStore"></a>ListStore</h4><p>A structure without child row, so we will focus on tree store which is beyond the list.</p>
+<h4 id="TreeStore"><a href="#TreeStore" class="headerlink" title="TreeStore"></a>TreeStore</h4><p>Derive from <code>Gtk::TreeModelColumnRecord</code>, a class <code>ModelColumns</code> is used to specify data types of a row. In the constructor of the class, we call <code>add()</code> to insert a <strong>instance</strong> of the Model data type(<code>Gtk::TreeModelColumn&lt;typename&gt; data</code>), which is also a member of the class. Then create a instance of our class(<code>ModelColumns MyColumns</code>).</p>
+<p>When declare a TreeStore, pass our instance to the <code>Gtk::TreeStore::create()</code>. Then we can conveniently reach the contents, through the override <code>operator[]</code>. The specific way is:</p>
+<pre><code class="C++">Glib::RefPtr&lt;Gtk::TreeStore&gt; refTreeStore = 
+    Gtk::TreeStore::create(MyColumn);
+// do something
+Gtk::TreeModel::iterator iter = refTreeStore-&gt;append();
+Gtk::TreeModel::Row MyRow = *iter;
+MyRow[MyColumns.data] = 1;
+typename MyData = MyRow[MyColumns.data];</code></pre>
+<p>To add child row to a existing row, using:</p>
+<pre><code class="c++">Gtk::TreeModel::iterator iter_child = 
+    refTreeStore-&gt;append(MyRow.children());</code></pre>
+<p>If we do not want some of the data to be shown, just don’t add it to the View.</p>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p>To set which model to be shown, using <code>MyTreeView.set_model(refTreeStore)</code>. Or specify it in constructor.</p>
+<p>To set which column of the model to be shown, using <code>append_column(&quot;Label&quot;, instance.data_instance)</code> in order.</p>
+<p>For usual types like string, number and boolean, they will be convert  to entries and check buttons to display. As for others, we should  wither connect <code>set_cell_data_func()</code> with our callback to  convert them into string representation, or derive our own CellRenderer.  See Reference for more information.</p>
+<p>The View supports more than one Model to be shown, and the cells are  also editable, with automatically-saved or our own logic. Besides, the  Model can be iterated over, like a set or vector in C++.</p>
+<h3 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h3><p>Single, multiple selection. Get current selected rows. Changed signal. Rows cannot be selected. Force selected rows.</p>
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><p>Sorted by specific column. Multiple views of the same model sorted by different columns.</p>
+<h3 id="Drag-and-Drop"><a href="#Drag-and-Drop" class="headerlink" title="Drag and Drop"></a>Drag and Drop</h3><p>Reorder-able rows and special situations.</p>
+<p>Override virtual method to control more complex situations.</p>
+<h3 id="Right-click-Popup-Menu"><a href="#Right-click-Popup-Menu" class="headerlink" title="Right-click Popup Menu"></a>Right-click Popup Menu</h3><p>handling <code>button_press_event</code> signal to deal with popup context menu.</p>
+<p>About the menu, there’e more details in menus chapter.</p>
+<h2 id="Combo-Box"><a href="#Combo-Box" class="headerlink" title="Combo Box"></a>Combo Box</h2><p>Drop down menu box.</p>
+<h2 id="Text-View"><a href="#Text-View" class="headerlink" title="Text View"></a>Text View</h2><p>large text box with a model-view structure.</p>
+<h2 id="Menu-Bar-and-Tool-Bar"><a href="#Menu-Bar-and-Tool-Bar" class="headerlink" title="Menu Bar and Tool Bar"></a>Menu Bar and Tool Bar</h2><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><h3 id="Bars-amp-XML"><a href="#Bars-amp-XML" class="headerlink" title="Bars &amp; XML"></a>Bars &amp; XML</h3><h3 id="Popup-Menu"><a href="#Popup-Menu" class="headerlink" title="Popup Menu"></a>Popup Menu</h3><h2 id="Gio-Resource-and-glib-compile-resources"><a href="#Gio-Resource-and-glib-compile-resources" class="headerlink" title="Gio::Resource and glib-compile-resources"></a><code>Gio::Resource</code> and glib-compile-resources</h2><p>Store the .glade, xml, images as file but convert them to binary data as parts of the application when linking.</p>
+<h2 id="Tool-Palette"><a href="#Tool-Palette" class="headerlink" title="Tool Palette"></a>Tool Palette</h2><p>Like a tool bar, but contains <strong>tool items</strong> categorized into groups.</p>
+<p>It supports drag and drops.</p>
+<h2 id="Adjustment"><a href="#Adjustment" class="headerlink" title="Adjustment"></a>Adjustment</h2><p>Most adjustable widgets have an adjustment to react to the value changes easily.</p>
+<h2 id="Widgets-without-X-Windows"><a href="#Widgets-without-X-Windows" class="headerlink" title="Widgets without X-Windows"></a>Widgets without X-Windows</h2><p>They are used to align other elements.</p>
+<p>Using event box including them to deal the event.</p>
+<h2 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h2><p>Some types of dialogs and design own dialogs.</p>
+<h2 id="Drawing-Area"><a href="#Drawing-Area" class="headerlink" title="Drawing Area"></a>Drawing Area</h2><h3 id="Cairo-API"><a href="#Cairo-API" class="headerlink" title="Cairo API"></a>Cairo API</h3><h2 id="Using-Glade"><a href="#Using-Glade" class="headerlink" title="Using Glade"></a>Using Glade</h2><h3 id="Initializing"><a href="#Initializing" class="headerlink" title="Initializing"></a>Initializing</h3><pre><code class="C++">Glib::RefPtr&lt;Gtk::Builder&gt; builder = 
+    Gtk::Builder::create_from_file(&quot;basic.glade&quot;)</code></pre>
+<p>We can also pass a second parameter to instantiate just one window.</p>
+<h3 id="Accessing-widgets"><a href="#Accessing-widgets" class="headerlink" title="Accessing widgets"></a>Accessing widgets</h3><p>Define a pointer with the type we want, then call <code>builder-&gt;get_widget(&quot;name_in_glade&quot;, pointer)</code>. If the widget doesn’t exist in the glade file, the pointer will be set to <code>nullptr</code>.</p>
+<h3 id="Derived-widgets"><a href="#Derived-widgets" class="headerlink" title="Derived widgets"></a>Derived widgets</h3><p>Derive class from base class and call <code>get_widget_derived()</code>.</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

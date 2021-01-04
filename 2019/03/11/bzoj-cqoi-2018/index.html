@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || CQOI2018</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>CQOI2018 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/3/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>省选考6题, 6道板题.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="BZOJ5296"><a href="#BZOJ5296" class="headerlink" title="BZOJ5296"></a>BZOJ5296</h1><h2 id="Des"><a href="#Des" class="headerlink" title="Des."></a>Des.</h2><p>BSGS.</p>
+<h2 id="Sol"><a href="#Sol" class="headerlink" title="Sol."></a>Sol.</h2><p>复杂度十分匪夷所思, $\sqrt{N} \times \sqrt{N}$居然能过$2^{31}$???</p>
+<pre><code class="c++">#pragma GCC optimize(&quot;inline&quot;)
+#pragma GCC optimize(3)
+#include &lt;bits/stdc++.h&gt;
+#include &lt;ext/pb_ds/assoc_container.hpp&gt;
+#include &lt;ext/pb_ds/hash_policy.hpp&gt;
+
+using namespace __gnu_pbds;
+using namespace std;
+typedef long long ll;
+
+gp_hash_table&lt;ll, ll&gt; h;
+
+int n, g;
+ll p, a, b, t;
+int indexa, indexb;
+
+inline ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % p;
+    index &gt;&gt;= 1;
+    base = base * base % p;
+  &#125;
+  return ret;
+&#125;
+inline int solve(int z) &#123;
+  h.clear();
+  for (int j = 0; j &lt; t; ++j) &#123;
+    ll val = 1ll * z * quick_power(g, j) % p;
+    h[val] = j;
+  &#125;
+  int tmp = quick_power(g, t);
+  if (tmp == 0) &#123;
+    return 1;
+  &#125; else &#123;
+    for (int k = 0; k &lt;= t; ++k) &#123;
+      ll val = quick_power(tmp, k);
+      ll j = h.find(val) == h.end() ? -1 : h[val];
+      if (j &gt;= 0 &amp;&amp; k * t - j &gt;= 0) &#123;
+        return k * t - j;
+      &#125;
+    &#125;
+  &#125;
+  return 0;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d%lld&quot;, &amp;g, &amp;p);
+  scanf(&quot;%d&quot;, &amp;n);
+  t = (ll)sqrt(p) + 1;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    scanf(&quot;%lld%lld&quot;, &amp;a, &amp;b);
+    indexb = solve(b);
+    int ans = quick_power(a, indexb);
+    printf(&quot;%d\n&quot;, ans);
+  &#125; 
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-5297"><a href="#BZOJ-5297" class="headerlink" title="BZOJ 5297"></a>BZOJ 5297</h1><h2 id="Des-1"><a href="#Des-1" class="headerlink" title="Des."></a>Des.</h2><p>有向图外向生成树计数.</p>
+<h2 id="Sol-1"><a href="#Sol-1" class="headerlink" title="Sol."></a>Sol.</h2><p>Matrix - Tree 定理, 度数矩阵只保留入度, 邻接矩阵随便保留一边.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+#define mod 10007
+
+using namespace std;
+
+const int maxn = 255;
+const int maxm = maxn * maxn;
+
+struct edge &#123;
+  int frm, to;
+&#125;e[maxm];
+int n, m;
+int mtr[maxn][maxn], bas[maxn][maxn];
+int gp[maxn][maxn], dgr[maxn][maxn];
+
+inline int solve(int N) &#123;
+  int tg = 1, ret = 1;
+  for (int i = 1; i &lt;= N; ++i) &#123;
+    // int cur = i;
+    for (int j = i + 1; j &lt;= N; ++j) &#123;
+      int a = i, b = j;
+      while (mtr[b][i]) &#123;
+        int fac = mtr[a][i] / mtr[b][i];
+        for (int k = i; k &lt;= N; ++k)
+          mtr[a][k] = (mtr[a][k] - mtr[b][k] * fac % mod + mod) % mod;
+        swap(a, b);
+      &#125;
+      if (a != i) &#123;
+        for (int k = 1; k &lt;= N; ++k)
+          swap(mtr[i][k], mtr[a][k]);
+        tg *= -1;
+      &#125;
+    &#125;
+    ret = (ret * mtr[i][i]) % mod;
+  &#125;
+  if (tg &gt; 0) return ret % mod;
+  else return (mod - ret) % mod;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  scanf(&quot;%d&quot;, &amp;m);
+  int a, b;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+    e[i] = (edge)&#123;b, a&#125;;
+    dgr[a][a]++;  gp[b][a]++;
+  &#125;
+  for (int i = 1; i &lt;= n; ++i)
+    for (int j = 1; j &lt;= n; ++j)
+      bas[i][j] = dgr[i][j] - gp[i][j];
+  for (int i = 2; i &lt;= n; ++i)
+    for (int j = 2; j &lt;= n; ++j)
+      mtr[i - 1][j - 1] = (bas[i][j] + mod) % mod;
+  int ret = solve(n - 1);
+  printf(&quot;%d\n&quot;, ret);
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-5298"><a href="#BZOJ-5298" class="headerlink" title="BZOJ 5298"></a>BZOJ 5298</h1><h2 id="Des-2"><a href="#Des-2" class="headerlink" title="Des."></a>Des.</h2><p>令01序列中不得出现连续的1, 一个序列的特征值为$x^ay^b$, 其中$x, y$分别为$0, 1$的个数, 求所有可能方案的特征值和.</p>
+<h2 id="Sol-2"><a href="#Sol-2" class="headerlink" title="Sol."></a>Sol.</h2><p>二项式定理展开然后把DP式矩阵优化一下, 但是还有更高效的方案:<br>$$<br>\begin{align}<br>x^ay^b &amp;= (n-y)^ay^b\<br>       &amp;= y^b \sum_{i=0}^{a}{(-1)^i \times {a \choose i} \times n^i \times y^{-i}}\<br>       &amp;= \sum{fac \times y^{a+b-i}}<br>\end{align}<br>$$</p>
+<p>然后考虑转移, 依然是$[0/1]$状态的DP, 转移矩阵就是二项式系数以及一些必要的1. 见代码.</p>
+<p><del>有一些奇怪的错误就是过不去,把乘法改了就过了???</del></p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 1e+7 + 7;
+
+int N, n, a, b, mod, dgr;
+struct matrix &#123;
+  ll arr[205][205];
+  matrix() &#123;
+    memset(arr, 0, sizeof arr);
+  &#125;
+  ll* operator[](const int &amp;x) &#123;
+    return arr[x];
+  &#125;
+  inline matrix operator*(matrix rhs) &#123;
+    matrix ret;
+    /*for (int k = 0; k &lt; N; ++k)
+      for (int i = 0; i &lt; N; ++i)
+        for (int j = 0; j &lt; N; ++j)
+          ret[i][j] = (ret[i][j] + arr[i][k] * rhs[k][j]) % mod;*/
+    for (int i = 0; i &lt; N; ++i)
+      for (int j = 0; j &lt; N; ++j) &#123;
+        for (int k = 0; k &lt; N; ++k)
+          if (arr[i][k] &amp;&amp; rhs[k][j])
+            ret[i][j] = (ret[i][j] + arr[i][k] * rhs[k][j]) % mod;
+      &#125;
+    return ret;
+  &#125;
+&#125;ress, trans;
+
+int c[205][205];
+inline void quick_power(matrix &amp;res, matrix base, ll index) &#123;
+  while (index) &#123;
+    if (index &amp; 1) res = res * base;
+    index &gt;&gt;= 1;
+    base = base * base;
+  &#125;
+&#125;
+void init() &#123;
+  c[0][0] = 1;
+  for (int i = 1; i &lt;= 200; ++i) &#123;
+    c[i][0] = 1;
+    for (int j = 1; j &lt;= i; ++j)
+      c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % mod;
+  &#125;
+  for (int i = 0; i &lt; dgr; ++i) &#123;
+    trans[i + dgr][i] = 1;
+    trans[i][i] = 1;
+    for (int j = i; j &lt; dgr; ++j)
+      trans[i][dgr + j] = c[j][i];
+  &#125;
+  ress[0][0] = 1;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d%d%d%d&quot;, &amp;n, &amp;a, &amp;b, &amp;mod);
+  int ans = 0;
+  dgr = a + b + 1; N = dgr * 2;
+  init();
+  quick_power(ress, trans, n);
+  for (int i = 0; i &lt; dgr; ++i)
+    ress[0][i] = (ress[0][i] + ress[0][i + dgr]) % mod;
+  for (int i = 0, pw = 1; i &lt;= a; ++i, pw = 1ll * pw * n % mod) &#123;
+    ans = (ans + 1ll * (((a - i) &amp; 1) ? -1 : 1) * pw * c[a][i] % mod * ress[0][a + b - i] % mod + mod) % mod;
+  &#125;
+  if (ans &lt; 0) ans = mod - ans;
+  printf(&quot;%d\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-5299"><a href="#BZOJ-5299" class="headerlink" title="BZOJ 5299"></a>BZOJ 5299</h1><h2 id="Des-3"><a href="#Des-3" class="headerlink" title="Des."></a>Des.</h2><p>平面上有若干个点, 由一点走到下一点时, 连线上不能有其他未经过的点, 求所有方案数.</p>
+<h2 id="Sol-3"><a href="#Sol-3" class="headerlink" title="Sol."></a>Sol.</h2><p>$O(n^22^n)$, 这复杂度怎么想都过不去结果直接莽过了???</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+#define mod 100000007
+
+using namespace std;
+
+const int maxs = 1048579;
+const int maxn = 21;
+
+int n, x[maxn], y[maxn], ban[maxn][maxn];
+int f[maxs][maxn], popcnt[maxs];
+
+inline bool appr(int frm, int to, int trans) &#123;
+  return ((x[frm] &lt;= x[trans] &amp;&amp; x[to] &gt;= x[trans]) || (x[frm] &gt;= x[trans] &amp;&amp; x[to] &lt;= x[trans]))
+      &amp;&amp; ((y[frm] &lt;= y[trans] &amp;&amp; y[to] &gt;= y[trans]) || (y[frm] &gt;= y[trans] &amp;&amp; y[to] &lt;= y[trans]));
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    scanf(&quot;%d%d&quot;, &amp;x[i], &amp;y[i]);
+  &#125;
+  for (int i = 1; i &lt;= n; ++i) 
+    for (int j = i + 1; j &lt;= n; ++j) &#123;
+      for (int k = 1; k &lt;= n; ++k) &#123;
+        if (k == i || k == j) continue;
+        if ((y[i] - y[j]) * (x[j] - x[k]) == 
+            (x[i] - x[j]) * (y[j] - y[k]) &amp;&amp;
+            appr(i, j, k)) 
+          ban[i][j] |= (1 &lt;&lt; (k - 1)),
+          ban[j][i] |= (1 &lt;&lt; (k - 1));
+          // printf(&quot;%d %d %d\n&quot;, i, j, k);
+      &#125;
+    &#125;
+  f[0][0] = 1;
+  int lim = (1 &lt;&lt; n) - 1, ans = 0;
+  for (int i = 0; i &lt;= lim; ++i) &#123;
+    popcnt[i] = popcnt[i &gt;&gt; 1] + (i &amp; 1);
+    if (i == 0) &#123;
+      for (int j = 1; j &lt;= n; ++j) 
+        f[i | (1 &lt;&lt; (j - 1))][j] += f[i][0];
+    &#125; else &#123;
+      for (int j = 1; j &lt;= n; ++j) 
+        if (i &amp; (1 &lt;&lt; (j - 1)))
+          for (int k = 1; k &lt;= n; ++k)
+            if (!(i &amp; (1 &lt;&lt; (k - 1)))) &#123;
+              if ((i &amp; ban[j][k]) == ban[j][k])
+                f[i | (1 &lt;&lt; (k - 1))][k] = (f[i | (1 &lt;&lt; (k - 1))][k] + f[i][j]) % mod;
+            &#125;
+    &#125;
+    if (popcnt[i] &gt;= 4) &#123;
+      for (int j = 1; j &lt;= n; ++j)
+        if (i &amp; (1 &lt;&lt; (j - 1)))
+          ans = (ans + f[i][j]) % mod;
+    &#125;
+  &#125;
+  printf(&quot;%d\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-5300"><a href="#BZOJ-5300" class="headerlink" title="BZOJ 5300"></a>BZOJ 5300</h1><h2 id="Des-4"><a href="#Des-4" class="headerlink" title="Des."></a>Des.</h2><p>$x$连环解锁步骤数.</p>
+<h2 id="Sol-4"><a href="#Sol-4" class="headerlink" title="Sol."></a>Sol.</h2><p>手玩一会(<del>不敢相信于是去查九连环</del>)发现确实状态$n$只和$n-1$, $n-2$有关, 列出递推式, 得到:<br>$$<br>\begin{align}<br>&amp;F(x) = \frac{1}{3}{(2^{n+1}-1)}, \text{ if x is odd}, \<br>&amp;F(x) = \frac{1}{3}{(2^{n+1}-2)}, \text{ otherwise.}<br>\end{align}<br>$$<br>然后这题不带取模, 需要使用FFT(<del>Java或Python</del>)</p>
+<pre><code class="java">import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Main &#123;
+  public static BigInteger QuickPower(BigInteger base, int index) &#123;
+    BigInteger ret = new BigInteger(Integer.toString(1));
+    while (index &gt; 0) &#123;
+      if ((index &amp; 1) &gt; 0) ret = ret.multiply(base);
+      index &gt;&gt;= 1;
+      base = base.multiply(base);
+    &#125;
+    return ret;
+  &#125;
+  public static void main(String args[]) throws Exception &#123;
+    Scanner cin = new Scanner(System.in);
+    int m = cin.nextInt();
+    for (int i = 0; i &lt; m; ++i) &#123;
+      int n = cin.nextInt();
+      if ((n &amp; 1) &gt; 0) &#123;
+        BigInteger Thr = new BigInteger(Integer.toString(3));
+        BigInteger Bin = new BigInteger(Integer.toString(2));
+        BigInteger One = new BigInteger(Integer.toString(1));
+        BigInteger Res = QuickPower(Bin, n + 1);
+        Res = Res.subtract(One);
+        Res = Res.divide(Thr);
+        System.out.println(Res.toString());
+      &#125; else &#123;
+        BigInteger Thr = new BigInteger(Integer.toString(3));
+        BigInteger Bin = new BigInteger(Integer.toString(2));
+        BigInteger Res = QuickPower(Bin, n + 1);
+        Res = Res.subtract(Bin);
+        Res = Res.divide(Thr);
+        System.out.println(Res.toString());
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
+<h1 id="BZOJ-5301"><a href="#BZOJ-5301" class="headerlink" title="BZOJ 5301"></a>BZOJ 5301</h1><h2 id="Des-5"><a href="#Des-5" class="headerlink" title="Des."></a>Des.</h2><p>多次询问区间中满足异或和为$k$的子段数量.</p>
+<h2 id="Sol-5"><a href="#Sol-5" class="headerlink" title="Sol."></a>Sol.</h2><p>莫队. 但是怎么快速增量呢? 把前缀和而不是真实值扔桶里, 这样查询$sum_x \oplus k$时, 桶中的元素刚好满足和该位置组成的区间异或和为$k$, 注意特殊处理$r$位置插入删除时, $l - 1$的前缀和.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1e+5 + 5;
+
+int bkt[maxn], a[maxn], bel[maxn], tagl, tagr;
+int n, m, k, blo, ans[maxn], res;
+int sum[maxn], L, R;
+struct question &#123;
+  int l, r, id;
+  inline bool operator&lt;(const question &amp;rhs) const &#123;
+    return bel[l] == bel[rhs.l] ? r &lt; rhs.r : bel[l] &lt; bel[rhs.l];
+  &#125;
+&#125;q[maxn];
+
+
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline void addr(const int &amp;x) &#123;
+  bkt[sum[x]]++;
+  res += bkt[sum[x] ^ k];
+  if ((sum[x] ^ k) == sum[L - 1]) res++;
+&#125;
+inline void addl(const int &amp;x) &#123;
+  bkt[sum[x]]++;
+  res += bkt[sum[x - 1] ^ k];
+&#125;
+inline void delr(const int &amp;x) &#123;
+  res -= bkt[sum[x] ^ k];
+  bkt[sum[x]]--;
+  if ((sum[x] ^ k) == sum[L - 1]) res--;
+&#125;
+inline void dell(const int &amp;x) &#123;
+  res -= bkt[sum[x - 1] ^ k];
+  bkt[sum[x]]--;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd(); k = rd();
+  blo = sqrt(n);
+  for (int i = 1; i &lt;= n; ++i) 
+    a[i] = rd(), bel[i] = (i - 1) / blo + 1, sum[i] = sum[i - 1] ^ a[i];
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    q[i].l = rd(); q[i].r = rd();
+    q[i].id = i;
+  &#125;
+  sort(q + 1, q + 1 + m);
+  L = 1, R = 0;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    while (R &lt; q[i].r) addr(++R);
+    while (L &gt; q[i].l) addl(--L);
+    while (R &gt; q[i].r) delr(R--);
+    while (L &lt; q[i].l) dell(L++);
+    ans[q[i].id] = res;
+  &#125;
+  for (int i = 1; i &lt;= m; ++i)
+    printf(&quot;%d\n&quot;, ans[i]);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

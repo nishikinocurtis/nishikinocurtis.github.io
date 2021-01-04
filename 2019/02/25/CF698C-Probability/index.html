@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || CF698C LRU 概率</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>CF698C LRU 概率 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/25
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>如何入手概率期望题呢?</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>一个缓存最多只能容纳$k$个元素, 如果超过$k$个, 则最早进入缓存的会被弹出. 现在有$n$个元素, 每次选择元素$i$的概率是$p_i$, 然后把这个元素放入缓存. 问无穷多次操作后, 每个元素在缓存中的概率是多少.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>首先没法顺推, 每次考虑下一步做什么转移过于麻烦. 无穷多意味着只有最后若干次选择影响了结果, 我们不妨倒推, 枚举最后选择的$k$种物品是什么, 以求出概率.  因为无穷多次操作下, $k$个位置不被占满的概率趋近于0, 所以我们只让占满的状态对答案贡献. 考虑一个不满的状态, 从没有出现的元素中选择一个, 从当前状态到选出这个元素之间可能隔着若干次<strong>选中已存在的元素</strong>的操作, 但一定不存在<strong>选中其他未选中的元素</strong>的操作, 所以概率为$\frac{p_i}{\sum{所有未选中的元素概率}}$.</p>
+<p>那么有: $P(s | 2^{i-1}) += P(s) \times \frac{p_i}{\sum_{unchosen}{p}}$.</p>
+<p>这时每个选满$k$个元素的状态都对应着几条从倒数若干步选到最后一步的路径.</p>
+<p>需要注意特殊处理概率为$0$的元素, 保证让他们不会被选中. 令$k$对非零元素个数取$\min$. <del>至于为什么是这样也没人讲清楚</del></p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long double ldb;
+
+const int maxs = 1048577;
+const int maxn = 21;
+const ldb eps = 1e-10;
+
+int n, k, m;
+ldb f[maxs], p[maxn], ans[maxn];
+
+inline void solve(int st) &#123;
+  int popcnt = 0; ldb sum = 0.0;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (st &amp; (1 &lt;&lt; (i - 1))) popcnt++;
+    else sum += p[i];
+  &#125;
+  if (popcnt &gt; k) return;
+  else if (popcnt == k) &#123;
+    for (int i = 1; i &lt;= n; ++i)
+      if (st &amp; (1 &lt;&lt; (i - 1))) ans[i] += f[st];
+  &#125; else &#123;
+    for (int i = 1; i &lt;= n; ++i)
+      if (!(st &amp; (1 &lt;&lt; (i - 1)))) &#123;
+        int it = st | (1 &lt;&lt; (i - 1));
+        f[it] += f[st] * (p[i] / sum);
+      &#125;
+  &#125;
+&#125;
+
+int main() &#123;
+  ios::sync_with_stdio(false);
+  cin.tie(0); cout.tie(0);
+
+  cin &gt;&gt; n &gt;&gt; k; m = n;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    cin &gt;&gt; p[i];
+    if (p[i] &lt; eps) m--;
+  &#125;
+  k = min(k, m);
+  int lim = (1 &lt;&lt; n) - 1;
+  f[0] = 1.0;
+  for (int i = 0; i &lt;= lim; ++i)
+    solve(i);
+  for (int i = 1; i &lt;= n; ++i)
+    cout &lt;&lt; fixed &lt;&lt; setprecision(15) &lt;&lt; ans[i] &lt;&lt; &quot; &quot;;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

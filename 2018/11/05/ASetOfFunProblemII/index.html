@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || A Set Of Fun Problems II</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>A Set Of Fun Problems II </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/5
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>两道洛谷上的题。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Luogu-P2425"><a href="#Luogu-P2425" class="headerlink" title="Luogu P2425"></a>Luogu P2425</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>小红帽喜欢回文数，但生活中的数常常不是回文数。</p>
+<p>现在她手上有$t$个数，现在她知道这$t$个数分别在$x$进制下是回文数$(x \ge 2)$，请你对于每个数求出最小的$x$.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>首先, 对于一个数$n$, $n+1$ 一定是一个回文数, 因为她在该进制下只有一位.</p>
+<p>对于小于$\sqrt{n}$的进制, 我们可以暴力枚举.</p>
+<p>对于大于$\sqrt{n}$的进制, 我们知道她一定只有两位, 分别是$n \div x$和$n,mod,x$ , 如果她是回文的, $n$就可以表示成$p \times x + p$的形式, 也就是$p(x + 1) = n$, 所以我们可以找一个最大的$p$, 使得$p \le \sqrt{n}$且$p |n$. 这样的枚举也是$O(\sqrt{n})$的, 找到一个以后, 答案就是$n \div p - 1$了.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const ll inf = 10000000000;
+
+ll a, arr[1005], len;
+
+bool chk(ll d) &#123;
+  bool sol = true; 
+  ll tmp = a;
+  len = 0;
+  while (tmp) &#123;
+    arr[len++] = tmp % d;
+    tmp /= d;
+  &#125;
+  int mid = len / 2;
+  for (int i = 0; i &lt;= mid; ++i) &#123;
+    int j = len - i - 1;
+    if (arr[i] != arr[j]) &#123;
+      sol = false; break;
+    &#125;
+  &#125;
+  return sol;
+&#125;
+
+int main() &#123;
+  int T; scanf(&quot;%d&quot;, &amp;T);
+  while (T--) &#123;
+    scanf(&quot;%lld&quot;, &amp;a);
+    if (a == 1 || a == 3) &#123;
+      puts(&quot;2&quot;);
+      continue;
+    &#125; else if (a == 2) &#123;
+      puts(&quot;3&quot;);
+      continue;
+    &#125;
+    ll pos = inf;
+    ll lim = sqrt(a) + 1;
+    for (int i = 2; i &lt;= lim; ++i) &#123;
+      if (chk(i)) &#123;
+        pos = i; break;
+      &#125;
+    &#125;
+    if (pos &lt; inf) &#123;
+      printf(&quot;%lld\n&quot;, pos);
+      continue;
+    &#125;
+    for (ll i = a / lim - 1; i; --i) &#123;
+      if (a == a / i * i) &#123;
+        pos = a / i - 1;
+        break;
+      &#125;
+    &#125;
+    if (pos &lt; inf) printf(&quot;%lld\n&quot;, pos);
+    else printf(&quot;%lld\n&quot;, a + 1);
+  &#125;
+  return 0;
+&#125;</code></pre>
+<h1 id="Luogu-P1875"><a href="#Luogu-P1875" class="headerlink" title="Luogu P1875"></a>Luogu P1875</h1><h2 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h2><p>给定一些合成关系, 和直接购买的费用, 求得到一个东西的最小代价和方案数.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>听说树形DP能过, 不过没什么意义. 因为题目并没有保证没有环出现.</p>
+<p>我们用最短路的过程来消去DP的后效性.</p>
+<p>考虑Dijkstra的过程, 当一个点从堆里被拿出来的时候, 就可以确定她是最小值了. 那么我们的更新就建立再已经求出的最小值上, 并且只用最小值向下更新, 至于计数就是套路了, 都知道怎么做.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+const int maxn = 1005;
+
+struct node
+&#123;
+  int d, id;
+  node(int d_ = 0, int i_ = 0):d(d_), id(i_) &#123;&#125;
+  bool operator &lt; (const node &amp;rhs) const &#123;
+    return d &gt; rhs.d;
+  &#125;
+&#125;;
+int n, tow[maxn][maxn], cost[maxn];
+int f[maxn], tag[maxn], ans[maxn];
+priority_queue&lt;node&gt; q;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i = 0; i &lt; n; ++i)
+    scanf(&quot;%d&quot;, &amp;cost[i]), q.push(node(cost[i], i)), ans[i] = 1;
+  int x, y, z;
+  memset(tow, -1, sizeof tow);
+  while (scanf(&quot;%d%d%d&quot;, &amp;x, &amp;y, &amp;z) != EOF) &#123;
+    tow[x][y] = z;
+    tow[y][x] = z;
+  &#125;
+  while (!q.empty()) &#123;
+    node u = q.top(); q.pop();
+    if (tag[u.id]) continue;
+    //printf(&quot;%d\n&quot;, u.id);
+    tag[u.id] = 1;
+    for (int i = 0; i &lt; n; ++i) &#123;
+      if (tag[i] &amp;&amp; ~tow[u.id][i]) &#123;
+        //printf(&quot;%d %d %d\n&quot;, u.id, i, tow[u.id][i]);
+        if (cost[u.id] + cost[i] &lt; cost[tow[u.id][i]])
+          cost[tow[u.id][i]] = cost[u.id] + cost[i], 
+          ans[tow[u.id][i]] = ans[u.id] * ans[i],
+          q.push(node(cost[tow[u.id][i]], tow[u.id][i]));//,printf(&quot;+%d\n&quot;, tow[u.id][i]);
+        else if (cost[u.id] + cost[i] == cost[tow[u.id][i]])
+          ans[tow[u.id][i]] += ans[u.id] * ans[i],
+          q.push(node(cost[tow[u.id][i]], tow[u.id][i]));//,printf(&quot;s%d\n&quot;, ans[tow[u.id][i]]);
+      &#125;
+    &#125;
+  &#125;
+  printf(&quot;%d %d\n&quot;, cost[0], ans[0]);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

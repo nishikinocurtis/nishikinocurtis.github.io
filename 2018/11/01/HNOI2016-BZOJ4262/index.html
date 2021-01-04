@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || HNOI2016 BZOJ4540 序列</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>HNOI2016 BZOJ4540 序列 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/1
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>单调栈，前缀和，RMQ。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给定长度为$n$的序列：$a_1,a_2,\ldots ,a_n$，记为$a[1:n]$。类似地，$a[l:r]（1\le l \le r \le N）$是指序列：$a_l,a_{l+1},\ldots , a_{r-1},a_r$。若$1 \le l \le s \le t \le r \le n$，则称$a[s:t]$是$a[l:r]$的子序列。</p>
+<p>现在有$q$个询问，每个询问给定两个数$l$和$r$，$1 \le l \le r \le n$，求$a[l:r]$的不同子序列的最小值之和。</p>
+<p>例如，给定序列$5,2,4,1,3$，询问给定的两个数为$1和3$，那么$a[1:3]$有<br>6个子序列$a[1:1],a[2:2],a[3:3],a[1:2],a[2:3],a[1:3]$，这6个子序列的最小值之和为$5+2+4+2+2+2=17$。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>首先有一个很常见的套路，我们不能直接统计就算贡献。</p>
+<p>对于一个区间中的最小值 $a_p$, 所有跨越她的区间有$(r - p + 1) \times (p - l + 1)$个, 可以加入贡献, 因此我们接着要计算的就是区间$[l, p)$和$(p, r]$的答案.</p>
+<p>但这样做下去单次最好也要$O(n)$.</p>
+<p>我们定义一个$F[l][r]$, 为右端点在$r$, 左端点在$[l,r]$的所有答案, 对于右侧的情况, 我们需要得到的就是$F[p + 1][r]$. 首先考虑$F$的递推关系, 定义$pre_r$为$r$之前第一个小于她的位置, 那么在这之后$a_r$都是区间内最小值, 也就是: $F[l][r] = F[l][pre_r] + a_r \times (r - pre_r)$.</p>
+<p>这是可以递推的! 但由于状态量是$n^2$的, 我们还需要做一些优化.</p>
+<p>考虑丢掉$l$, 定义一个状态$f_p$, 归纳可得: </p>
+<p>由于$p$是区间内最小值, 所以向前推若干位时, 一定会存在一个$x$, 使得$pre_x = p$, 那么对于一个$r$, 就有$f_r = a_r \times (r - pre_r) + a_{pre_r} \times(\ldots)+\ldots + a_x \times (x - p) + f_p$.</p>
+<p>这时我们有$f_r - f_p$为右端点在$r$, 左端点在$(p, r]$的答案.</p>
+<p>那么我们就可以得出每个右端点$r_i \in (p,r]$的答案了, 利用前缀和优化, 有:</p>
+<p>$ \begin{align}ans = \sum_{i = p + 1}^{r}{f_i - f_p} = \sum_{i=p+1}^{r}{f_i} - {f_p \times (r - p)} = sum_r - sum_p - f_p\times (r - p)\end{align}$.</p>
+<p>左侧的答案同理，反向求一遍即可。</p>
+<p>单调栈可以$O(n)$求出每个位置的$pre$和$suf$, 每次询问用ST表查出最小值位置，前后两端求一下答案就好了。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using namespace std;
+
+typedef long long ll;
+const int maxn = 1e+5 + 5;
+
+int n, q;
+int a[maxn], pre[maxn], suf[maxn];
+int stk[maxn], top;
+int ST[maxn][18], LO2[maxn], PO2[20];
+ll ftr[maxn], ftl[maxn], sfr[maxn], sfl[maxn];
+
+inline int rd() &#123;
+  register int x = 0, f = 0, c = getchar();
+  while (!isdigit(c)) &#123;
+    if (c == &#39;-&#39;) f = 1;
+    c = getchar();
+  &#125;
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return f ? -x : x;
+&#125;
+inline int query(int l, int r) &#123;
+  int delt = LO2[r - l + 1];
+  return (a[ST[l][delt]] &lt; a[ST[r - PO2[delt] + 1][delt]] ?
+          ST[l][delt] : 
+          ST[r - PO2[delt] + 1][delt]);
+&#125; 
+
+int main() &#123;
+  n = rd(); q = rd();
+  LO2[1] = 0;
+  for (int i = 2; i &lt;= n; ++i) LO2[i] = (LO2[i &gt;&gt; 1] + 1);
+  PO2[0] = 1;
+  for (int i = 1; i &lt; 18; ++i) PO2[i] = (PO2[i - 1] &lt;&lt; 1);
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    a[i] = rd(); ST[i][0] = i;
+  &#125;
+  for (int j = 1; j &lt;= LO2[n]; ++j)
+    for (int i = 1; i &lt;= n - PO2[j - 1] + 1; ++i)
+      ST[i][j] = (a[ST[i][j - 1]] &lt; a[ST[i + PO2[j - 1]][j - 1]] ? ST[i][j - 1] : ST[i + PO2[j - 1]][j - 1]);
+
+  a[0] = a[n + 1] = 0x3f3f3f3f;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    while (top &amp;&amp; a[stk[top]] &gt; a[i]) suf[stk[top]] = i, top--;
+    pre[i] = stk[top]; stk[++top] = i; 
+  &#125;
+  while (top) pre[stk[top]] = stk[top - 1], suf[stk[top]] = n + 1, top--;
+  for (int i = 1; i &lt;= n; ++i)
+    ftr[i] = ftr[pre[i]] + (ll)a[i] * (i - pre[i]), sfr[i] = sfr[i - 1] + ftr[i];
+  for (int i = n; i; --i)
+    ftl[i] = ftl[suf[i]] + (ll)a[i] * (suf[i] - i), sfl[i] = sfl[i + 1] + ftl[i];
+  int l, r, pos;
+  while (q--) &#123;
+    l = rd(); r = rd(); pos = query(l, r);
+    ll ans = 1ll * a[pos] * (pos - l + 1) * (r - pos + 1) + 
+             (ll)sfr[r] - (ll)sfr[pos] - 1ll * ftr[pos] * (r - pos) +
+             (ll)sfl[l] - (ll)sfl[pos] - 1ll * ftl[pos] * (pos - l);
+    printf(&quot;%lld\n&quot;, ans);
+  &#125;
+  return 0;
+&#125;</code></pre>
+<p>然后听说有一道类似的题<a target="_blank" rel="noopener" href="https://lydsy.com/JudgeOnline/problem.php?id=4262">BZOJ4262</a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

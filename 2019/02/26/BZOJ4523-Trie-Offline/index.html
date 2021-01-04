@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ4523 Trie树模拟</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ4523 Trie树模拟 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/26
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>最近天天做水题……</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>有若干次向集合中添加01串的操作, 还有一些询问, 问在执行完$[1,a-1]$的添加操作后, 在执行$[a,b]$的操作过程中, 询问串的匹配长度(必须和整个的集合串匹配)变长了多少次.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>把原串建Trie树, 结尾打上时间戳.</p>
+<p>把询问离线出来, 然后拿到Trie树上跑, 一路跑一路收集时间标记. 然后拿出来排个序, 取合法且能让长度变长的节点, 数个数就行了.</p>
+<p>当然也可以单调栈. 然后取一段合法区间就好了.</p>
+<p><del>这玩意卡空间而且还贼离谱</del>.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 35e+6 + 5;
+
+int m, arr[35], tmp[10], L;
+int tr[maxn][2], tag[maxn], ptr, tot;
+struct node &#123;
+  int tim, len;
+  inline bool operator&lt;(const node &amp;rhs) const &#123;
+    return tim &lt; rhs.tim;
+  &#125;
+&#125;pas[40];
+unsigned int qval[1000005];
+int qmx[1000005], qmn[1000005];
+
+void Insert(int *str, int len, int idx) &#123;
+  int now = 0;
+  for (int i = 1; i &lt;= len; ++i) &#123;
+    if (!tr[now][str[i]])
+      tr[now][str[i]] = ++tot;
+    now = tr[now][str[i]];
+  &#125;
+  tag[now] = idx;
+&#125;
+void query(int *str, int mx) &#123;
+  int now = 0; ptr = 0;
+  for (int i = 1; i &lt;= 32; ++i) &#123;
+    if (!tr[now][str[i]]) break;
+    now = tr[now][str[i]];
+    if (tag[now] &amp;&amp; tag[now] &lt;= mx) &#123;
+      pas[++ptr] = (node)&#123;tag[now], i&#125;;
+    &#125;
+  &#125;
+&#125;
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+
+int main() &#123;
+  m = rd();
+  int atr = 0, qtr = 0;
+  char opt[5];
+  for (int j = 1; j &lt;= m; ++j) &#123;
+    scanf(&quot;%s&quot;, opt);
+    if (opt[0] == &#39;A&#39;) &#123;
+      atr++;
+      unsigned int val = 0;
+      for (int i = 3; ~i; --i)
+        tmp[i] = rd(), val += (unsigned(tmp[i]) &lt;&lt; (8 * i));
+      L = rd();
+      for (int i = 0; i &lt; 32; ++i)
+        arr[32 - i] = ((val &amp; (1 &lt;&lt; i)) ? 1 : 0);
+      /*for (int i = 1; i &lt;= 32; ++i)
+        printf(&quot;%d&quot;, arr[i]);
+      puts(&quot;&quot;);*/
+      Insert(arr, L, atr);
+    &#125; else &#123;
+      qtr++;
+      for (int i = 3; ~i; --i)
+        tmp[i] = rd(), qval[qtr] += (unsigned(tmp[i]) &lt;&lt; (8 * i));
+      qmn[qtr] = rd(); qmx[qtr] = rd();
+    &#125;
+  &#125;
+  for (int i = 1; i &lt;= qtr; ++i) &#123;
+    for (int j = 0; j &lt; 32; ++j)
+      arr[32 - j] = ((qval[i] &amp; (1 &lt;&lt; j)) ? 1 : 0);
+    query(arr, qmx[i]);
+    sort(pas + 1, pas + 1 + ptr);
+    int lst = -1, ans = 0;
+    for (int j = 1; j &lt;= ptr; ++j) &#123;
+      if (lst &lt; pas[j].len) &#123;
+        lst = pas[j].len;
+        if (pas[j].tim &gt;= qmn[i]) ans++;
+      &#125;
+    &#125;
+    printf(&quot;%d\n&quot;, ans);
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || K远点对-BZOJ4520 KD树,堆</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>K远点对-BZOJ4520 KD树,堆 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/26
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>学习套路.</p>
+<a id="more"></a>
+
+<p>题意同标题.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>取前$k$大的无序对, 就是取前$2k$大的有序对. 我们枚举每个点, 用KD树加速找最大值的过程.</p>
+<p>然后维护一个大小为$2k$的小根堆, 初始里面都是$0$, 每次找到一个距离, 如果比堆顶大, 就换掉堆顶. 这样是对的, 一开始一定比堆顶大, 后来如果堆里占满了$2k$个值, 加入求得的距离还要比堆顶小, 那至少也在$2k$以外了, 反之堆顶一定在$2k$以外了. KD树的作用实际只在于加速找当前点与各点较大距离的过程.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long LL;
+
+const int maxn = 1e+5 + 5;
+
+int n, k, typ, ptr;
+struct point &#123;
+  int x, y;
+  point(int x_ = 0, int y_ = 0) : x(x_), y(y_) &#123;&#125;
+
+  inline bool operator &lt; (const point &amp;rhs) const &#123;
+    if (typ) return (x == rhs.x) ? (y &lt; rhs.y) : (x &lt; rhs.x);
+    else return (y == rhs.y) ? (x &lt; rhs.x) : (y &lt; rhs.y);
+  &#125;
+&#125;parr[maxn], ask;
+struct KDn &#123;
+  int ch[2];
+  point p, l, r;
+
+  KDn(point P = point()) : p(P), l(P), r(P)&#123;
+    ch[0] = ch[1] = 0;
+  &#125;
+&#125;t[maxn];
+struct ll &#123;
+  long long a;
+  ll() &#123;a = 0;&#125;
+
+  inline ll operator=(long long rhs) &#123;
+    ll ret; ret.a = rhs;
+    return ret;
+  &#125;
+  inline bool operator&lt;(const ll &amp;rhs) const &#123;
+    return a &gt; rhs.a;
+  &#125;
+&#125;;
+int tot;
+priority_queue&lt;ll&gt; q;
+
+inline LL getdis(const point &amp;l, const point &amp;r) &#123;
+  return 1ll * (l.x - r.x) * (l.x - r.x) + 1ll * (l.y - r.y) * (l.y - r.y);
+&#125;
+inline LL sq(const LL &amp;x) &#123;
+  return x * x;
+&#125;
+inline LL approx(const int &amp;lhs, const int &amp;rhs) &#123;
+  return max(sq(t[lhs].p.x - t[rhs].l.x), sq(t[lhs].p.x - t[rhs].r.x)) + 
+         max(sq(t[lhs].p.y - t[rhs].l.y), sq(t[lhs].p.y - t[rhs].r.y));
+&#125;
+#define ls t[cur].ch[0]
+#define rs t[cur].ch[1]
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline void pushup(const int &amp;cur, const int &amp;son) &#123;
+  t[cur].l.x = min(t[cur].l.x, t[son].l.x);
+  t[cur].l.y = min(t[cur].l.y, t[son].l.y);
+  t[cur].r.x = max(t[cur].r.x, t[son].r.x);
+  t[cur].r.y = max(t[cur].r.y, t[son].r.y);
+&#125;
+int build(const int &amp;l, const int &amp;r, const int &amp;dim) &#123;
+  int cur = ++ptr, mid = (l + r) &gt;&gt; 1;
+  typ = dim;
+  nth_element(parr + l, parr + mid, parr + r);
+  t[cur] = KDn(*(parr + mid));
+  if (l &lt; mid) ls = build(l, mid - 1, dim ^ 1), pushup(cur, ls);
+  if (r &gt; mid) rs = build(mid + 1, r, dim ^ 1), pushup(cur, rs);
+  return cur;
+&#125;
+void query(int cur) &#123;
+  LL dx = getdis(ask, t[cur].p);
+  if (dx &gt; q.top().a) &#123;
+    ll p; p.a = dx;
+    q.pop(); q.push(p);
+  &#125;
+  LL disl = 0, disr = 0;
+  if (ls) disl = approx(0, ls);
+  if (rs) disr = approx(0, rs);
+  ll tmp = q.top();
+  if (disl &gt; disr) &#123;
+    if (disl &gt; tmp.a) query(ls); 
+    tmp = q.top();
+    if (disr &gt; tmp.a) query(rs);
+  &#125; else &#123;
+    if (disr &gt; tmp.a) query(rs); 
+    tmp = q.top();
+    if (disl &gt; tmp.a) query(ls);
+  &#125;
+&#125;
+#undef ls
+#undef rs
+
+int main() &#123;
+  n = rd(); k = rd();
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    parr[i].x = rd(); parr[i].y = rd();
+  &#125;
+  build(1, n, 1);
+  ll tp; for (int i = 1; i &lt;= 2 * k; ++i) q.push(tp);
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    ask = parr[i]; t[0] = KDn(parr[i]);
+    query(1);
+  &#125;
+  printf(&quot;%lld\n&quot;, q.top().a);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

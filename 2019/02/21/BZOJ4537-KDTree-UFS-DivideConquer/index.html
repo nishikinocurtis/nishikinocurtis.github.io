@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ4537 并查集,KD树分治</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ4537 并查集,KD树分治 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/21
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>一道很棒的KD树分治题.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给一张图, 每条边有$2$种边权.</p>
+<p>每次询问两个点$𝑎$和$𝑏$，要求找一条$𝑎$到$𝑏$的路径，使得这条路径上第$k$种边权的最大值恰好是$𝑐_𝑘​$.</p>
+<p>$𝑛,𝑚\le 50000​$.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>对于一个询问, 实际上我们要找到是否存在每种属性分别小于等于一个阈值的边, 能否把两个点联通, 且存在最大值恰好为阈值. 这是可以用并查集维护的.</p>
+<p>由于属性有两个限制, 我们可以用KD树替换线段树, 做到二维询问. 先把询问离线建树, 把所有边插入对应范围KD树后, 遍历这棵树, 启发式合并栈序撤销并查集, 即可依次求出答案.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef unsigned short ushort;
+typedef vector&lt;int&gt;::iterator vit;
+
+const int maxn = 1e+5 + 5;
+const int inf = 0x3f3f3f3f;
+
+int d;
+struct Point &#123;
+  int x, y;
+  Point(int x_ = 0, int y_ = 0) : x(x_), y(y_)&#123;&#125;
+  inline bool operator &lt; (const Point &amp;rhs) const &#123;
+    if (d) return (x == rhs.x) ? y &lt; rhs.y : x &lt; rhs.x;
+    return (y == rhs.y) ? x &lt; rhs.x : y &lt; rhs.y;
+  &#125;
+&#125;;
+struct Option &#123;
+  ushort u, v; Point p; int id;
+  inline bool operator &lt; (const Option &amp;rhs) const &#123;
+    return p &lt; rhs.p;
+  &#125;
+&#125;e[maxn], que[maxn];
+struct KDNode &#123;
+  int ch[2];
+  Point l, r;
+  KDNode() &#123;
+    ch[0] = ch[1] = 0;
+  &#125;
+  KDNode(Point P) : l(P), r(P)&#123; ch[0] = ch[1] = 0; &#125;
+&#125;t[maxn * 10];
+struct StackNode &#123;
+  int pt, mxa, mxb; bool same;
+&#125;stk[maxn];
+int n, m, q, rt, ptr, top;
+bool ans[maxn];
+ushort f[maxn], sz[maxn]; int mxa[maxn], mxb[maxn];
+vector&lt;int&gt; v[maxn * 10];
+
+#define ls t[cur].ch[0]
+#define rs t[cur].ch[1]
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+void init() &#123;
+  for (int i = 1; i &lt;= n; ++i) f[i] = i, sz[i] = 1, mxa[i] = mxb[i] = -inf;
+&#125;
+inline void pushup(int cur) &#123;
+  t[cur].l.x = min(t[ls].l.x, t[rs].l.x);
+  t[cur].l.y = min(t[ls].l.y, t[rs].l.y);
+  t[cur].r.x = max(t[ls].r.x, t[rs].r.x);
+  t[cur].r.y = max(t[ls].r.y, t[rs].r.y);
+&#125;
+int build(int l, int r, int dim) &#123;
+  //if (l &gt; r) return 0;
+  int cur = ++ptr, mid = (l + r) &gt;&gt; 1;
+  if (l == r) &#123;
+    t[cur] = KDNode(que[l].p);
+    return cur;
+  &#125;
+  d = dim;
+  nth_element(que + l, que + mid, que + r + 1);
+  ls = build(l, mid, dim ^ 1);
+  rs = build(mid + 1, r, dim ^ 1);
+  pushup(cur);
+  return cur;
+&#125;
+void update(int cur, int id) &#123;
+  if (t[cur].r.x &lt; e[id].p.x || t[cur].r.y &lt; e[id].p.y) return;
+  if (t[cur].l.x &gt;= e[id].p.x &amp;&amp; t[cur].l.y &gt;= e[id].p.y) &#123;
+    v[cur].push_back(id);
+    return;
+  &#125;
+  //int mid = (l + r) &gt;&gt; 1;
+  update(ls, id); update(rs, id);
+&#125;
+int find(int x) &#123;
+  return (f[x] == x) ? x : find(f[x]);
+&#125;
+void dfs(int cur, int l, int r) &#123;
+  int lim = top;
+  for (vit i = v[cur].begin(); i != v[cur].end(); ++i) &#123;
+    int fx = find(e[*i].u), fy = find(e[*i].v);
+    //if (fx == fy) continue;
+    int frm, to;
+    if (sz[fx] &lt; sz[fy]) frm = fx, to = fy;
+    else frm = fy, to = fx;
+    stk[++top] = (StackNode)&#123;frm, mxa[to], mxb[to]&#125;; 
+    // warning!!!!
+    // the max infomation memorized in stack(mxa, mxb) is to recovery 
+    // its father&#39;s information! not itself!;
+    if (fx == fy) &#123;
+      stk[top].same = true;
+      mxa[fx] = max(mxa[fx], e[*i].p.x);
+      mxb[fx] = max(mxb[fx], e[*i].p.y);
+      continue;
+    &#125;
+    sz[to] += sz[frm];
+    f[frm] = to;
+    mxa[to] = max(max(mxa[to], mxa[frm]), e[*i].p.x);
+    mxb[to] = max(max(mxb[to], mxb[frm]), e[*i].p.y);
+  &#125;
+  if (l == r) &#123;
+    int fu = find(que[l].u), fv = find(que[l].v);
+    //printf(&quot;%d %d %d %d %d\n&quot;, que[l].id, fu, fv, mxa[fu], mxb[fu]);
+    ans[que[l].id] = (fu == fv &amp;&amp; mxa[fu] == que[l].p.x &amp;&amp; mxb[fu] == que[l].p.y);
+  &#125; else &#123;
+    int mid = (l + r) &gt;&gt; 1;
+    dfs(ls, l, mid); dfs(rs, mid + 1, r);
+  &#125;
+  while (top &gt; lim) &#123;
+    StackNode now = stk[top--];
+    int t = now.pt;
+    mxa[f[t]] = now.mxa;
+    mxb[f[t]] = now.mxb;
+    if (now.same) continue;
+    sz[f[t]] -= sz[t];
+    f[t] = t;
+  &#125;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd();
+  init();
+  for (register int i = 1; i &lt;= m; ++i) &#123;
+    e[i].u = rd(); e[i].v = rd();
+    e[i].p.x = rd(); e[i].p.y = rd();
+  &#125;
+  q = rd();
+  for (register int i = 1; i &lt;= q; ++i) &#123;
+    que[i].u = rd(); que[i].v = rd();
+    que[i].p.x = rd(); que[i].p.y = rd();
+    que[i].id = i;
+  &#125;
+  rt = build(1, q, 0);
+  for (int i = 1; i &lt;= m; ++i) update(rt, i);
+  dfs(rt, 1, q);
+  for (int i = 1; i &lt;= q; ++i) 
+    puts(ans[i] ? &quot;Yes&quot; : &quot;No&quot;);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

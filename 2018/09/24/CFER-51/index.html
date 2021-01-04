@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Educational Codeforces Round 51 Div.2</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Educational Codeforces Round 51 Div.2 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/24
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Codeforces" style=color:#00bcd4>
+                    Codeforces
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><del>(打了Virtual但是没做完的)</del>解题报告。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="A-Vasya-And-Password"><a href="#A-Vasya-And-Password" class="headerlink" title="A. Vasya And Password"></a>A. Vasya And Password</h2><p>$\ldots$</p>
+<p>细节还挺多.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+string s;
+int tp[105];
+vector&lt;int&gt; pos[4];
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    int T; cin &gt;&gt; T;
+    while(T--)
+    &#123;
+        cin &gt;&gt; s; memset(tp, 0, sizeof tp);
+        int len = s.size();
+        pos[1].clear(); pos[2].clear(); pos[3].clear();
+        for(int i = 0; i &lt; len; ++i)
+        &#123;
+            if(isupper(s[i])) tp[i] = 1, pos[1].push_back(i);
+            else if(islower(s[i])) tp[i] = 2, pos[2].push_back(i);
+            else tp[i] = 3, pos[3].push_back(i);
+        &#125;
+        if(pos[1].size() &amp;&amp; pos[2].size() &amp;&amp; pos[3].size())
+        &#123;
+            cout &lt;&lt; s &lt;&lt; endl;
+            continue;
+        &#125;
+        if((int)pos[1].size() == len)
+        &#123;
+            s[0] = &#39;a&#39;;
+            s[1] = &#39;1&#39;;
+            cout &lt;&lt; s &lt;&lt; endl; continue;
+        &#125;
+        else if ((int)pos[2].size() == len)
+        &#123;
+            s[0] = &#39;A&#39;;
+            s[1] = &#39;1&#39;;
+            cout &lt;&lt; s &lt;&lt; endl; continue;
+        &#125;
+        else if((int)pos[3].size() == len)
+        &#123;
+            s[0] = &#39;A&#39;;
+            s[1] = &#39;a&#39;;
+            cout &lt;&lt; s &lt;&lt; endl; continue;
+        &#125;
+        char tmp;
+        if(!pos[1].size()) tmp = &#39;A&#39;;
+        else if(!pos[2].size()) tmp = &#39;a&#39;;
+        else if(!pos[3].size()) tmp = &#39;1&#39;;
+        for(int i = 1; i &lt; len; ++i)
+        &#123;
+            if(tp[i] != tp[i - 1])
+            &#123;
+                if(i == len - 1)
+                &#123;
+                    s[i-2] = tmp;
+                    break;
+                &#125;
+                else
+                &#123;
+                    s[i+1] = tmp;
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        cout &lt;&lt; s &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<h2 id="B-Relatively-Prime-Pairs"><a href="#B-Relatively-Prime-Pairs" class="headerlink" title="B.Relatively Prime Pairs"></a>B.Relatively Prime Pairs</h2><p>给一个区间, 用所有数构造数对, 数对互质.</p>
+<p>相邻嘛……唉……</p>
+<h2 id="C-Vasya-and-Multisets"><a href="#C-Vasya-and-Multisets" class="headerlink" title="C. Vasya and Multisets"></a>C. Vasya and Multisets</h2><p>一个可重集合内的好数是指只出现了一次的数, 把一个可重集分成两个可重集, 使得好数个数相同.</p>
+<p>判个奇偶什么的吧……</p>
+<h2 id="D-Bi-coloring"><a href="#D-Bi-coloring" class="headerlink" title="D. Bi-coloring"></a>D. Bi-coloring</h2><p>把一个$2\times n$的矩阵黑白染色, 联通块是指连续的四连通同色格子, 问染色后恰有 $k$ 个联通块的方案数.</p>
+<p>入门计数DP.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const ll mod = 998244353;
+const int maxn = 2005;
+
+int n, k;
+ll f[maxn][maxn][4];
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; k;
+
+    f[1][1][0] = f[1][1][3] = f[1][2][1] = f[1][2][2] = 1;
+    for(int i = 1; i &lt; n; ++i)
+        for(int j = 1; j &lt;= k; ++j)
+        &#123;
+            //0
+            f[i+1][j][0] = (f[i+1][j][0] + f[i][j][0]) % mod;
+            f[i+1][j+1][3] = (f[i+1][j+1][3] + f[i][j][0]) % mod;
+            f[i+1][j+1][1] = (f[i+1][j+1][1] + f[i][j][0]) % mod;
+            f[i+1][j+1][2] = (f[i+1][j+1][2] + f[i][j][0]) % mod;
+            //1
+            f[i+1][j][1] = (f[i+1][j][1] + f[i][j][1]) % mod;
+            f[i+1][j+2][2] = (f[i+1][j+2][2] + f[i][j][1]) % mod;
+            f[i+1][j][0] = (f[i+1][j][0] + f[i][j][1]) % mod;
+            f[i+1][j][3] = (f[i+1][j][3] + f[i][j][1]) % mod;
+            //2
+            f[i+1][j][2] = (f[i+1][j][2] + f[i][j][2]) % mod;
+            f[i+1][j+2][1] = (f[i+1][j+2][1] + f[i][j][2]) % mod;
+            f[i+1][j][0] = (f[i+1][j][0] + f[i][j][2]) % mod;
+            f[i+1][j][3] = (f[i+1][j][3] + f[i][j][2]) % mod;
+            //3
+            f[i+1][j][3] = (f[i+1][j][3] + f[i][j][3]) % mod;
+            f[i+1][j+1][0] = (f[i+1][j+1][0] + f[i][j][3]) % mod;
+            f[i+1][j+1][1] = (f[i+1][j+1][1] + f[i][j][3]) % mod;
+            f[i+1][j+1][2] = (f[i+1][j+1][2] + f[i][j][3]) % mod; 
+        &#125;
+
+    ll sum = 0;
+    for(int i = 0; i &lt; 4; ++i)
+        sum = (sum + f[n][k][i]) % mod;
+    cout &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="F-The-Shortest-Statement"><a href="#F-The-Shortest-Statement" class="headerlink" title="F. The Shortest Statement"></a>F. The Shortest Statement</h2><p>给一个无向连通图, 每次查询任意两点间的最短路, $n, q \le 10^5$.</p>
+<p>$m - n \le 20$.</p>
+<p>肯定先建最小生成树了, 问题是怎么处理剩下的20条边, 一开始想在环上打标记或者做差什么的, 但是似乎都不太可做.</p>
+<p>正解是把边加进去, 以每个额外边的端点为起点跑一次最短路, 这样每次查询的时候, 要么在树上走, 要么强制至少经过一个端点.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 1e+5 + 5;
+
+struct krus
+&#123;
+    int frm, to; ll v;
+    bool operator &lt; (const krus &amp;rhs) const
+    &#123;
+        return v &lt; rhs.v;
+    &#125;
+&#125;k[maxn + 100];
+int n, m, uf[maxn];
+
+int tmp[100], tmps[100], tote, totp;
+
+//bcj
+inline void init()
+&#123;
+    for(int i = 1; i &lt;= n; ++i) uf[i] = i;
+&#125;
+int find(int x)
+&#123;
+    return (uf[x] == x) ? x : uf[x] = find(uf[x]);
+&#125;
+bool link(int x, int y)
+&#123;
+    int fx = find(x), fy = find(y);
+    //cerr &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; &quot; &quot; &lt;&lt; fx &lt;&lt; &quot; &quot; &lt;&lt; fy &lt;&lt; endl;
+    if(fx != fy)
+    &#123;
+        uf[fx] = fy; return true;
+    &#125;
+    return false;
+&#125;
+
+//heavy-light decomposition
+struct edge
+&#123;
+    int to, nxt; ll v;
+&#125;e[maxn &lt;&lt; 1];
+int ptr, lnk[maxn], dep[maxn], f[maxn], top[maxn], mxson[maxn], siz[maxn];
+ll ddis[maxn];
+inline void add(int bgn, int end, ll val)
+&#123;
+    e[++ptr] = (edge)&#123;end, lnk[bgn], val&#125;;
+    lnk[bgn] = ptr;
+&#125;
+void dfs(int x, int fa, int d)
+&#123;
+    //cerr &lt;&lt; &quot;vis&quot; &lt;&lt; x &lt;&lt; endl;
+    siz[x] = 1; 
+    f[x] = fa;
+    dep[x] = d;
+    for(int p = lnk[x]; p; p = e[p].nxt)
+    &#123;
+        int y = e[p].to;
+        if(y == fa) continue;
+        ddis[y] = ddis[x] + e[p].v;
+        //cerr&lt;&lt;&quot;dfs&quot;&lt;&lt;ddis[y]&lt;&lt;endl;
+        dfs(y, x, d + 1);
+        siz[x] += siz[y];
+        if(siz[y] &gt; mxson[x]) mxson[x] = y;
+    &#125;
+&#125;
+void dfs2(int x, int init)
+&#123;
+    top[x] = init;
+    if(!mxson[x]) return;
+    dfs2(mxson[x], init);
+    for(int p = lnk[x]; p; p = e[p].nxt)
+    &#123;
+        int y = e[p].to;
+        if(y == f[x] || y == mxson[x]) continue;
+        dfs2(y, y);
+    &#125;
+&#125;
+inline int lca(int x, int y)
+&#123;
+    while(top[x] != top[y])
+    &#123;
+        if(dep[top[x]] &lt; dep[top[y]]) swap(x, y);
+        x = f[top[x]];
+    &#125;
+    return (dep[x] &gt; dep[y]) ? y : x;
+&#125;
+
+//shortest-paths
+int vis[maxn];
+ll dis[50][maxn]; queue&lt;int&gt; q;
+inline void spfa(int i, int s)
+&#123;
+    memset(dis[i], 0x3f, sizeof dis[i]);
+    q.push(s); dis[i][s] = 0; vis[s] = 1;
+    while(!q.empty())
+    &#123;
+        int u = q.front(); q.pop(); vis[u] = 0;
+        for(int p = lnk[u]; p; p = e[p].nxt)
+        &#123;
+            int y = e[p].to;
+            if(dis[i][y] &gt; dis[i][u] + e[p].v)
+            &#123;
+                dis[i][y] = dis[i][u] + e[p].v;
+                if(!vis[y])
+                    vis[y] = 1, q.push(y);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);    
+
+    cin &gt;&gt; n &gt;&gt; m;init();
+    for(int i = 1; i &lt;= m; ++i)
+        cin &gt;&gt; k[i].frm &gt;&gt; k[i].to &gt;&gt; k[i].v;
+    sort(k + 1, k + 1 + m);
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        if(link(k[i].frm, k[i].to))
+        &#123;
+            add(k[i].frm, k[i].to, k[i].v);
+            add(k[i].to, k[i].frm, k[i].v);
+            //cerr &lt;&lt; &quot;add&quot; &lt;&lt; endl;
+        &#125;
+        else tmp[++tote] = i;
+    &#125;
+    dfs(1, 0, 1);
+    dfs2(1, 1);
+    for(int i = 1; i &lt;= tote; ++i)
+    &#123;
+        add(k[tmp[i]].frm, k[tmp[i]].to, k[tmp[i]].v);
+        add(k[tmp[i]].to, k[tmp[i]].frm, k[tmp[i]].v);
+        tmps[++totp] = k[tmp[i]].frm, tmps[++totp] = k[tmp[i]].to;
+    &#125;
+    for(int i = 1; i &lt;= totp; ++i) spfa(i, tmps[i]);
+
+    int q; cin &gt;&gt; q;
+    while(q--)
+    &#123;
+        int x, y; cin &gt;&gt; x &gt;&gt; y;
+        int LCA = lca(x, y);
+        ll ans = ddis[x] + ddis[y] - 2ll * ddis[LCA];
+        //cerr &lt;&lt; &quot;---&quot; &lt;&lt; ans &lt;&lt; endl;
+        for(int i = 1; i &lt;= totp; ++i)
+            ans = min(ans, dis[i][x] + dis[i][y]);
+        cout &lt;&lt; ans &lt;&lt; endl;
+    &#125;
+
+    return 0;
+&#125;</code></pre>
+<h2 id="E-amp-G"><a href="#E-amp-G" class="headerlink" title="E &amp; G ?"></a>E &amp; G ?</h2><p>没啦<del>(不会)</del>.</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

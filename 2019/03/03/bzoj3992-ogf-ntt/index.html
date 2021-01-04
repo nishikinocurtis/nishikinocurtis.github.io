@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ3992 数论,生成函数,NTT</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ3992 数论,生成函数,NTT </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/3/3
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>综合考察<del>???</del>.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给一个集合, 要生成一个长为$n$的序列, 每个位置都从集合里选数, 要求各数之积被$m$整除, 求方案数.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>个数之积不像和那样可以随便卷. 但是我们有一个东西叫指标, 也就是离散对数, 这玩意是可以把乘积视为质数上的相加的.</p>
+<p>因为保证给的数是个质数, 所以可以求原根和指标, 暴力就行. </p>
+<p>然后要实现NTT循环卷积. 也要快速幂.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+#define mod 1004535809ll
+
+using namespace std;
+typedef long long ll;
+
+inline ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % mod;
+    index &gt;&gt;= 1;
+    base = base * base % mod;
+  &#125;
+  return ret;
+&#125;
+inline ll quick_power(ll base, ll index, ll p) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = (base * ret) % p;
+    index &gt;&gt;= 1;
+    base = base * base % p;
+  &#125;
+  return ret;
+&#125;
+namespace math &#123;
+  static const int maxm = 100010;
+  int npr[maxm], pr[maxm &gt;&gt; 1], cnt;
+  int mindiv[maxm], ind[maxm], G, m;
+  void euler() &#123;
+    for (int i = 2; i &lt;= m; ++i) &#123;
+      if (!npr[i]) &#123;
+        pr[++cnt] = i;
+        mindiv[i] = i;
+      &#125;
+      for (int j = 1; j &lt;= cnt &amp;&amp; i * pr[j] &lt;= m; ++j) &#123;
+        npr[i * pr[j]] = 1;
+        mindiv[i * pr[j]] = pr[j];
+        if (!(i % pr[j])) break;
+      &#125;
+    &#125;
+  &#125;
+  inline bool check(int g, int ori) &#123;
+    int tmp = 1;
+    for (int i = 1; i &lt; ori; ++i) &#123;
+      tmp = (tmp * g) % m;
+      if (tmp == 1) return 0;
+    &#125;
+    // printf(&quot;%d\n&quot;, g);
+    return 1;
+  &#125;
+  int getG() &#123;
+    int g = 2;
+    for (; g &lt; m; ++g) &#123;
+      if (check(g, m - 1)) break;
+    &#125;
+    return g;
+  &#125;
+  void getI() &#123;
+    for (int k = 0, w = 1; k &lt; m; w = (w * G) % m, k++)
+      ind[w] = k;//, printf(&quot;%d = %d\n&quot;, w, k);
+  &#125;
+&#125;
+namespace NTT &#123;
+  using math::maxm;
+  static const ll G = 3;
+  int rev[maxm];
+  ll A[maxm], B[maxm], C[maxm];
+  int N, L;
+  int n, m, x, s;
+  void init() &#123;
+    for (int i = 0; i &lt; N; ++i) &#123;
+      rev[i] = (rev[i &gt;&gt; 1] &gt;&gt; 1) | ((i &amp; 1) &lt;&lt; (L - 1));
+    &#125;
+  &#125;
+  void DFT(ll *a, int typ) &#123;
+    for (int i = 0; i &lt; N; ++i) 
+      if (i &gt; rev[i]) swap(a[i], a[rev[i]]);
+    for (int i = 2; i &lt;= N; i &lt;&lt;= 1) &#123;
+      int m = (i &gt;&gt; 1);
+      ll e = quick_power(G, (mod - 1) / i);
+      //if (typ == -1) e = quick_power(e, mod - 2);
+      for (int j = 0; j &lt; N; j += i) &#123;
+        ll w = 1;
+        for (int k = 0; k &lt; m; ++k) &#123;
+          ll t = w * a[j + m + k] % mod;
+          a[m + j + k] = (a[j + k] - t + mod) % mod;
+          a[j + k] = (a[j + k] + t) % mod;
+          w = w * e % mod;
+        &#125;
+      &#125;
+    &#125;
+    if (typ == 1) return;
+    reverse(a + 1, a + N); ll inv = quick_power(N, mod - 2);
+    for (int i = 0; i &lt; N; ++i) a[i] = a[i] * inv % mod;
+    for (int i = m; i &lt; N; ++i) &#123;
+      int x = ((i % (m - 1)) ? (i % (m - 1)) : (m - 1));
+      a[x] = (a[i] + a[x]) % mod;
+      a[i] = 0;
+    &#125;
+  &#125;
+  void NTTpow(ll *a, int index) &#123;
+    for (int i = 0; i &lt; N; ++i) B[i] = a[i];
+    index--;
+    while (index) &#123;
+      DFT(a, 1);
+      if (index &amp; 1) &#123;
+        DFT(B, 1);
+        for (int i = 0; i &lt; N; ++i) B[i] = B[i] * a[i] % mod;
+        DFT(B, -1);
+      &#125;
+      for (int i = 0; i &lt; N; ++i) a[i] = a[i] * a[i] % mod;
+      index &gt;&gt;= 1;
+      DFT(a, -1);
+    &#125;
+    for (int i = 0; i &lt; N; ++i) a[i] = B[i];
+  &#125;
+
+  void solve() &#123;
+    scanf(&quot;%d%d%d%d&quot;, &amp;n, &amp;m, &amp;x, &amp;s);
+    math::m = m;
+    // math::euler();
+    math::G = math::getG();
+    // printf(&quot;%d\n&quot;, math::G);
+    math::getI();
+    int u;
+    for (int i = 1; i &lt;= s; ++i) &#123;
+      scanf(&quot;%d&quot;, &amp;u);
+      // printf(&quot;%d\n&quot;, math::ind[u]);
+      C[math::ind[u]]++;
+    &#125;
+    N = 1; L = 0;
+    while (N &lt;= (m &lt;&lt; 1)) N &lt;&lt;= 1, L++;
+    init();
+    // for (int i = 0; i &lt; N; ++i) printf(&quot;%lld\n&quot;, C[i]);
+    // puts(&quot;&quot;);
+    A[math::ind[1]] = 1;
+    NTTpow(C, n); 
+    // for (int i = 0; i &lt; N; ++i) printf(&quot;%lld\n&quot;, C[i]);
+    // puts(&quot;&quot;);
+    DFT(A, 1); DFT(C, 1);
+    for (int i = 0; i &lt; N; ++i)
+      A[i] = A[i] * C[i] % mod;
+    DFT(A, -1);
+    printf(&quot;%lld\n&quot;, A[math::ind[x]]);
+  &#125;
+&#125;
+
+int main() &#123;
+  NTT::solve();
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

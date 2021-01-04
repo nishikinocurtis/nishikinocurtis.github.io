@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Game Theory and DP</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Game Theory and DP </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/8/10
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>The Deep Dark Relationship Between GAME THEORY and DYNAMIC PROGRAMMING</p>
+<p>博弈论与DP不可不说的神秘羁绊</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>见博弈想DP? 果然我见题少. 这是一篇有一些博弈+DP的总结.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Problem-1-USACO-Training-Section-3-3-A-Game"><a href="#Problem-1-USACO-Training-Section-3-3-A-Game" class="headerlink" title="Problem 1 USACO Training Section 3.3 A Game"></a>Problem 1 <a target="_blank" rel="noopener" href="https://www.luogu.org/problemnew/show/P2734">USACO Training Section 3.3 A Game</a></h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>给定一个正整数数列, 每次可以从左端或右端取一个数, 得分记为所取数的和. 现有两人博弈, 欲使得分最大. 计算双方均采取最优策略下两玩家得分情况.</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>既然双方均采取最优策略, 我们就可以定义一个先手最优状态, 显然每个玩家操作时, 把她视为先手, 采用这个策略就可以了.</p>
+<p>博弈的套路一般是从最终结果倒推, 本题是计分游戏, 所以我们定义最终的状态就是取最后一个数的贡献, 即$f[i][i] = a[i]$.</p>
+<p>对于状态 $f[i][j]$ 考虑还原一步, 则上一手一定是$f[i - 1][j]$ 或 $f[i][j+1]$, 这也就是说, $f[i][j]$一定由$f[i + 1][j], f[i][j - 1]$转移而来.</p>
+<p>考虑最大化$f[i][j]$, 由于这一步的贡献将是$sum[i, j] - f[i + 1][j](f[i][j + 1])$, 所以我们要在两种状态中选一个较小的.</p>
+<blockquote>
+<p>注意! 为了保证每次决策都是先手最优策略, 在博弈问题中通常不对单个点进行决策, 而是从上一步的最优策略转移而来, 对于本题, 意味着我们不要考虑怎样对于一个状态决策选左端还是右端来推进游戏, 而是决策选左端还是右端的最优策略来还原游戏.</p>
+</blockquote>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using std::min;
+using std::memset;
+
+const int maxn = 105;
+
+int n;
+int a[maxn], sum[maxn], f[maxn][maxn];
+
+int main()
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    memset(f, 0, sizeof f);
+    memset(sum, 0, sizeof sum);
+    for(int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]), sum[i] = sum[i - 1] + a[i];
+    for(int i = 1; i &lt;= n; ++i) f[i][i] = a[i];
+    for(int len = 2; len &lt;= n; ++len)
+        for(int l = 1; l &lt;= n - len + 1; ++l)
+        &#123;
+            int r = l + len - 1;
+            int s = min(f[l + 1][r], f[l][r - 1]);
+            f[l][r] = sum[r] - sum[l - 1] - s;
+        &#125;
+    printf(&quot;%d %d\n&quot;, f[1][n] , (sum[n] - f[1][n]));
+    return 0;
+&#125;</code></pre>
+<h3 id="Problem-2-UVa-10891"><a href="#Problem-2-UVa-10891" class="headerlink" title="Problem 2 UVa 10891"></a>Problem 2 <a target="_blank" rel="noopener" href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=20&page=show_problem&problem=1832">UVa 10891</a></h3><h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><p>给定一个<strong>整数</strong>序列, 两人轮流从左端或右端取走一段连续的数, 得分为数字的和, 双方均采取最优策略, 求最后先手和后手的分差.</p>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>进阶的上一题, 除了取数方式的变化, 还引入了负数, 但本质思想是不变的.</p>
+<p>转移从左端和右端变为了一段, 所以增加一层循环枚举断点, 仍然是$sum - f[][]$, 需要注意的是, 由于可以把一整段全取走, 而不给对手留机会, 也就是$0$可能比$f[][]$ 更优, 所以我们需要用$0$和$f$数组取最小值.</p>
+<h4 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using std::min;
+using std::memset;
+
+const int maxn = 105;
+
+int n;
+int a[maxn], sum[maxn], f[maxn][maxn];
+
+int main()
+&#123;
+    while(scanf(&quot;%d&quot;, &amp;n) &amp;&amp; n)
+    &#123;
+        memset(f, 0, sizeof f);
+        memset(sum, 0, sizeof sum);
+        for(int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]), sum[i] = sum[i - 1] + a[i];
+        for(int i = 1; i &lt;= n; ++i) f[i][i] = a[i];
+        for(int len = 2; len &lt;= n; ++len)
+            for(int l = 1; l &lt;= n - len + 1; ++l)
+            &#123;
+                int r = l + len - 1;
+                int s = 0;
+                for(int k = l; k &lt; r; ++k)
+                    s = min(s, min(f[l][k], f[k + 1][r]));
+                f[l][r] = sum[r] - sum[l - 1] - s;
+            &#125;
+        printf(&quot;%d\n&quot;, f[1][n] - (sum[n] - f[1][n]));
+    &#125;
+    return 0;
+&#125;</code></pre>
+<h3 id="Problem-3-CF786A"><a href="#Problem-3-CF786A" class="headerlink" title="Problem 3 CF786A"></a>Problem 3 <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/786/A">CF786A</a></h3><h4 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h4><p>两个人轮流选择手中一张卡, 值为$v_i$, 移动怪物, 怪物将由当前位置在环上前进$v_i$步, 怪物进入1则胜利, 另一方失败. 可能平局(无限循环). 计算怪物初始位置为$[2, n]$, 两人分别先手时的游戏情况.</p>
+<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><p>依然是从最终状态反推, 当怪物在格子1时游戏结束, 我们选取它作为最终态, 同样, 这是一个先手状态. 由于上一步的人已经赢了, 所以这个状态必败.</p>
+<p>接下来是转移, 如果一个人从$pos$出发, 使用所有的卡到达的都是先手必胜态, 则这个状态必败, 只要有一张卡能到达先手必败态, 这就是一个先手必胜态.</p>
+<p>如果始终没有访问过这个状态, 说明该状态是平局.</p>
+<p>用队列BFS来做转移, 因为跳步比较乱, 而且是在环上.</p>
+<h4 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;queue&gt;
+
+using std::memset;
+using std::queue;
+
+const int maxn = 7005;
+
+struct sta
+&#123;
+    int pos, id, wn;
+    constexpr sta(int p = 0, int i = 0, int w = 0):
+        pos(p), id(i), wn(w) &#123;&#125;
+    //wn: 0 first lose, 1 first win.
+&#125;;
+int n, k[3], s[3][maxn], f[maxn][3], sum[maxn][3];
+bool vis[maxn][3];
+queue&lt;sta&gt; q;
+
+int main()
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    scanf(&quot;%d&quot;, &amp;k[1]); for(int i = 1; i &lt;= k[1]; ++i) scanf(&quot;%d&quot;, &amp;s[1][i]);
+    scanf(&quot;%d&quot;, &amp;k[2]); for(int i = 1; i &lt;= k[2]; ++i) scanf(&quot;%d&quot;, &amp;s[2][i]);
+    q.push(sta(1, 1, 0)); vis[1][1] = 1; f[1][1] = 0;
+    q.push(sta(1, 2, 0)); vis[1][2] = 1; f[1][2] = 0;
+    while(!q.empty())
+    &#123;
+        sta u = q.front(); q.pop();
+        int curid = 3 - u.id;
+        if(u.wn == 0)
+        &#123;
+            for(int i = 1; i &lt;= k[curid]; ++i)
+            &#123;
+                int npos = (u.pos - s[curid][i] + n) % n;
+                if(npos == 0) npos = n;
+                if(!vis[npos][curid])
+                &#123;
+                    f[npos][curid] = 1;
+                    q.push(sta(npos, curid, 1));
+                    vis[npos][curid] = 1;
+                &#125;
+            &#125;
+        &#125;
+        else
+        &#123;
+            for(int i = 1; i &lt;= k[curid]; ++i)
+            &#123;
+                int npos  = (u.pos - s[curid][i] + n) % n;
+                if(npos == 0) npos = n;
+                sum[npos][curid]++; //统计必胜态数量
+                if(!vis[npos][curid] &amp;&amp; sum[npos][curid] == k[curid])
+                &#123;
+                    f[npos][curid] = 0;
+                    q.push(sta(npos, curid, 0));
+                    vis[npos][curid] = 1;
+                &#125; 
+            &#125;
+        &#125;
+    &#125;
+    for(int i = 2; i &lt;= n; ++i)
+    &#123;
+        if(vis[i][1])
+        &#123;
+            if(f[i][1]) printf(&quot;Win &quot;);
+            else printf(&quot;Lose &quot;);
+        &#125;
+        else printf(&quot;Loop &quot;);
+    &#125;
+    putchar(&#39;\n&#39;);
+    for(int i = 2; i &lt;= n; ++i)
+    &#123;
+        if(vis[i][2])
+        &#123;
+            if(f[i][2]) printf(&quot;Win &quot;);
+            else printf(&quot;Lose &quot;);
+        &#125;
+        else printf(&quot;Loop &quot;);
+    &#125;
+&#125;</code></pre>
+<h3 id="Problem-4-JZOJ-5778"><a href="#Problem-4-JZOJ-5778" class="headerlink" title="Problem 4 JZOJ 5778"></a>Problem 4 <a target="_blank" rel="noopener" href="https://jzoj.net/senior/#main/show/5778">JZOJ 5778</a></h3><h4 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h4><p>有一个环, 环上的两种人轮流报数, 一定比上一个人大, 同时有区间限制, 先报数到上限的阵营输, 计算以第$i$个人开始的游戏情况.</p>
+<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>最终态是先手报出 $m$ 必败, 由于我们不知道游戏在哪里结束, 所以从最坏情况开始, 也就是从第 $n$ 个动物开始, 每次$+1$, 这意味着最多到第 $n + m - 1$ 个动物, 把环复制一下.</p>
+<p>考虑转移, 由于这不是一个双人博弈游戏, 需要考虑的变多了.</p>
+<p>如果上一个人在有效区间内没有必胜态(计数优化一下), 若她是队友, 则这个人报出这个数也是一个必败态, 反之是必胜态.<br>如果有必胜态, 且她是队友, 则这个人报出这个数是必胜态, 反之是必败态.</p>
+<p>这和上一题的转移差不多, 但加入了下一个人是不是队友的考量, 很新颖.</p>
+<p>最终答案就看从这个人开始, 首次报数区间内有没有必胜态, 有就必胜, 没有则必败.</p>
+<h4 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+
+using std::min;
+using std::max;
+using std::memset;
+
+const int maxn = 5005;
+
+int n, m, k, f[maxn &lt;&lt; 1][maxn];
+int a[maxn &lt;&lt; 1];
+
+int main()
+&#123;
+    freopen(&quot;vode.in&quot;, &quot;r&quot;, stdin);
+    freopen(&quot;vode.out&quot;, &quot;w&quot;, stdout);
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    for(int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]);
+    for(int i = n + 1; i &lt;= n + m; ++i) a[i] = a[i - n];
+    for(int i = n + m - 1; i; --i)
+    &#123;
+        int lst = -1; 
+        for(int j = m - 1; j &gt;= 1; --j)
+        &#123;
+            if(lst == -1 || lst - j &gt; k) f[i][j] = (a[i] != a[i + 1]);
+            else f[i][j] = (a[i] == a[i + 1]);
+            if(f[i + 1][j]) lst = j;
+        &#125;
+    &#125;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        bool sol = false;
+        for(int j = 1; j &lt;= k; ++j)
+        &#123;
+            if(f[i][j]) &#123;sol = true; break;&#125;
+        &#125;
+        printf(&quot;%d &quot;, sol ? a[i] : (a[i] ^ 1));
+    &#125;
+    fclose(stdin);
+    fclose(stdout);
+    return 0;
+&#125;</code></pre>
+<h3 id="Problem-5-N-A-N-A"><a href="#Problem-5-N-A-N-A" class="headerlink" title="Problem 5 [N/A N/A]"></a>Problem 5 [N/A N/A]</h3><h4 id="Description-4"><a href="#Description-4" class="headerlink" title="Description"></a>Description</h4><p>有一列正整数, 每次可以任意取几个, 按其中最小值计分, 目标是最大化分差, 双方都采取最优策略, 计算最大分差.</p>
+<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><p>首先, 按最小值计分, 取太大的一定不会更优, 而取数没有位置限制, 所以我们把数从小到大排序, 每次取一段或者一个, 这一定不会更劣.</p>
+<p>考虑转移, 这一次我们要顺推, 因为下一步的最优策略的计算基于上一步的最优策略. 而取完最后一个数的状态是明确的, 反而第$0$步的分差是明确的.</p>
+<p>定义一个先手最大分差状态 $f[i]$, 即取到第 $i$ 位的先手最大分差, 根据定义显然 $f[0] = 0$. 对于一个状态 $f[i]$, 考虑怎样最大化这一步的分差.<br>如果我们就取第 $i$ 个(此时取后面的没有用), 那么最终分差就是 $a[i] - f[i-1]$, 注意到这样的策略可能并不是最优的, 这时我们就可以连 $i-1$ 一起取了, 因为取后面的不会对最小值产生影响, 取前面的会, 贡献就是取 $i-1$ 的先手最大分差. 这是什么? $f[i-1]$啊.</p>
+<p>方程: $f[i] = max(f[i - 1], a[i] - f[i - 1]), (f[0] = 0)$</p>
+<hr>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>两类博弈问题: 胜负博弈/计分博弈</p>
+<p>通常的套路都是从最终状态反向转移.T5是例外.</p>
+<p>对于胜负类博弈问题, 通常对下一步的先手必胜态进行计数,前/后缀和优化, 然后还原这一步的状态, 如T3/4的转移方式保证了每一步选择的都是最优策略.</p>
+<p>对于计分类博弈问题, 通常在上/下一步的几个最优策略中作比较, 注意也有可能存在这一步直接结束游戏(不给下一个先手留机会), 或者吞并上一步的最优策略的情况, 这取决于游戏规则的限制.</p>
+<p><strong>经典操作是计算每一个状态时转换先手, 然后让上/下一步的先手最劣(或吞并), 从而取得这一步的最优.</strong></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

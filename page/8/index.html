@@ -1,0 +1,922 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Tech &amp; Life</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Curtis' Blog</h1>
+                <h3>Tech & Life</h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2018/10/19/ASetOfDPProblemsI/">
+        <h2>
+            A Set of Linear DP Problems 1
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/19
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>不过不得不说，liu_runda确实很强呢。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#00bcd4>
+                OI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/19/ASetOfDPProblemsI/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/19/ASetOfFunProblemI/">
+        <h2>
+            A Set Of Fun Problems 1
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/19
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>其实是偷懒不想写好多篇。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#03a9f4>
+                OI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/19/ASetOfFunProblemI/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/18/CombinatoricsProblemsCF/">
+        <h2>
+            A series of Combinatorics Problems
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/18
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Problem Set.</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#00bcd4>
+                OI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/18/CombinatoricsProblemsCF/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/18/Codeforces511B/">
+        <h2>
+            Codeforces Round 511 Div.1 B
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/18
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Another trick &amp; Discussion cases.</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#ff7d73>
+                OI
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Codeforces" style=color:#00a596>
+                Codeforces
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/18/Codeforces511B/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/18/Codeforces511A/">
+        <h2>
+            Codeforces Round 511 Div.1 A
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/18
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Sieve. And Trick.</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#03a9f4>
+                OI
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Codeforces" style=color:#00bcd4>
+                Codeforces
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/18/Codeforces511A/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/17/Contest-15-16/">
+        <h2>
+            Contest 20181015+16
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/17
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>比赛总结。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#03a9f4>
+                OI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/17/Contest-15-16/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/10/02/BubbleCup-CF1045G/">
+        <h2>
+            BubbleCup CF1045G AI Robot
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/2
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>CDQ分治。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#ff7d73>
+                OI
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Codeforces" style=color:#00bcd4>
+                Codeforces
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/10/02/BubbleCup-CF1045G/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/09/25/BZOJ3613/">
+        <h2>
+            BZOJ3613 HEOI2014 南园满地堆轻絮
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/25
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>二分答案和贪心。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#00bcd4>
+                OI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/09/25/BZOJ3613/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/09/24/BubbleCup-CF1045C/">
+        <h2>
+            BubbleCup - Codeforces 1045 C
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/24
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Heavy Light Decomposition &amp; Tarjan</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#ffa2c4>
+                OI
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Codeforces" style=color:#00bcd4>
+                Codeforces
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/09/24/BubbleCup-CF1045C/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2018/09/24/CFER-51/">
+        <h2>
+            Educational Codeforces Round 51 Div.2
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/24
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p><del>(打了Virtual但是没做完的)</del>解题报告。</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/OI" style=color:#ff7d73>
+                OI
+            </a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/Codeforces" style=color:#03a9f4>
+                Codeforces
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2018/09/24/CFER-51/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/7/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/6">
+                <span class="page-num">
+                    6
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/7/">
+                <span class="page-num">
+                    7
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            8
+        </span>
+
+        
+        <span>
+            <a href="/page/9/">
+                <span class="page-num">
+                    9
+                </span>
+            </a>
+            
+            <a href="/page/10">
+                <span class="page-num">
+                    10
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/9/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/images/avatar.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Qiutong Men
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                去摘遥不可及的星。
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/nishikinocurtis">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://byteprivacy.github.io">
+                    BytePrivacy
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 3213 KMP Expectation</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 3213 KMP Expectation </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/25
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Calculate expectation with $fail$.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a probability $p$ of throwing a coin and the $H$ surface is on the top. Accordingly, $1-p$ of $T$ surface.</p>
+<p>Now given a target sequence consisting of $H$ and $T$, calculate how many times (in expectation) you need to make the result as such a sequence.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The target sequence must be the suffix of our result, so must a substring. We can evaluate how our result transforms when trying to fit the target sequence.</p>
+<p>Equation is : </p>
+<p>$f(i) = f(i-1) + 1 + (1-p_i)(f(i) - f(file_i))$.</p>
+<p>Swap items to get expression of $f(i)$.</p>
+<p><del>Need to implement high-precision number class.</del></p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1005;
+
+typedef long long ll;
+
+int n, a, b;
+int nxt[maxn], tow[maxn];
+char s[maxn];
+
+struct bigint
+&#123;
+  static const int width = 9;
+  static const ll base = 1000000000;
+  ll a[1005]; int len;
+  bigint() &#123;
+    memset(a, 0, sizeof a); len = 1;
+  &#125;
+  ll&amp; operator [] (int x) &#123;
+    return a[x];
+  &#125;
+  bigint(int x) &#123;
+    len = 0; 
+    if (!x) len = 1;
+    else &#123;
+      while (x) a[++len] = x % base, x /= base;
+    &#125;
+  &#125;
+  bigint operator + (bigint b) &#123;
+    bigint ret; ret.len = max(len, b.len);
+    for (int i = 1; i &lt;= ret.len; ++i) &#123;
+      ret[i] = a[i] + b[i];
+      //ret[i + 1] += ret[i] / base;
+      //ret[i] %= base;
+    &#125;
+
+    for (int i = 1; i &lt;= ret.len; ++i)
+      ret[i + 1] += ret[i] / base, ret[i] %= base;
+    for (; ret[ret.len + 1]; ret.len++) ret[ret.len + 2] += ret[ret.len + 1] / base, ret[ret.len + 1] %= base;
+    /*while (ret[ret.len] &gt;= base) &#123;
+      ret[ret.len + 1] += ret[ret.len] / base;
+      ret[ret.len] %= base;
+      ret.len++;
+    &#125;*/
+    return ret;
+  &#125;
+  bigint operator * (bigint b) &#123;
+    bigint ret;
+    for (int i = 1; i &lt;= len; ++i)
+      for (int j = 1; j &lt;= b.len; ++j)
+        ret[i + j - 1] += a[i] * b[j], ret[i + j] += ret[i + j - 1] / base, ret[i + j - 1] %= base;
+    ret.len = len + b.len - 1;
+    /*while (ret[ret.len] &gt;= base) &#123;
+      ret[ret.len + 1] += ret[ret.len] / base;
+      ret[ret.len] %= base;
+      ret.len++;
+    &#125;*/
+    for (; ret[ret.len + 1]; ret.len++) ret[ret.len + 2] += ret[ret.len + 1] / base, ret[ret.len + 1] %= base;
+    return ret;
+  &#125;
+  bigint operator / (int b) &#123;
+    bigint ret; ret.len = len; ll bit = 0;
+    for (int i = len; i; --i) &#123;
+      ret[i] = (a[i] + bit * base) / b;
+      bit = (bit * base + a[i]) % b;
+    &#125;
+    while (!ret[ret.len]) ret.len--;
+    return ret;
+  &#125;
+  bigint operator - (bigint b) &#123;
+    bigint ret; ret.len = max(len, b.len);
+    for (int i = 1; i &lt;= ret.len; ++i) ret[i] = a[i] - b[i];
+
+    for (int i = 1; i &lt;= ret.len; ++i) while (ret[i] &lt; 0) ret[i + 1]--, ret[i] += base;
+    while (!ret[ret.len]) ret.len--;
+    return ret;
+  &#125;
+  bool operator == (bigint b) &#123;
+    if (len != b.len) return false;
+    for (int i = 1; i &lt;= len; ++i) if (a[i] != b[i]) return false;
+    return true;
+  &#125;
+  friend bool operator % (bigint a, int b) &#123;
+    /*if (b == 4 || b == 2 || b == 3 || b == 6) &#123;
+      (a / b * bigint(b)).print(); putchar(&#39;\n&#39;);
+      a.print(); putchar(&#39;\n&#39;);
+      printf(&quot;%d\n&quot;, b);
+    &#125;*/
+    return a / b * bigint(b) == a;
+  &#125;
+  inline void print() &#123;
+    printf(&quot;%lld&quot;, a[len]);
+    for (int i = len - 1; i; --i) 
+      printf(&quot;%09lld&quot;, a[i]);
+  &#125;
+&#125;;
+struct frac
+&#123;
+  bigint up, dn;
+  frac() &#123;
+    //up = bigint(0); dn = bigint(0);
+  &#125;
+  frac(int u, int d) : up(u), dn(d) &#123;&#125;
+  frac(bigint u, bigint d) : up(u), dn(d) &#123;&#125;
+  frac operator + (frac b) &#123;
+    frac ret = frac(up * b.dn + b.up * dn, dn * b.dn);
+    //ret.print();
+    //ret.cancel();
+    return ret;
+  &#125;
+  frac operator - (frac b) &#123;
+    frac ret = frac(up * b.dn - b.up * dn, dn * b.dn);
+    //ret.print();
+    //ret.cancel();
+    return ret;
+  &#125;
+  frac operator * (frac b) &#123;
+    //if (up * b.up == bigint(0)) return frac(0, 1);
+    frac ret = frac(up * b.up, dn * b.dn);
+    //ret.print();
+    //ret.cancel();
+    return ret;
+  &#125;
+  frac operator / (frac b) &#123;
+    frac ret = frac(up * b.dn, dn * b.up);
+    //ret.print();
+    //ret.cancel();
+    return ret;
+  &#125;
+  inline void cancel() &#123;
+    //this-&gt;print();
+    for (int i = 2; i &lt;= 100; ++i) &#123;
+
+      while (up % i &amp;&amp; dn % i) &#123;
+        up = up / i, dn = dn / i;
+      &#125;
+    &#125;
+  &#125;
+  void print() &#123;
+    up.print(); putchar(&#39;/&#39;); dn.print();
+    putchar(&#39;\n&#39;);
+  &#125;
+&#125;;
+frac p[2], f[maxn];
+
+void getnxt() &#123;
+  int j = 0;
+  nxt[0] = 0;
+  tow[1] = 0;
+  s[0] = &#39;%&#39;;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    j = nxt[i - 1];
+    while (j &amp;&amp; s[j + 1] != s[i]) j = nxt[j];
+    if (i &gt; 1 &amp;&amp; s[j + 1] == s[i]) nxt[i] = j + 1, j++;
+    else nxt[i] = 0;
+    if (i &lt; n) &#123;
+      while (j &amp;&amp; s[j + 1] == s[i + 1]) j = nxt[j];
+      if (s[j + 1] != s[i + 1]) tow[i + 1] = j + 1;
+      else tow[i + 1] = 0;
+    &#125;
+  &#125;
+&#125;
+
+int main() &#123;
+  //freopen(&quot;3213.out&quot;, &quot;w&quot;, stdout);
+  scanf(&quot;%d%d&quot;, &amp;a, &amp;b);
+  p[1] = frac(a, b); p[0] = frac(b - a, b);
+  //p[1].cancel();
+  //p[0].cancel();
+  scanf(&quot;%s&quot;, s + 1);
+  n = strlen(s + 1);
+  getnxt();
+  f[0] = frac(0, 1);
+  //frac t1 = frac(2147483646, 2147483645);
+  //frac t2 = t1;
+  //frac t3 = t2 * t1;
+  //t3.print();
+  /*frac t1 = frac(2, 3), t2 = frac(1, 3);
+  (t1 + t2).print();
+  frac t3 = t1 + t2; t3.cancel(); t3.print();
+  t3 = t1 / t2; t3.cancel(); t3.print();
+  t3 = t1 - t2; t3.cancel(); t3.print();*/
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    int typ = (s[i] == &#39;H&#39;);
+    //printf(&quot;%d\n&quot;, tow[i]);
+    //f[tow[i]].print();
+    f[i] = (f[i - 1] - (p[typ ^ 1] * f[tow[i]]) + frac(1, 1)) / p[typ];
+    //f[i].print();
+    f[i].cancel();
+    //f[i].print();
+  &#125;
+  f[n].print();
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

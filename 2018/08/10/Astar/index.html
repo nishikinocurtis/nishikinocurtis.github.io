@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || A*搜索 初探</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>A*搜索 初探 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/8/10
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>其实在此之前还是相当没有重视搜索。</p>
+<p>最近还是要赶快把各种姿势学起来。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>A*算法其实就是带有<em>估价函数</em>，并以此作为剪枝手段，保证时间复杂度的搜索算法。</p>
+<p>其中估价函数越接近实际答案，搜索进行得越快。</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Problem-1-BZOJ1975"><a href="#Problem-1-BZOJ1975" class="headerlink" title="Problem 1 BZOJ1975"></a>Problem 1 <a target="_blank" rel="noopener" href="https://www.lydsy.com/JudgeOnline/problem.php?id=1975">BZOJ1975</a></h3><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>k短路是一个经典的运用A*算法的问题<del>（在不被卡的情况下）</del>。</p>
+<p>由于A*算法保证每次选出最优解，在本题中，我们就可以逐步累加代价直到耗尽能量。估价函数定义为<em>到达节点$1$所需的距离</em>，利用小根堆，维护<em>当前节点到节点$n$的最短路 + 估价函数</em>最小值，每次取出，进行决策。注意需要跑反图的最短路。</p>
+<p>洛谷上有Hack数据，复杂度更稳定的做法在这里暂不讨论。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;queue&gt;
+#include &lt;bitset&gt;
+
+using std::min;
+using std::max;
+using std::swap;
+using std::memset;
+using std::bitset;
+using std::priority_queue;
+
+const int maxn = 5002;
+const int maxm = 200002;
+const int maxp = 5e+6 + 5;
+
+struct edge
+&#123;
+    int to, nxt;
+    double v;
+&#125;e[maxm], re[maxm];
+int n, m, ans;
+int lnk[maxn], ptr, rlnk[maxn], rptr;
+struct que
+&#123;
+    int a[maxn], h, t;
+    que()
+    &#123;
+        memset(a, 0, sizeof a);
+        h = t = 0;
+    &#125;
+    inline bool empty()
+    &#123;
+        return h == t;
+    &#125;
+    inline void push(int x)
+    &#123;
+        t++; if(t == maxn) t = 0;
+        a[t] = x;
+    &#125;
+    inline void move()
+    &#123;
+        h++; if(h == maxn) h = 0;
+    &#125;
+    inline int front()
+    &#123;
+        return a[h];
+    &#125;
+&#125;;
+double E, dis[maxn];
+bitset&lt;maxn&gt; vis;
+struct node
+&#123;
+    int id;
+    double g;
+    bool operator &lt; (const node &amp;rhs) const
+    &#123;
+        if(g + dis[id] == rhs.g + dis[rhs.id]) return g &gt; rhs.g;
+        return dis[id] + g &gt; dis[rhs.id] + rhs.g;
+    &#125;
+&#125;;
+priority_queue&lt;node&gt; hp;
+
+inline void add(int bgn, int end, double val, bool type)
+&#123;
+    if(type)
+    &#123;
+        e[++ptr] = (edge)&#123;end, lnk[bgn], val&#125;;
+        lnk[bgn] = ptr;
+    &#125;
+    else
+    &#123;
+        re[++rptr] = (edge)&#123;end, rlnk[bgn], val&#125;;
+        rlnk[bgn] = rptr;
+    &#125;
+&#125;
+inline void spfa()
+&#123;
+    que q;
+    for(int i = 1; i &lt;= n; ++i) dis[i] = 1e12;
+    dis[n] = 0.0; vis.set(n); q.push(n);
+    while(!q.empty())
+    &#123;
+        q.move();
+        int u = q.front(); vis.reset(u);
+        for(int p = rlnk[u]; p; p = re[p].nxt)
+        &#123;
+            int y = re[p].to;
+            if(dis[y] &gt; dis[u] + re[p].v)
+            &#123;
+                dis[y] = dis[u] + re[p].v;
+                if(!vis.test(y))
+                &#123;
+                    q.push(y);
+                    vis.set(y);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        if(i == 1) hp.push((node)&#123;i, 0&#125;);
+        else hp.push((node)&#123;i, 1e9&#125;);
+    &#125;
+&#125;
+
+inline void A_star()
+&#123;
+    while(!hp.empty())
+    &#123;
+        node u = hp.top(); hp.pop();
+        if(u.id == n)
+        &#123;
+            E -= u.g;
+            if(E &lt; 0) return;
+            ans++;
+        &#125;
+        else
+        &#123;
+            for(int p = lnk[u.id]; p; p = e[p].nxt)
+            &#123;
+                int y = e[p].to;
+                hp.push((node)&#123;y, u.g + e[p].v&#125;);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d%d%lf&quot;, &amp;n, &amp;m, &amp;E);
+    int u, v; double w;
+    for(register int i = 1; i &lt;= m; ++i)
+        scanf(&quot;%d%d%lf&quot;, &amp;u,&amp;v,&amp;w), add(u, v, w, 1), add(v, u, w, 0);
+    spfa();
+    A_star();
+    printf(&quot;%d\n&quot;, ans);
+    return 0;
+&#125;</code></pre>
+<h3 id="Problem-2-BZOJ1085"><a href="#Problem-2-BZOJ1085" class="headerlink" title="Problem 2 BZOJ1085"></a>Problem 2 <a target="_blank" rel="noopener" href="https://www.lydsy.com/JudgeOnline/problem.php?id=1085">BZOJ1085</a></h3><h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>比较朴素的想法是直接对棋盘局面搜索，直到符合条件，这样会TLE。</p>
+<p>定义估价函数为到达最终局面的最坏步数，这样答案一定不会更劣。</p>
+<p>计算方法是，每当目前局面与最终局面有不同时计数器就++，如果计数器+当前步数超过了限定步数就不搜索。</p>
+<h4 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h4><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using std::min;
+using std::max;
+using std::swap;
+using std::memset;
+
+char mtr[6][6];
+int sts[6][6];
+int standard[6][6]=
+&#123;
+    &#123;0, 0, 0, 0, 0, 0&#125;,
+    &#123;0, 1, 1, 1, 1, 1&#125;,
+    &#123;0, 0, 1, 1, 1, 1&#125;,
+    &#123;0, 0, 0, 2, 1, 1&#125;,
+    &#123;0, 0, 0, 0, 0, 1&#125;,
+    &#123;0, 0, 0, 0, 0, 0&#125;
+&#125;;
+int dx[8] = &#123;1, 1, -1, -1, 2, 2, -2, -2&#125;;
+int dy[8] = &#123;2, -2, 2, -2, 1, -1, 1, -1&#125;;
+int ans, T, tagx, tagy, k;
+bool sol;
+
+bool jud(int matrix[6][6])
+&#123;
+    for(int i = 1; i &lt;= 5; ++i)
+        for(int j = 1; j &lt;= 5; ++j)
+        &#123;
+            if(matrix[i][j] != standard[i][j]) return false;
+        &#125;
+    return true;
+&#125;
+bool g(int matrix[6][6], int now)
+&#123;
+    int val = 0;
+    for(int i = 1; i &lt;= 5; ++i)
+        for(int j = 1; j &lt;= 5; ++j)
+        &#123;
+            if(matrix[i][j] != standard[i][j]) &#123;
+                val++;
+                if(val + now &gt; k) return false;
+            &#125;
+        &#125;
+    return true;
+&#125;
+void A_star(int st, int matrix[6][6], int x, int y)
+&#123;
+    if(st == k) &#123;if(jud(matrix)) sol = true; return;&#125;
+    if(sol) return;
+    for(int i = 0; i &lt; 8; ++i)
+    &#123;
+        int nx = x + dx[i], ny = y + dy[i];
+        if(nx &lt; 1 || nx &gt; 5 || ny &lt; 1 || ny &gt; 5) continue;
+        swap(matrix[x][y], matrix[nx][ny]);
+        if(g(matrix, st)) A_star(st + 1, matrix, nx, ny);
+        swap(matrix[x][y], matrix[nx][ny]);
+    &#125;
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d&quot;, &amp;T);
+    while(T--)
+    &#123;
+        sol = false;
+        memset(sts, 0, sizeof sts);
+        for(int i = 1; i &lt;= 5; ++i)
+        &#123;
+            scanf(&quot;%s&quot;, mtr[i] + 1);
+            for(int j = 1; j &lt;= 5; ++j)
+            &#123;
+                if(mtr[i][j] == &#39;*&#39;) sts[i][j] = 2, tagx = i, tagy = j;
+                else if(mtr[i][j] == &#39;0&#39;) sts[i][j] = 0;
+                else sts[i][j] = 1;
+            &#125;
+        &#125;
+        for(k = 1; k &lt;= 15; ++k)
+        &#123;
+            A_star(0, sts, tagx, tagy);
+            if(sol)&#123; printf(&quot;%d\n&quot;, k); break; &#125;
+        &#125;
+        if(!sol) puts(&quot;-1&quot;);
+    &#125;
+    return 0;
+&#125;</code></pre>
+<h3 id="Problem-3-BZOJ1598"><a href="#Problem-3-BZOJ1598" class="headerlink" title="Problem 3 BZOJ1598"></a>Problem 3 <a target="_blank" rel="noopener" href="https://www.lydsy.com/JudgeOnline/problem.php?id=1975">BZOJ1598</a></h3><p>$= BZOJ1975$</p>
+<p>利用A*每次找到最优解的性质，依次记录答案，不足的-1补齐即可。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;queue&gt;
+#include &lt;bitset&gt;
+
+using std::min;
+using std::max;
+using std::swap;
+using std::memset;
+using std::bitset;
+using std::queue;
+using std::priority_queue;
+
+const int maxn = 5002;
+const int maxm = 10005;
+const int maxp = 5e+6 + 5;
+
+struct edge
+&#123;
+    int to, nxt;
+    int v;
+&#125;e[maxm], re[maxm];
+int n, m, k;
+int lnk[maxn], ptr, rlnk[maxn], rptr;
+int dis[maxn], ans[105], num;
+bitset&lt;maxn&gt; vis;
+struct node
+&#123;
+    int id;
+    int g;
+    bool operator &lt; (const node &amp;rhs) const
+    &#123;
+        if(g + dis[id] == rhs.g + dis[rhs.id]) return g &gt; rhs.g;
+        return dis[id] + g &gt; dis[rhs.id] + rhs.g;
+    &#125;
+&#125;;
+priority_queue&lt;node&gt; hp;
+
+inline void add(int bgn, int end, int val, bool type)
+&#123;
+    if(type)
+    &#123;
+        e[++ptr] = (edge)&#123;end, lnk[bgn], val&#125;;
+        lnk[bgn] = ptr;
+    &#125;
+    else
+    &#123;
+        re[++rptr] = (edge)&#123;end, rlnk[bgn], val&#125;;
+        rlnk[bgn] = rptr;
+    &#125;
+&#125;
+inline void spfa()
+&#123;
+    //puts(&quot;spfa&quot;);
+    queue&lt;int&gt; q;
+    for(int i = 1; i &lt;= n; ++i) dis[i] = 0x3f3f3f3f;
+    dis[1] = 0; vis.set(1); q.push(1);
+    while(!q.empty())
+    &#123;
+        int u = q.front(); q.pop(); vis.reset(u);
+        for(int p = rlnk[u]; p; p = re[p].nxt)
+        &#123;
+            int y = re[p].to;
+            if(dis[y] &gt; dis[u] + re[p].v)
+            &#123;
+                dis[y] = dis[u] + re[p].v;
+                if(!vis.test(y))
+                &#123;
+                    q.push(y);
+                    vis.set(y);
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
+int tim[maxn];
+
+inline void A_star()
+&#123;
+    //puts(&quot;start&quot;);
+    hp.push((node)&#123;n, 0&#125;);
+    while(!hp.empty())
+    &#123;
+        node u = hp.top(); hp.pop();
+        if(tim[u.id] &gt;= k) continue;
+        if(u.id == 1)
+        &#123;
+            ans[tim[1]] = u.g;
+        &#125;
+        tim[u.id]++;
+        for(int p = lnk[u.id]; p; p = e[p].nxt)
+        &#123;
+            int y = e[p].to;
+            hp.push((node)&#123;y, u.g + e[p].v&#125;);
+        &#125;
+    &#125;
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    int u, v, w;
+    for(register int i = 1; i &lt;= m; ++i)
+        scanf(&quot;%d%d%d&quot;, &amp;u,&amp;v,&amp;w), add(u, v, w, 1), add(v, u, w, 0);
+    //puts(&quot;GG&quot;);
+    spfa();
+    A_star();
+    for(int i = 0; i &lt; tim[1]; ++i) printf(&quot;%d\n&quot;, ans[i]);
+    for(int i = tim[1]; i &lt; k; ++i) puts(&quot;-1&quot;);
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ4560 KMP,贪心,DP</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ4560 KMP,贪心,DP </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/28
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>充斥着浓浓的乱搞气息.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给一个母串, 和若干个子串. 问把每个子串放到可以匹配的某个位置上, 可以互相重叠, 最大和最小的覆盖长度是多少. 字串个数$\le 4$, 母串长$\le 10000$.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>最大贪心, 最小DP:</p>
+<p>解法稍后补.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1e+4 + 5;
+
+char line[maxn], mo[4][maxn];
+int n, len, nxt[maxn], l[4], idx[4];
+int MatchCount[4], pos[4][maxn], Matchable[4][maxn];
+int ban[4];
+int f[20][maxn], g[20][maxn], q[20][maxn];
+int op[20], ed[20];
+
+void KMP(int id, char *str, char *mod) &#123;//str : origin, mod : small
+  int n = strlen(str + 1), m = strlen(mod + 1);
+  memset(nxt, 0, sizeof nxt);
+  memset(Matchable[id], 0, sizeof (int) * maxn);
+  int j = 0; nxt[1] = 0;
+  for (int i = 2; i &lt;= m; ++i) &#123;
+    while (j &amp;&amp; mod[j + 1] != mod[i]) j = nxt[j];
+    if (mod[j + 1] == mod[i]) nxt[i] = ++j;
+    else nxt[i] = 0;
+  &#125;
+  j = 0; MatchCount[id] = 0;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    while (j &amp;&amp; mod[j + 1] != str[i]) j = nxt[j];
+    if (mod[j + 1] == str[i]) ++j;
+    if (j == m) &#123;
+      pos[id][++MatchCount[id]] = i - m + 1;
+      Matchable[id][i] = 1;
+      j = nxt[j];
+    &#125;
+  &#125;
+&#125;
+inline bool cmp(int a, int b) &#123;
+  return l[a] &gt; l[b];
+&#125;
+
+namespace MaxValue &#123;
+  void solve() &#123;
+    int ans = 0;
+    int *Permutation = new int[n];
+    for (int i = 0; i &lt; n; ++i) Permutation[i] = i;
+    memset(Matchable, 0, sizeof Matchable);
+    do &#123; 
+      int Limit = (1 &lt;&lt; (n - 1)) - 1;
+      for (int S = 0; S &lt;= Limit; ++S) &#123;
+        int x = pos[idx[Permutation[0]]][1] + l[idx[Permutation[0]]] - 1;
+        int res = l[idx[Permutation[0]]];
+        ans = max(ans, res);
+        bool flg = false;
+        for (int i = 1; i &lt; n; ++i) &#123;
+          int index = upper_bound(pos[idx[Permutation[i]]] + 1, 
+                                  pos[idx[Permutation[i]]] + 
+                                  MatchCount[idx[Permutation[i]]] + 1, 
+                                  x) - pos[idx[Permutation[i]]];
+          if (S &amp; (1 &lt;&lt; (i - 1))) &#123;
+            if (index &lt;= MatchCount[idx[Permutation[i]]] &amp;&amp;
+                pos[idx[Permutation[i]]][index] &gt; x) &#123;
+              res += l[idx[Permutation[i]]];
+              x = pos[idx[Permutation[i]]][index] + l[idx[Permutation[i]]] - 1;              
+            &#125; else &#123;
+              flg = true; 
+              break;
+            &#125;
+          &#125; else &#123;
+            index--;
+            if (index &amp;&amp; pos[idx[Permutation[i]]][index] &lt;= x) &#123;
+              res += l[idx[Permutation[i]]] - 
+                     (x - pos[idx[Permutation[i]]][index] + 1);
+              x = pos[idx[Permutation[i]]][index] + l[idx[Permutation[i]]] - 1;
+            &#125; else &#123;
+              flg = true;
+              break;
+            &#125;
+          &#125;
+          if (!flg) ans = max(ans, res);
+        &#125;
+      &#125;
+    &#125; while(next_permutation(Permutation, Permutation + n));
+    printf(&quot;%d\n&quot;, ans);
+    delete[] Permutation;
+  &#125;
+&#125;
+namespace MinValue &#123;
+  inline bool check(char *moA, char *moB) &#123;
+    int n = strlen(moA + 1), m = strlen(moB + 1);
+    for (int i = 1; i &lt;= n - m + 1; ++i) &#123;
+      bool flg = false;
+      for (int j = 1; j &lt;= m; ++j) 
+        if (moB[j] != moA[i + j - 1]) &#123;
+          flg = true;
+          break;
+        &#125;
+      if (!flg) return true;
+    &#125;
+    return false;
+  &#125;
+  void solve() &#123;
+    int Origin = (1 &lt;&lt; n) - 1, Limit(Origin);
+    memset(ban, 0, sizeof ban);
+    for (int i = 0; i &lt; n - 1; ++i)
+      for (int j = i + 1; j &lt; n; ++j)
+        if (!ban[idx[j]] &amp;&amp; check(mo[idx[i]], mo[idx[j]]))
+          ban[idx[j]] = 1, Origin ^= (1 &lt;&lt; j);
+    memset(f, 0x3f, sizeof f);
+    memset(g, 0x3f, sizeof g);
+    memset(f[0], 0, sizeof f[0]); 
+    memset(g[0], 0, sizeof g[0]);
+    for (int i = 0; i &lt;= Limit; ++i) op[i] = 1, ed[i] = 0;
+    for (int i = 1; i &lt;= len; ++i) &#123;
+      for (int S = 1; S &lt;= Limit; ++S) &#123;
+        if (S &amp; (S ^ Origin)) continue;
+        g[S][i] = g[S][i - 1];
+        for (int j = 0; j &lt; n; ++j) &#123;
+          if ((S &amp; (1 &lt;&lt; j)) &amp;&amp; Matchable[idx[j]][i]) &#123;
+            int preS = (S ^ (1 &lt;&lt; j));
+            if (i - l[idx[j]] &gt;= 0) 
+              f[S][i] = min(f[S][i], g[preS][i - l[idx[j]]] + l[idx[j]]);
+            while (op[preS] &lt;= ed[preS] &amp;&amp; q[preS][op[preS]] + l[idx[j]] &lt;= i)
+              ++op[preS];
+            if (op[preS] &lt;= ed[preS]) 
+              f[S][i] = min(f[S][i], 
+                            f[preS][q[preS][op[preS]]] - 
+                            q[preS][op[preS]] + i);
+            while (op[S] &lt;= ed[S] &amp;&amp; f[S][q[S][ed[S]]] - q[S][ed[S]] &gt;= f[S][i] - i)
+              --ed[S];
+            q[S][++ed[S]] = i;
+            g[S][i] = min(g[S][i], f[S][i]);
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+    printf(&quot;%d &quot;, g[Origin][len]);
+  &#125;
+&#125;ty
+
+int main() &#123;
+  int T; scanf(&quot;%d&quot;, &amp;T);
+  while (T--) &#123;
+    scanf(&quot;%s&quot;, line + 1); len = strlen(line + 1);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 0; i &lt; n; ++i)
+      scanf(&quot;%s&quot;, mo[i] + 1), l[i] = strlen(mo[i] + 1);
+    for (int i = 0; i &lt; n; ++i)
+      idx[i] = i;
+    sort(idx, idx + n, [](int a, int b) -&gt; bool &#123;return l[a] &gt; l[b];&#125;);
+    for (int i = 0; i &lt; n; ++i)
+      KMP(idx[i], line, mo[idx[i]]);
+    MinValue::solve();
+    MaxValue::solve();
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

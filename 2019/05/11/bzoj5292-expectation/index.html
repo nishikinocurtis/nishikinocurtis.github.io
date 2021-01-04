@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 5292 Expectation</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 5292 Expectation </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/5/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><del>No Abstracts.</del></p>
+<p>Now I have abstracts.</p>
+<p>Damn it! Useless IBus, now I cannot input Chinese!</p>
+<a id="more"></a>
+
+<h1 id="Des"><a href="#Des" class="headerlink" title="Des."></a>Des.</h1><p><a target="_blank" rel="noopener" href="https://lydsy.com/JudgeOnline/problem.php?id=5292">Click Here</a></p>
+<h1 id="Sol"><a href="#Sol" class="headerlink" title="Sol."></a>Sol.</h1><p>First  we make $f[i]$ as the probability of hit $i$ times among $k$ times in a  round. We can also get the probability of getting 1 life point back.</p>
+<p>So we get $p[i][j]$ as the probability of changing life points from $i$ to $j$ in one round.</p>
+<p>Then we can list the expectation of answers when our target have $i$ points left. That is:</p>
+<p>Notice that when one has $n$ points, he cannot get life increased.</p>
+<p>As we deal the expression, we would find that all expectations only  have to do with $E_1$ and $E_2$, so we can calculate the factor before  $E_1$ and $E_2$ for each $i$ in range $[1,n]$.</p>
+<pre><code class="C++">#include &lt;bits/stdc++.h&gt;
+#define mod 1000000007
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 1505;
+
+int n, k, m, P;
+ll f[maxn], p[maxn][maxn], a[maxn], b[maxn];
+
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % mod;
+    index &gt;&gt;= 1;
+    base = base * base % mod;
+  &#125;
+  return ret;
+&#125;
+inline void inc(ll &amp;lhs, const ll &amp;rhs) &#123;
+  lhs += rhs;
+  if (lhs &gt;= mod) lhs -= mod;
+&#125;
+
+int main() &#123;
+  int T = rd();
+  while (T--) &#123;
+    n = rd(); P = rd(); m = rd(); k = rd();
+    if (!k) &#123;
+      puts(&quot;-1&quot;);
+      continue;
+    &#125;
+    if (m == 0) &#123;
+      int rnd = 0;
+      if (k == 1) puts(&quot;-1&quot;);
+      else &#123;
+        while (P &gt; 0) rnd++, P = min(n, P + 1) - k;
+        printf(&quot;%d\n&quot;, rnd);
+      &#125;
+      continue;
+    &#125; 
+    for (int i = 0; i &lt;= n; ++i)
+      f[i] = 0;
+    ll Inv_mpls = quick_power(m + 1, mod - 2);
+    f[0] = 1;
+    int lim = min(n - 1, k);
+    for (int i = 1; i &lt;= lim; ++i)
+      f[i] = f[i - 1] * quick_power(i, mod - 2) % mod 
+             * (k - i + 1) % mod;
+    for (int i = 0; i &lt;= lim; ++i)
+      f[i] = f[i] * quick_power(m, k - i) % mod
+             * quick_power(quick_power(m + 1, k), mod - 2) % mod;
+    if (k &gt;= n) &#123;
+      f[n] = 1;
+      for (int i = 0; i &lt; n; ++i)
+        f[n] = (f[n] - f[i] + mod) % mod;
+    &#125;
+    for (int i = 0; i &lt;= n; ++i)
+      for (int j = 0; j &lt;= n; ++j)
+        p[i][j] = 0;
+    for (int i = 1; i &lt; n; ++i)
+      for (int j = 1; j &lt;= i + 1; ++j)
+        inc(p[i][j], (Inv_mpls * f[i - j + 1] + 
+                     m * Inv_mpls % mod * f[i - j]) % mod);
+    for (int i = 1; i &lt;= n; ++i)
+      inc(p[n][i], f[n - i]);
+    for (int i = 0; i &lt;= n; ++i)
+      a[i] = b[i] = 0;
+    a[1] = 1;
+    for (int i = 1; i &lt; n; ++i) &#123;
+      ll suma = a[i], sumb = (b[i] - 1 + mod) % mod;
+      for (int j = 1; j &lt;= i; ++j)
+        suma = (suma - p[i][j] * a[j] % mod + mod) % mod;
+      for (int j = 1; j &lt;= i; ++j)
+        sumb = (sumb - p[i][j] * b[j] % mod + mod) % mod;
+      ll inv = quick_power(p[i][i + 1], mod - 2);
+      a[i + 1] = suma * inv % mod;
+      b[i + 1] = sumb * inv % mod;
+    &#125;
+    ll suma = a[n], sumb = (1 - b[n] + mod) % mod;
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      suma = (suma - p[n][i] * a[i] % mod + mod) % mod;
+    &#125;
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      sumb = (sumb + p[n][i] * b[i]) % mod;
+    &#125;
+    ll x = 1ll * sumb * quick_power(suma, mod - 2) % mod;
+    ll ans = (a[P] * x + b[P]) % mod;
+    printf(&quot;%lld\n&quot;, ans);
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

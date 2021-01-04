@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || A Set Of Fun Problems 1</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>A Set Of Fun Problems 1 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/19
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>其实是偷懒不想写好多篇。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="BZOJ-1577"><a href="#BZOJ-1577" class="headerlink" title="BZOJ 1577"></a>BZOJ 1577</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>公交车一共经过$N(1 \le N \le 20000)$个站点，从站点$1$一直驶到站点$N$。</p>
+<p>$K（1 \le K \le 50000)$群奶牛希望搭乘这辆公交车。第$i$群牛一共有$M_i（1 \le M_i \le N)$只. 他们希望从$S_i$到$E_i$去。</p>
+<p>公交车只能坐$C(1 \le C \le 100)$只奶牛。而且不走重复路线，请计算这辆车最多能满足多少奶牛的要求。</p>
+<p>注意：对于每一群奶牛，可以部分满足，也可以全部满足，也可以全部不满足。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>贪心。</p>
+<p>线段树上维护区间min，按右端点排序，每次让当前时间下车的牛能上的都上车。</p>
+<p>右端点相同时，选左端点靠后的不会变差。</p>
+<p>区间减就可以了。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+const int maxn = 20005;
+const int maxm = 50005;
+
+struct grp
+&#123;
+    int l, r, cnt;
+    bool operator &lt; (const grp &amp;rhs) const
+    &#123;
+        return (r == rhs.r) ? (l &gt; rhs.l) : (r &lt; rhs.r);
+    &#125;
+&#125;cow[maxm];
+int n, m, c;
+int b[maxn];
+int mn[maxn &lt;&lt; 2], tag[maxn &lt;&lt; 2], ans;
+
+inline int rd()
+&#123;
+    register int x = 0; register char c = getchar();
+    while(!isdigit(c)) c = getchar();
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return x;
+&#125;
+inline void pushdown(int cur)
+&#123;
+    if(tag[cur])
+    &#123;
+        mn[cur &lt;&lt; 1] += tag[cur], mn[cur &lt;&lt; 1|1] += tag[cur];
+        tag[cur &lt;&lt; 1] += tag[cur], tag[cur &lt;&lt; 1|1] += tag[cur];
+        tag[cur] = 0;
+    &#125;
+&#125;
+inline void pushup(int cur)
+&#123;
+    mn[cur] = min(mn[cur &lt;&lt; 1], mn[cur &lt;&lt; 1|1]);
+&#125;
+void update(int cur, int l, int r, int L, int R, int c)
+&#123;
+    if(L &lt;= l &amp;&amp; r &lt;= R)
+    &#123;
+        mn[cur] += c; tag[cur] += c;
+        return;
+    &#125;
+    int mid = (l + r) &gt;&gt; 1; pushdown(cur);
+    if(L &lt;= mid) update(cur &lt;&lt; 1, l, mid, L, R, c);
+    if(R &gt; mid) update(cur &lt;&lt; 1|1, mid + 1, r, L, R, c);
+    pushup(cur);
+&#125;
+int query(int cur, int l, int r, int L, int R)
+&#123;
+    if(L &lt;= l &amp;&amp; r &lt;= R) return mn[cur];
+    int mid = (l + r) &gt;&gt; 1, ret = 0x3f3f3f3f; pushdown(cur);
+    if(L &lt;= mid) ret = query(cur &lt;&lt; 1, l, mid, L, R);
+    if(R &gt; mid) ret = min(ret, query(cur &lt;&lt; 1|1, mid + 1, r, L, R));
+    return ret;
+&#125;
+
+int main()
+&#123;
+    m = rd(); n = rd(); c = rd();
+    for(int i = 1; i &lt;= m; ++i)
+        cow[i].l = rd(), cow[i].r = rd(), cow[i].cnt = rd();
+    sort(cow + 1, cow + 1 + m);
+    update(1, 1, n, 1, n, c);
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        int now = query(1, 1, n, cow[i].l, cow[i].r - 1);
+        int delta = min(cow[i].cnt, now);
+        if(!delta) continue;
+        else 
+        &#123;
+            ans += delta; update(1, 1, n, cow[i].l, cow[i].r - 1, -delta);
+        &#125;
+    &#125;
+    printf(&quot;%d\n&quot;, ans);
+    return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-2216"><a href="#BZOJ-2216" class="headerlink" title="BZOJ 2216"></a>BZOJ 2216</h1><p>决策单调性DP。</p>
+<h2 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h2><p>给一个长度为$n$的序列 $a_1, a_2, \ldots, a_n$.</p>
+<p>对于每一个 $i \in [1, n]$, 计算最小的非负整数$p$, 使得对于任意$j$, 有$a_j \le a_i + p - \sqrt{|i-j|}$.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>第一眼以为是单调队列做的… 但其实信息没法转移的.</p>
+<p>第一次做一般的决策单调性优化, 平时都是斜率优化或者四边形不等式之类的…</p>
+<p>首先方程可以很容易的变个形: $p_i = min{ a_j + \sqrt{|i-j|} - a_i }$</p>
+<p>我们来证明决策点的单调性.</p>
+<p>考虑 $p_i$ 的最优决策点在 $g_i$. 那么有任意 $k &gt; 0$, 满足$a_{g_i - k} + \sqrt{i - g_i + k} \le a_{g_i} + \sqrt{i - g_i}$.</p>
+<p>然后sqrt的斜率是在降的, 因为 $\frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}}$.</p>
+<p>这样的话，我们将决策点向前移动时，就会有：</p>
+<p>$\because i - g_i + k &gt; i - g_i$</p>
+<p>$\therefore \sqrt{i + 1 - g_i + k} - \sqrt{i - g_i + k} &lt; \sqrt{i - g_i} - \sqrt{i + 1 - g_i}$</p>
+<p>$\therefore a_{g_i - k} + \sqrt{i + 1 - g_i + k} &lt; a_{g_i} + \sqrt{i + 1 - g_i}$</p>
+<p>也就是说， 在当前决策最优的情况下，下一位的决策点一定不会后退。</p>
+<p>这样我们在求解出一个 $p_i$ 后, 就可以二分地更新它可以作为后面多少个位置的决策点了.</p>
+<p>用一个三元组表示 $pos$ 决策点的有效区间 $[l, r]$, 在单调队列/单调栈中维护即可.</p>
+<p>这是通常意义的决策单调性优化DP.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cctype&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+const int maxn = 5e+5 + 5;
+
+struct node
+&#123;
+    int l, r, pos;
+&#125;q[maxn];
+int n, a[maxn];
+double f[maxn], g[maxn];
+
+inline int rd()
+&#123;
+    register int x = 0; register char c = getchar();
+    while(!isdigit(c)) c = getchar();
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return x;
+&#125;
+double calc(int x, int y)
+&#123;
+    return a[x] + sqrt(abs(x - y)) - a[y];
+&#125;
+int bins(node x, int y)
+&#123;
+    int l = x.l, r = x.r;
+    while(l &lt;= r)
+    &#123;
+        int mid = (l + r) &gt;&gt; 1;
+        if(calc(x.pos, mid) &gt; calc(y, mid))
+            l = mid + 1;
+        else r = mid - 1;
+    &#125;
+    return l;
+&#125;
+void solve(double *dp)
+&#123;
+    int hd = 1, tl = 0;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        q[hd].l++;
+        if(hd &lt;= tl &amp;&amp; q[hd].r &lt; q[hd].l) hd++;
+        if(hd &gt; tl || calc(i, n) &gt; calc(q[tl].pos, n))
+        &#123;
+            while(hd &lt;= tl &amp;&amp; calc(q[tl].pos, q[tl].l) &lt; calc(i, q[tl].l))
+                tl--;
+            if(hd &gt; tl)
+                q[++tl] = (node)&#123;i, n, i&#125;;
+            else
+            &#123;
+                int t = bins(q[tl], i);
+                q[tl].r = t - 1;
+                q[++tl] = (node)&#123;t, n, i&#125;;
+            &#125;
+        &#125;
+        dp[i] = calc(q[hd].pos, i);
+    &#125;
+&#125;
+
+int main()
+&#123;
+    n = rd();
+    for(int i = 1; i &lt;= n; ++i) a[i] = rd();
+    solve(f);
+    reverse(a + 1, a + 1 + n);
+    solve(g);
+    for(int i = 1; i &lt;= n; ++i)
+        printf(&quot;%d\n&quot;, max(0, (int)ceil(max(f[i], g[n - i + 1]))));
+    return 0;
+&#125;</code></pre>
+<p>Orz 黄学长, Miracle</p>
+<h1 id="BZOJ-5055"><a href="#BZOJ-5055" class="headerlink" title="BZOJ 5055"></a>BZOJ 5055</h1><p><del>膜法</del>树状数组.</p>
+<h2 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h2><p>给定长度为 $n$ 的序列 $a[]$.</p>
+<p>求出所有满足$i&lt;j&lt;k$ 且 $a_i&lt;a_j&lt;a_k$ 的 $a_i \times a_j \times a_k$ 的和</p>
+<p>即求 $\sum_{i &lt; j &lt; k \wedge a_i  &lt; a_j &lt; a_k} {a_i \times a_j \times a_k}$.</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>开始的想法是先求出一个数后面比他大的数的和， 计算出 $a_j \times a_k$ 那一部分，然后再做一次同样的事，计算第一个数。</p>
+<p>但其实有个更好想也好写的做法。就是直接把前面比这个数小的，后面比这个数大的，和自己乘起来，就可以直接累加答案了。</p>
+<p>树状数组维护即可。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;queue&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;cstdlib&gt;
+#include &lt;utility&gt;
+#include &lt;set&gt;
+#include &lt;cctype&gt;
+
+typedef long long ll;
+
+using namespace std;
+
+const ll p = 19260817;
+const int maxn = 3e+5 + 5;
+
+int n, a[maxn], cpy[maxn], rev[maxn], tot;
+ll presum[maxn], sufsum[maxn], ans;
+
+struct BIT
+&#123;
+    ll b[maxn];
+    BIT() &#123;memset(b, 0, sizeof b);&#125;
+    inline void add(int x, ll c) &#123;for(;x&lt;=tot;x+=(x&amp;-x)) b[x] = (b[x] + c) % p;&#125;
+    inline ll query(int x)&#123;ll ret(0); for(;x;x-=(x&amp;-x)) ret = (ret + b[x]) % p; return ret;&#125;
+&#125;bmn, bmx;
+
+inline int rd()
+&#123;
+    register int x = 0; register char c = getchar();
+    while(!isdigit(c)) c = getchar();
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return x;
+&#125;
+
+int main()
+&#123;
+    n = rd();
+    for(int i = 1; i &lt;= n; ++i) a[i] = cpy[i] = rd();
+    sort(cpy + 1, cpy + 1 + n);
+    tot = unique(cpy + 1, cpy + 1 + n) - (cpy + 1);
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        int p = lower_bound(cpy + 1, cpy + 1 + tot, a[i]) - cpy;
+        rev[p] = a[i]; a[i] = p;
+    &#125;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        presum[i] = bmn.query(a[i] - 1);
+        bmn.add(a[i], rev[a[i]] % p);
+    &#125;
+    for(int i = n; i &gt;= 1; --i)
+    &#123;
+        sufsum[i] = (bmx.query(tot) - bmx.query(a[i]) + p) % p;
+        bmx.add(a[i], rev[a[i]] % p);
+    &#125;
+    for(int i = 1; i &lt;= n; ++i)
+        ans = (ans + presum[i] * sufsum[i] % p * (ll)rev[a[i]] % p) % p;
+    printf(&quot;%lld\n&quot;, ans);
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

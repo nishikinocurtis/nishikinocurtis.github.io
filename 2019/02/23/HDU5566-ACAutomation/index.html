@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || HDU5566 AC自动机,树链剖分</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>HDU5566 AC自动机,树链剖分 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/23
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>一道串题. <del>栽在了树链剖分上.</del></p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>有一棵树, 每个节点有一个串, 每次询问一条路径和几个串, 问路径上最长的这个串的子串有多长.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>所有节点建AC自动机, 在一个串的结尾处打上一个Tag.</p>
+<p>然后把询问离线, 沿着AC自动机跑, 沿途打询问Tag.</p>
+<p>沿fail树DFS一遍AC自动机, 到一个节点时在线段树上更新一下, 向下DFS时这个点始终可以作为子串贡献. 离开这个点时撤回即可. 在每个节点的询问更新一下答案, 上面沿途经过的线段树更新都是询问串的子串, 所以可以树剖辅助查询.</p>
+<p>(于是我就多组数据没有清空重儿子</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+const int maxn = 1e+5 + 5;
+
+struct edge &#123;
+  int to, nxt;
+  edge(int to_ = 0, int n_ = 0):to(to_), nxt(n_)&#123;&#125;
+&#125;e[maxn &lt;&lt; 1];
+struct node &#123;
+  int len, id;
+  node(int l = 0, int i_ = 0):len(l), id(i_)&#123;&#125;
+&#125;;
+struct que &#123;
+  int x, y, id;
+  que(int x_ = 0, int y_ = 0, int i_ = 0):x(x_), y(y_), id(i_)&#123;&#125;
+&#125;;
+int n, lnk[maxn], ptr, F[maxn], dfn[maxn], dep[maxn];
+int top[maxn], mxson[maxn], siz[maxn], cnt, ans[maxn];
+int mx[maxn &lt;&lt; 2];
+char line[maxn];
+
+inline void add(int bgn, int end) &#123;
+  e[++ptr] = edge(end, lnk[bgn]);
+  lnk[bgn] = ptr;
+&#125;
+void dfs(int x) &#123;
+  int fa = F[x];
+  dep[x] = dep[fa] + 1;
+  siz[x] = 1;
+  mxson[x] = 0;
+  //F[x] = fa;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == fa) continue;
+    dfs(y);
+    siz[x] += siz[y];
+    if (siz[y] &gt; siz[mxson[x]]) mxson[x] = y;
+  &#125;
+&#125;
+void dfs2(int x, int init) &#123;
+  dfn[x] = ++cnt;
+  top[x] = init;
+  if (!mxson[x]) return;
+  dfs2(mxson[x], init);
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == mxson[x] || y == F[x]) continue;
+    dfs2(y, y);
+  &#125;
+&#125;
+void update(int cur, int l, int r, int p, int v) &#123;
+  if (l == r) &#123;
+    mx[cur] = v;
+    return;
+  &#125;
+  int mid = (l + r) &gt;&gt; 1;
+  if (p &lt;= mid) update(cur &lt;&lt; 1, l, mid, p, v);
+  else update(cur &lt;&lt; 1|1, mid + 1, r, p, v);
+  mx[cur] = max(mx[cur &lt;&lt; 1], mx[cur &lt;&lt; 1|1]);
+&#125;
+int query(int cur, int l, int r, int L, int R) &#123;
+  if (L &lt;= l &amp;&amp; r &lt;= R) return mx[cur];
+  int mid = (l + r) &gt;&gt; 1, ret = 0;
+  if (L &lt;= mid) ret = query(cur &lt;&lt; 1, l, mid, L, R);
+  if (R &gt; mid) ret = max(ret, query(cur &lt;&lt; 1|1, mid + 1, r, L, R));
+  return ret;
+&#125;
+inline int queryt(int x, int y) &#123;
+  int ret = 0;
+  while (top[x] != top[y]) &#123;
+    if (dep[top[x]] &lt; dep[top[y]]) swap(x, y);
+    ret = max(ret, query(1, 1, n, dfn[top[x]], dfn[x]));
+    x = F[top[x]];
+  &#125;
+  if (dep[x] &gt; dep[y]) swap(x, y);
+  ret = max(ret, query(1, 1, n, dfn[x], dfn[y]));
+  return ret;
+&#125;
+
+struct ACAutomation &#123;
+  int f[maxn], tr[maxn][26], tot;//, lst[maxn];
+  vector&lt;node&gt; t[maxn]; 
+  vector&lt;que&gt; q[maxn];
+  vector&lt;int&gt; v[maxn];
+  void clear() &#123;
+    //tot = 0;
+    memset(f, 0, sizeof f);
+    // memset(lst, 0, sizeof lst);
+    //memset(val, 0, sizeof val);
+    for (int i = 0; i &lt;= tot; ++i) &#123;
+      t[i].clear();
+      q[i].clear();
+      v[i].clear();
+      memset(tr[i], 0, sizeof tr[i]);
+    &#125;
+    tot = 0;
+  &#125;
+  void Insert(char *s, int id) &#123;
+    int l = strlen(s), now = 0;
+    for (int i = 0; i &lt; l; ++i) &#123;
+      int ch = s[i] - &#39;a&#39;;
+      if (!tr[now][ch]) tr[now][ch] = ++tot;
+      now = tr[now][ch];
+    &#125;
+    t[now].push_back(node(l, id));
+  &#125;
+  void build() &#123;
+    f[0] = 0;
+    queue&lt;int&gt; q;
+    for (int i = 0; i &lt; 26; ++i) &#123;
+      if (tr[0][i]) &#123;
+        q.push(tr[0][i]);
+        f[tr[0][i]] = 0;
+        v[0].push_back(tr[0][i]);
+      &#125;
+    &#125;
+    while (!q.empty()) &#123;
+      int u = q.front(); q.pop();
+      for (int i = 0; i &lt; 26; ++i) &#123;
+        if (!tr[u][i]) tr[u][i] = tr[f[u]][i];
+        else &#123;
+          f[tr[u][i]] = tr[f[u]][i];
+          q.push(tr[u][i]);
+          v[tr[f[u]][i]].push_back(tr[u][i]);
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+  void iquery(int x, int y, char *s, int id) &#123;
+    int now = 0, l = strlen(s);
+    for (int i = 0; i &lt; l; ++i) &#123;
+      int ch = s[i] - &#39;a&#39;;
+      now = tr[now][ch];
+      q[now].push_back(que(x, y, id));
+    &#125;
+  &#125;
+  void solve(int now) &#123;
+    // printf(&quot;vis %d\n&quot;, now);
+    for (int i = 0; i &lt; (int)t[now].size(); ++i) &#123;
+      update(1, 1, n, dfn[t[now][i].id], t[now][i].len);
+    &#125;
+    for (int i = 0; i &lt; (int)q[now].size(); ++i) &#123;
+      int idx = q[now][i].id;
+      // printf(&quot;query %d\n&quot;, idx);
+      ans[idx] = max(ans[idx], queryt(q[now][i].x, q[now][i].y));
+    &#125;
+    for (int i = 0; i &lt; (int)v[now].size(); ++i)
+      solve(v[now][i]);
+    for (int i = 0; i &lt; (int)t[now].size(); ++i)
+      update(1, 1, n, dfn[t[now][i].id], 0);
+  &#125;
+&#125;AC;
+
+int main() &#123;
+  int T; scanf(&quot;%d&quot;, &amp;T);
+  while (T--) &#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    memset(lnk, 0, sizeof lnk);
+    ptr = 0; cnt = 0;
+    AC.clear();
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      scanf(&quot;%s&quot;, line + 1);
+      AC.Insert(line + 1, i);
+    &#125;
+    AC.build();
+    int u, v;
+    for (int i = 2; i &lt;= n; ++i) &#123;
+      scanf(&quot;%d&quot;, &amp;F[i]);
+      add(F[i], i); add(i, F[i]);
+    &#125;
+    dfs(1);
+    dfs2(1, 1);
+    int m; scanf(&quot;%d&quot;, &amp;m);
+    for (int i = 1; i &lt;= m; ++i) &#123;
+      scanf(&quot;%d%d%s&quot;, &amp;u, &amp;v, line + 1);
+      AC.iquery(u, v, line + 1, i);
+      ans[i] = 0;
+    &#125;
+    AC.solve(0);
+    for (int i = 1; i &lt;= m; ++i) &#123;
+      printf(&quot;%d\n&quot;, ans[i]);
+    &#125;
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

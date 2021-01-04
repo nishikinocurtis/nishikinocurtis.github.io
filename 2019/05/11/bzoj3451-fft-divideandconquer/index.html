@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 3451 FFT, Divide and Conquer</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 3451 FFT, Divide and Conquer </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/5/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>No Abstracts.</p>
+<a id="more"></a>
+
+<h1 id="Des"><a href="#Des" class="headerlink" title="Des."></a>Des.</h1><p>Calculate the expectation of time complexity of Divide and Conquer when randomly choosing a center of a subtree.</p>
+<h1 id="Sol"><a href="#Sol" class="headerlink" title="Sol."></a>Sol.</h1><p>Enumerate  the center and the son and calculate the expectation, as $P(i,j) \times  1$ for $j$ is in $i$\’s subtree(in D&amp;C structure). Sum up all  $E(i,j)$ is correct.</p>
+<p>Convert the problem model again, $j$ is in $i$\’s subtree means that  we first chosen $i$ then chosen $j$ ignoring other nodes on that chain  between the 2 nodes. So the probability is $\frac{1}{dis(i,j)}$, notice  that $P(i,i)$ is 1.</p>
+<p>Thus we should calculate the total number of paths of each length,  using FFT to boost the process. The time complexity is $O(n \log^2n)$.</p>
+<pre><code class="C++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 30005;
+const int maxp = 270005;
+const double PI = acos(-1.0);
+
+struct comp &#123;
+  double r, i;
+  comp(double r_ = 0.0, double i_ = 0.0) : r(r_), i(i_) &#123;&#125;
+  inline comp operator+(comp rhs) &#123;
+    return comp(r + rhs.r, i + rhs.i);
+  &#125;
+  inline comp operator-(comp rhs) &#123;
+    return comp(r - rhs.r, i - rhs.i);
+  &#125;
+  inline comp operator*(comp rhs) &#123;
+    return comp(r * rhs.r - i * rhs.i, r * rhs.i + i * rhs.r);
+  &#125;
+  inline comp conj() &#123;
+    return comp(r, -i);
+  &#125;
+&#125;omega[maxp], _omega[maxp], A[maxp];
+struct edge &#123;
+  int to, nxt;
+&#125;e[maxn &lt;&lt; 1];
+int n, ptr, lnk[maxn], vis[maxn], mx[maxn];
+int siz[maxn], sum, glbmn, rt;
+int d[maxn], tot;
+int rev[maxp];
+int bkt[maxn &lt;&lt; 2];
+
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline void add(int bgn, int end) &#123;
+  e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+  lnk[bgn] = ptr;
+&#125;
+inline void FFT(comp *a, int N, int L, int typ) &#123;
+  for (int i = 0; i &lt; N; ++i)
+    rev[i] = (rev[i &gt;&gt; 1] &gt;&gt; 1) | ((i &amp; 1) &lt;&lt; (L - 1));
+  double round = 2.0 * PI / N;
+  for (int i = 0; i &lt; N; ++i) &#123;
+    if (typ == 1) &#123;
+      omega[i] = comp(cos(i * round), sin(i * round));
+    &#125; else &#123;
+      _omega[i] = comp(cos(i * round), -1.0 * sin(i * round));
+    &#125;
+  &#125;
+  comp *w = NULL;
+  if (typ == 1) w = omega;
+  else w = _omega;
+  for (int i = 0; i &lt; N; ++i)
+    if (i &gt; rev[i]) swap(a[i], a[rev[i]]);
+  for (int i = 2; i &lt;= N; i &lt;&lt;= 1) &#123;
+    int m = (i &gt;&gt; 1);
+    for (int j = 0; j &lt; N; j += i) &#123;
+      for (int k = 0; k &lt; m; ++k) &#123;
+        comp t = a[j + m + k] * w[N / i * k];
+        a[j + m + k] = a[j + k] - t;
+        a[j + k] = a[j + k] + t;
+      &#125;      
+    &#125;
+  &#125;
+  if (typ == -1) &#123;
+    for (int i = 0; i &lt; N; ++i)
+      a[i].r /= N;
+  &#125;
+&#125;
+void getroot(int x, int fa) &#123;
+  siz[x] = 1;
+  mx[x] = 0;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == fa || vis[y]) continue;
+    getroot(y, x);
+    siz[x] += siz[y];
+    mx[x] = max(mx[x], siz[y]);
+  &#125;
+  mx[x] = max(mx[x], sum - siz[x]);
+  if (mx[x] &lt; glbmn) 
+    glbmn = mx[x], rt = x;
+&#125;
+void getdep(int x, int fa, int dep) &#123;
+  d[++tot] = dep;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == fa || vis[y]) continue;
+    getdep(y, x, dep + 1);
+  &#125;
+&#125;
+void calc(int x, int dep, int tg) &#123;
+  tot = 0;
+  getdep(x, 0, dep);
+  int mxv = 0;
+  for (int i = 1; i &lt;= tot; ++i)
+    mxv = max(mxv, d[i]);
+  int N = 1, L = 0;
+  while (N &lt;= 2 * mxv) N &lt;&lt;= 1, L++;
+  for (int i = 0; i &lt; N; ++i) A[i].r = A[i].i = 0;
+  for (int i = 1; i &lt;= tot; ++i) A[d[i]].r++;
+  FFT(A, N, L, 1);
+  for (int i = 0; i &lt; N; ++i) A[i] = A[i] * A[i];
+  FFT(A, N, L, -1);
+  for (int i = 0; i &lt;= 2 * mxv; ++i) &#123;
+    if (tg) bkt[i] -= (int)(A[i].r + 0.5);
+    else bkt[i] += (int)(A[i].r + 0.5);
+  &#125;
+&#125;
+void solve(int x) &#123;
+  vis[x] = 1;
+  calc(x, 0, 0);
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (vis[y]) continue;
+    calc(y, 1, 1);
+    glbmn = 0x3f3f3f3f;
+    rt = 0;
+    sum = siz[y];
+    getroot(y, 0);
+    solve(rt);
+  &#125;
+&#125;
+
+int main() &#123;
+  n = rd();
+  int u, v;
+  for (int i = 1; i &lt; n; ++i) &#123;
+    u = rd(); v = rd();
+    ++u; ++v;
+    add(u, v); 
+    add(v, u);
+  &#125;
+  glbmn = 0x3f3f3f3f; rt = 0;
+  sum = n;
+  getroot(1, 0);
+  solve(rt);
+  long double ans = 0.0;
+  for (int i = 0; i &lt; n; ++i) &#123;
+    ans += (long double)bkt[i] / (i + 1);
+  &#125;
+  printf(&quot;%.4Lf\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

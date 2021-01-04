@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BubbleCup - Codeforces 1045 C</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BubbleCup - Codeforces 1045 C </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/24
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Codeforces" style=color:#ff7d73>
+                    Codeforces
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Heavy Light Decomposition &amp; Tarjan</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a simple connected graph.</p>
+<p>It is guaranteed that any set of points in a simple cycle includes a complete subgraph.</p>
+<p>Query Q times for the shortest path between two given points.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Every complete graph is a Biconnected Component of the graph.</p>
+<p>Thus we can construct a block-cut tree of this graph and calculate the path between points. </p>
+<p>Because of the extra distance between cut point and newly biconnected component point, we need to divide result by 2.</p>
+<p>Unfold for codes.</p>
+<!-- more -->
+
+<pre><code class="c++">//maki
+#pragma GCC optimize(2)
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int n, m, q;
+
+inline int rd()
+&#123;
+    register int x = 0; register char c = getchar();
+    while(!isdigit(c)) c = getchar();
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return x;
+&#125;
+
+namespace DCC
+&#123;
+    const int maxn = 1e+5 + 5;
+    const int maxm = 5e+5 + 5;
+    struct edge
+    &#123;
+        int to, nxt;
+    &#125;e[maxm &lt;&lt; 1];
+    struct cedge
+    &#123;
+        int to, nxt;     
+    &#125;ce[maxn &lt;&lt; 2];
+    int dfn[maxn], low[maxn], cnt, ID;
+    int lnk[maxn], clnk[maxn &lt;&lt; 1], cptr, ptr;
+    stack&lt;int&gt; st;
+
+    void add(int bgn, int end)
+    &#123;
+        e[++ptr].to = end;
+        e[ptr].nxt = lnk[bgn];
+        lnk[bgn] = ptr;
+    &#125;
+    void cadd(int bgn, int end)
+    &#123;
+        ce[++cptr].to = end;
+        ce[cptr].nxt = clnk[bgn];
+        clnk[bgn] = cptr;
+    &#125;
+
+    void tarjan(int x, int inv)
+    &#123;
+        dfn[x] = low[x] = ++cnt;
+        st.push(x);
+        for(int p = lnk[x]; p; p = e[p].nxt)
+        &#123;
+            int y = e[p].to;
+            if(!dfn[y])
+            &#123;
+                tarjan(y, x);
+                low[x] = min(low[x], low[y]);
+                if(low[y] &gt;= dfn[x])&#123;
+                    ID++; int now;
+                    cadd(x, ID);
+                    do &#123;
+                        now = st.top(); st.pop();
+                        cadd(ID, now);
+                    &#125; while(now != y);
+                &#125;
+            &#125;
+            else if(y != inv) low[x] = min(low[x], dfn[y]);
+        &#125;
+    &#125;
+
+    void main()
+    &#123;
+        ID = n;
+        tarjan(1, 0);
+        //cerr &lt;&lt; &quot;tarjan&quot; &lt;&lt; endl;
+        return;
+    &#125;
+&#125;;
+namespace LHD
+&#123;
+    using namespace DCC;
+    const int maxp = 2e+5 + 5;
+    int DFN[maxp], siz[maxp], mxson[maxp], dep[maxp];
+    int f[maxp], top[maxp];
+    //int dis[maxp];
+
+    void dfs1(int x, int fa, int d)
+    &#123;
+        //cerr &lt;&lt; &quot;dfs1&quot; &lt;&lt; endl;
+        f[x] = fa;
+        siz[x] = 1;
+        dep[x] = d;
+        for(register int p = clnk[x]; p; p = ce[p].nxt)
+        &#123;
+            int y = ce[p].to;
+            if(y == fa) continue;
+            dfs1(y, x, d + 1);
+            siz[x] += siz[y];
+            if(siz[y] &gt; siz[mxson[x]]) mxson[x] = y;
+        &#125;
+    &#125;
+    void dfs2(int x, int init)
+    &#123;
+        //cerr &lt;&lt; &quot;dfs2&quot; &lt;&lt; endl;
+        top[x] = init;
+        if(!mxson[x]) return;
+        dfs2(mxson[x], init);
+        for(register int p = clnk[x]; p; p = ce[p].nxt)
+        &#123;
+            int y = ce[p].to;
+            if(y == f[x] || y == mxson[x]) continue;
+            dfs2(y, y);
+        &#125;
+    &#125;
+    int lca(int x, int y)
+    &#123;
+        while(top[x] != top[y])
+        &#123;
+            if(dep[top[x]] &lt; dep[top[y]]) swap(x, y);
+            x = f[top[x]];
+        &#125;
+        return (dep[x] &lt; dep[y]) ? x : y;
+    &#125;
+    void main()
+    &#123;
+        dfs1(1, 0, 1);
+        dfs2(1, 1);
+        //cerr &lt;&lt; &quot;dfs&quot; &lt;&lt; endl;
+        int x, y;
+        while(q--)
+        &#123;
+            //cin &gt;&gt; x &gt;&gt; y;
+            x = rd(); y = rd();
+            int LCA = lca(x, y);
+            int dis = dep[x] + dep[y] - 2 * dep[LCA];
+            cout &lt;&lt; (dis / 2) &lt;&lt; endl;
+        &#125;
+    &#125;
+&#125;;
+
+int main()
+&#123;
+
+    //cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+    n = rd(); m = rd(); q = rd();
+    int u, v;
+    for(register int i = 1; i &lt;= m; ++i)
+    &#123;
+        //cin &gt;&gt; u &gt;&gt; v;
+        u = rd(); v = rd();
+        DCC::add(u, v); DCC::add(v, u);
+    &#125;
+    DCC::main();
+    LHD::main();
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

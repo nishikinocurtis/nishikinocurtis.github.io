@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || SPOJ-LCS,LCS2 SAM</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>SPOJ-LCS,LCS2 SAM </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/21
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>SuffixAutomation - 重拾。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="LCS-Longest-Common-Substring"><a href="#LCS-Longest-Common-Substring" class="headerlink" title="LCS - Longest Common Substring"></a>LCS - Longest Common Substring</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给两个长度$\le 250000$的小写字母串, 求最长公共子串.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>子串就是SAM了. 对其中一个建出SAM, 另一个在上面跑, 如果可以转移, 就直接转移, 长度加一, 否则跳父亲到可以转移, 自然是取$max_{\alpha}$了.</p>
+<p>如果都不行就回到根.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+const int maxn = 700005;
+
+int ans;
+char s1[maxn], s2[maxn];
+
+struct SuffixAutoMation
+&#123;
+  int tr[maxn][26], fa[maxn], mx[maxn];
+  int lst, cnt;
+  SuffixAutoMation() &#123;
+    lst = cnt = 1;
+  &#125;
+  void Insert(int c)  &#123;
+    int p = lst, np = ++cnt;
+    lst = np; mx[np] = mx[p] + 1;
+    for (; p &amp;&amp; !tr[p][c]; p = fa[p]) tr[p][c] = np;
+    if (!p) fa[np] = 1;
+    else &#123;
+      int q = tr[p][c];
+      if (mx[p] + 1 == mx[q]) fa[np] = q;
+      else &#123;
+        int nq = ++cnt;
+        mx[nq] = mx[p] + 1;
+        for (int i = 0; i &lt; 26; ++i) tr[nq][i] = tr[q][i];
+        fa[nq] = fa[q]; fa[q] = fa[np] = nq;
+        for (; tr[p][c] == q; p = fa[p]) tr[p][c] = nq;
+      &#125;
+    &#125;
+    //siz[np] = 1;
+  &#125;
+  void Build(int n) &#123;
+    for (int i = 1; i &lt;= n; ++i)
+      Insert(s1[i] - &#39;a&#39;);
+  &#125;
+  void Solve(int n) &#123;
+    int pos = 1, len = 0;
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      int ch = s2[i] - &#39;a&#39;;
+      if (tr[pos][ch]) len++, pos = tr[pos][ch];
+      else &#123;
+        for (; pos &amp;&amp; !tr[pos][ch]; ) pos = fa[pos];
+        if (pos) len = mx[pos] + 1, pos = tr[pos][ch];
+        else pos = 1, len = 0;
+      &#125;
+      ans = max(ans, len);
+    &#125;
+  &#125;
+&#125;SAM;
+
+int main() &#123;
+  scanf(&quot;%s%s&quot;, s1 + 1, s2 + 1);
+  int l1 = strlen(s1 + 1), l2 = strlen(s2 + 1);
+  SAM.Build(l1);
+  SAM.Solve(l2);
+  printf(&quot;%d\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+<h1 id="LCS2-Longest-Common-Substring"><a href="#LCS2-Longest-Common-Substring" class="headerlink" title="LCS2 - Longest Common Substring"></a>LCS2 - Longest Common Substring</h1><h2 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h2><p>还是小写字符串$(\le 100000)$, 不过增加到了$10$个.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>建一个SAM, 其他的分别在上面跑, 求出$ans_{\alpha}{2, 3, 4, \ldots,n}$, 和$max_{\alpha}$取个min.</p>
+<p>注意实现细节. </p>
+<p>由于跑了很多串, 可能出现匹配位置不同的情况, 注意parent树节点的儿子的答案可以拿来取max. 用$max$的拓扑性就好了.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+const int maxn = 3e+5 + 5;
+
+int n, ans;
+int a[maxn], b[maxn];
+char s[maxn];
+
+struct SuffixAutoMation
+&#123;
+  int tr[maxn][26], mx[maxn], sz[maxn], fa[maxn];
+  int lst, cnt;
+  int mxv[maxn], mnv[maxn];
+  SuffixAutoMation() &#123;
+    lst = cnt = 1;
+  &#125;
+  void Insert(int c) &#123;
+    int p = lst, np = ++cnt;
+    lst = np; mx[np] = mx[p] + 1;
+    for (; p &amp;&amp; !tr[p][c]; p = fa[p]) tr[p][c] = np;
+    if (!p) fa[np] = 1;
+    else &#123;
+      int q = tr[p][c];
+      if (mx[p] + 1 == mx[q]) fa[np] = q;
+      else &#123;
+        int nq = ++cnt;
+        mx[nq] = mx[p] + 1;
+        for (int i = 0; i &lt; 26; ++i) tr[nq][i] = tr[q][i];
+        fa[nq] = fa[q]; fa[q] = fa[np] = nq;
+        for (; tr[p][c] == q; p = fa[p]) tr[p][c] = nq;
+      &#125;
+    &#125;
+    sz[np] = 1;
+  &#125;
+  void RadixSort() &#123;
+    memset(b, 0, sizeof b);
+    for (int i = 1; i &lt;= cnt; ++i) b[mx[i]]++;
+    for (int i = 1; i &lt;= cnt; ++i) b[i] += b[i - 1];
+    for (int i = 1; i &lt;= cnt; ++i) a[b[mx[i]]--] = i;
+  &#125;
+  void Build(int n) &#123;
+    for (int i = 1; i &lt;= n; ++i) Insert(s[i] - &#39;a&#39;);
+    memset(mnv, 0x3f, sizeof mnv);
+  &#125;
+  void Work(int n) &#123;
+    int p = 1, len = 0;
+    //memset(mxv, 0, sizeof mxv);
+    for (int i = 1; i &lt;= n; ++i)  &#123;
+      int ch = s[i] - &#39;a&#39;;
+      if (tr[p][ch]) p = tr[p][ch], len++, mxv[p] = max(mxv[p], len);
+      else &#123;
+        for (; p &amp;&amp; !tr[p][ch]; ) p = fa[p];
+        if (p) len = mx[p] + 1, p = tr[p][ch], mxv[p] = max(mxv[p], len);
+        else p = 1, len = 0;
+      &#125;
+    &#125;
+    for (int i = cnt; i; --i) &#123;
+      int x = a[i], f = fa[x];
+      mxv[f] = max(mxv[f], min(mxv[x], mx[f]));
+      mnv[x] = min(mnv[x], mxv[x]);
+      mxv[x] = 0;
+    &#125;
+  &#125;
+  void CheckAns() &#123;
+    for (int i = 1; i &lt;= cnt; ++i) ans = max(ans, mnv[i]);
+  &#125;
+&#125;SAM;
+
+int main() &#123;
+  scanf(&quot;%s&quot;, s + 1);
+  //memset(mnv, 0x3f, sizeof mnv);
+  int l = strlen(s + 1);
+  SAM.Build(l);
+  SAM.RadixSort();
+  while (scanf(&quot;%s&quot;, s + 1) != EOF) &#123;
+
+    l = strlen(s + 1);
+    //if (!l) break;
+    ++n;
+    SAM.Work(l);
+  &#125;
+  SAM.CheckAns();
+  printf(&quot;%d\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

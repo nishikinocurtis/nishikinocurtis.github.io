@@ -1,0 +1,3002 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Tech &amp; Life</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    
+<div id="archives">
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2021/1/4" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2021/1/4</div>
+                <a href="/2021/01/04/2021-cpp-bootcamp/">
+                    <h3>2021 Academic Festival C++ Bootcamp Resources</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/resources">
+                            <span class="icon"><a-icon type="book" theme="filled" /></span>
+                            resources
+                        </a>
+                    </span>
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Cpp" style=color:#03a9f4>
+                                Cpp
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/bzoj3451-fft-divideandconquer/">
+                    <h3>BZOJ 3451 FFT, Divide and Conquer</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/bzoj4940-moalgo-tree-tech/">
+                    <h3>BZOJ 4940 Mo&#39;s Algorithm &amp; Tech of Tree</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/bzoj4662-segtree-ufs/">
+                    <h3>BZOJ 4662 Snow - SegmentTree, UFS</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/bzoj4229-lct-edcc/">
+                    <h3>Review - BZOJ 4229 LCT, UFS, BCC</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/bzoj5292-expectation/">
+                    <h3>BZOJ 5292 Expectation</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/5/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/5/11</div>
+                <a href="/2019/05/11/gtk-develop-note/">
+                    <h3>GTK Develop Notes</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Develop" style=color:#00a596>
+                                Develop
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/13" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/13</div>
+                <a href="/2019/03/13/bzoj5338-persistent-trie-lhd/">
+                    <h3>BZOJ 5338 可持久化01Trie</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/12" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/12</div>
+                <a href="/2019/03/12/bzoj-4008-expectation-dp/">
+                    <h3>BZOJ 4008 期望DP</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/12" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/12</div>
+                <a href="/2019/03/12/bzoj-5143-block/">
+                    <h3>BZOJ 5143 分块</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/11</div>
+                <a href="/2019/03/11/bzoj-cqoi-2018/">
+                    <h3>CQOI2018</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/11</div>
+                <a href="/2019/03/11/bzoj3625-ogf-polynomial/">
+                    <h3>BZOJ 3625 生成函数,多项式科技</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/6" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/6</div>
+                <a href="/2019/03/06/bzoj4484-bitset-toposort/">
+                    <h3>BZOJ 4484 暴力</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/6" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/6</div>
+                <a href="/2019/03/06/bzoj3995-segtree-minimal-spanning-tree-mst/">
+                    <h3>BZOJ 3995 线段树维护最小生成树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/6" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/6</div>
+                <a href="/2019/03/06/bzoj4598-divide-and-conquer-hash/">
+                    <h3>BZOJ 4598 点分治,Hash</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/bzoj3992-ogf-ntt/">
+                    <h3>BZOJ3992 数论,生成函数,NTT</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/burnside-combinatorics-color/">
+                    <h3>COLOR Burnside引理,组合数学</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/bzoj4337-hash-a-tree/">
+                    <h3>BZOJ4337 树hash</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/bzoj4810-moalgo-bitset/">
+                    <h3>BZOJ4810 莫队,Bitset</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/bzoj4455-dp-includingexcluding/">
+                    <h3>BZOJ4455 容斥DP</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/3" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/3</div>
+                <a href="/2019/03/03/bzoj4818-ogf-ntt/">
+                    <h3>BZOJ4818 生成函数,NTT</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/1" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/1</div>
+                <a href="/2019/03/01/bzoj4542-moalgo-math/">
+                    <h3>BZOJ 4542 莫队,数学</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/1" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/1</div>
+                <a href="/2019/03/01/bzoj4444-bzoj4082-doubling-greedy/">
+                    <h3>BZOJ4444&amp;4082 倍增</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/3/1" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/3/1</div>
+                <a href="/2019/03/01/bzoj4035-gametheory-sg/">
+                    <h3>BZOJ 4035 SG函数</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/28" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/28</div>
+                <a href="/2019/02/28/BZOJ4560-KMP-Greedy-DP/">
+                    <h3>BZOJ4560 KMP,贪心,DP</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/27" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/27</div>
+                <a href="/2019/02/27/BZOJ4785-Probability-SegTree/">
+                    <h3>BZOJ4785 概率, 二维线段树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/27" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/27</div>
+                <a href="/2019/02/27/BZOJ4524-Heap-NumberTheory-DP/">
+                    <h3>BZOJ4524 堆,乱搞,DP</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/27" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/27</div>
+                <a href="/2019/02/27/BZOJ4522-PollardRho/">
+                    <h3>模板 BZOJ4522 Pollard Rho</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/27" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/27</div>
+                <a href="/2019/02/27/BZOJ4564-Cactus-MoAlgo-Block/">
+                    <h3>BZOJ4564 仙人掌,莫队,分块</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ4568-SegTree-LHD-LinearBase/">
+                    <h3>BZOJ4568 线段树, 线性基</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ4538-SegTree-LHD/">
+                    <h3>BZOJ4538 线段树,堆,树链剖分</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ5291-SegTree/">
+                    <h3>链上二次求和-BZOJ5291 线段树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ5101-UFS-Counting/">
+                    <h3>POI2018 BZOJ5101 最小生成树,计数</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ4029-Simple/">
+                    <h3>BZOJ4029 贪心,加速</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ4523-Trie-Offline/">
+                    <h3>BZOJ4523 Trie树模拟</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/26" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/26</div>
+                <a href="/2019/02/26/BZOJ4520-KDTree-Heap/">
+                    <h3>K远点对-BZOJ4520 KD树,堆</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/25</div>
+                <a href="/2019/02/25/CF698C-Probability/">
+                    <h3>CF698C LRU 概率</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/25</div>
+                <a href="/2019/02/25/BZOJ4872-OI2017-Math-Expectation/">
+                    <h3>BZOJ4872 六省OI2017 数学期望</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/24" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/24</div>
+                <a href="/2019/02/24/CF666E-SAM-SegTree/">
+                    <h3>CF666E SAM,线段树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/23</div>
+                <a href="/2019/02/23/HDU5566-ACAutomation/">
+                    <h3>HDU5566 AC自动机,树链剖分</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/23</div>
+                <a href="/2019/02/23/BZOJ1488-Burnside-Polya/">
+                    <h3>BZOJ1488 Burnside引理,置换群计数题</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/22" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/22</div>
+                <a href="/2019/02/22/HDU4624-DP-math-Expectation/">
+                    <h3>HDU4624 DP,容斥,期望</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/21" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/21</div>
+                <a href="/2019/02/21/BZOJ3622-DP-math/">
+                    <h3>BZOJ3622 DP,容斥</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/21" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/21</div>
+                <a href="/2019/02/21/BZOJ4537-KDTree-UFS-DivideConquer/">
+                    <h3>BZOJ4537 并查集,KD树分治</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/21" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/21</div>
+                <a href="/2019/02/21/BZOJ3196-segTree-BIT/">
+                    <h3>模板 BZOJ3196 树套树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/20" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/20</div>
+                <a href="/2019/02/20/BZOJ4569-Doubling-UFS/">
+                    <h3>BZOJ4569 倍增,并查集</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/2/20" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/2/20</div>
+                <a href="/2019/02/20/HDU-5574/">
+                    <h3>HDU 5574 set</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2019/1/7" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2019/1/7</div>
+                <a href="/2019/01/07/JZPTREE-FallingFactorial/">
+                    <h3>JZPTREE Falling Factorial</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/25</div>
+                <a href="/2018/11/25/BZOJ-5250-Lagrange-GF-DP-SegTree/">
+                    <h3>BZOJ5250 秘密袭击 拉格朗日插值,线段树合并,生成函数</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/25</div>
+                <a href="/2018/11/25/BZOJ-2599-DivideAndConquer/">
+                    <h3>BZOJ 2599 Divide And Conquer</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/25</div>
+                <a href="/2018/11/25/BZOJ-3213-KMP-Expection/">
+                    <h3>BZOJ 3213 KMP Expectation</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/25</div>
+                <a href="/2018/11/25/BZOJ-3528-JuniorMath/">
+                    <h3>BZOJ 3528 Junior Math</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/23</div>
+                <a href="/2018/11/23/BZOJ-5415-KruskalTree/">
+                    <h3>BZOJ 5415 Kruskal重构树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/23</div>
+                <a href="/2018/11/23/BZOJ-2821-SqrtBlock/">
+                    <h3>BZOJ 2821 SqrtBlock</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/23</div>
+                <a href="/2018/11/23/BZOJ-5253-SAM-segTree/">
+                    <h3>BZOJ 5253 SAM,segTree</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/23</div>
+                <a href="/2018/11/23/BZOJ-5251-dinic/">
+                    <h3>BZOJ-5251-dinic</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/23" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/23</div>
+                <a href="/2018/11/23/BZOJ-3052-MoAlgo/">
+                    <h3>BZOJ 3052 树上带修莫队</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/22" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/22</div>
+                <a href="/2018/11/22/BZOJ4889-BIT-SegTree/">
+                    <h3>BZOJ4889 树套树</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/21" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/21</div>
+                <a href="/2018/11/21/LCS-LCS2-SAM-SPOJ/">
+                    <h3>SPOJ-LCS,LCS2 SAM</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ2944/">
+                    <h3>BZOJ2944 POI2000 代码</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ3122/">
+                    <h3>BZOJ3122 SDOI2013 随机数生成器</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ2565/">
+                    <h3>BZOJ2565 最长双回文串</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ4592/">
+                    <h3>BZOJ4592 SHOI2015 脑洞治疗仪</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ2200/">
+                    <h3>BZOJ2200</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/AHOI2005-BZOJ1969-LANE/">
+                    <h3>AHOI2005 BZOJ1969 航线规划</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/ASetOfFunProblemII/">
+                    <h3>A Set Of Fun Problems II</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/BZOJ1005/">
+                    <h3>BZOJ1005 明明的烦恼</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/5" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/5</div>
+                <a href="/2018/11/05/LuoguP1979/">
+                    <h3>Luogu P1979 华容道</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/11/1" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/11/1</div>
+                <a href="/2018/11/01/HNOI2016-BZOJ4262/">
+                    <h3>HNOI2016 BZOJ4540 序列</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/27" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/27</div>
+                <a href="/2018/10/27/APIO-2008-BZOJ-3624/">
+                    <h3>BZOJ 3624 APIO2008-免费道路</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/19" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/19</div>
+                <a href="/2018/10/19/ASetOfDPProblemsI/">
+                    <h3>A Set of Linear DP Problems 1</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/19" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/19</div>
+                <a href="/2018/10/19/ASetOfFunProblemI/">
+                    <h3>A Set Of Fun Problems 1</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/18" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/18</div>
+                <a href="/2018/10/18/CombinatoricsProblemsCF/">
+                    <h3>A series of Combinatorics Problems</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/18" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/18</div>
+                <a href="/2018/10/18/Codeforces511B/">
+                    <h3>Codeforces Round 511 Div.1 B</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#03a9f4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/18" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/18</div>
+                <a href="/2018/10/18/Codeforces511A/">
+                    <h3>Codeforces Round 511 Div.1 A</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#03a9f4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/17" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/17</div>
+                <a href="/2018/10/17/Contest-15-16/">
+                    <h3>Contest 20181015+16</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/10/2" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/10/2</div>
+                <a href="/2018/10/02/BubbleCup-CF1045G/">
+                    <h3>BubbleCup CF1045G AI Robot</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#ffa2c4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/25" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/25</div>
+                <a href="/2018/09/25/BZOJ3613/">
+                    <h3>BZOJ3613 HEOI2014 南园满地堆轻絮</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/24" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/24</div>
+                <a href="/2018/09/24/BubbleCup-CF1045C/">
+                    <h3>BubbleCup - Codeforces 1045 C</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#ffa2c4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/24" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/24</div>
+                <a href="/2018/09/24/CFER-51/">
+                    <h3>Educational Codeforces Round 51 Div.2</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#ffa2c4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/24" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/24</div>
+                <a href="/2018/09/24/CFR-509/">
+                    <h3>Codeforces Round 509 Div.2</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00bcd4>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#ffa2c4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/18" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/18</div>
+                <a href="/2018/09/18/CFR-510/">
+                    <h3>Codeforces Round 510 Div.2</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#03a9f4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/17" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/17</div>
+                <a href="/2018/09/17/BZOJ-3566/">
+                    <h3>BZOJ 3566</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/13" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/13</div>
+                <a href="/2018/09/13/CF-1036-E/">
+                    <h3>Codeforces Edu Round 50 Div.2 E</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/9/11" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/9/11</div>
+                <a href="/2018/09/11/CFR-508/">
+                    <h3>Codeforces Round 508 Div.2</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Codeforces" style=color:#03a9f4>
+                                Codeforces
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/19" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/19</div>
+                <a href="/2018/08/19/JZOJ3363-ACAM/">
+                    <h3>JZOJ3363 AC Automation!</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/16" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/16</div>
+                <a href="/2018/08/16/JZOJ5822-Trie/">
+                    <h3>JZOJ5822 Trie, Strings</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/15" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/15</div>
+                <a href="/2018/08/15/JZOJ-5819-DP-on-Trees/">
+                    <h3>JZOJ5819 DP on Tree</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ff7d73>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/13" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/13</div>
+                <a href="/2018/08/13/ComputationalGeometry/">
+                    <h3>Computational Geometry</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#ffa2c4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/10" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/10</div>
+                <a href="/2018/08/10/Astar/">
+                    <h3>A*搜索 初探</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#03a9f4>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+    <a-timeline>
+        <a-timeline-item timestamp="2018/8/10" placement="top" color="#a5c2f5">
+            <a-card hoverable>
+                <div class="item-time">2018/8/10</div>
+                <a href="/2018/08/10/GameTheory-DP/">
+                    <h3>Game Theory and DP</h3>
+                </a>
+                <div class="info">
+                    
+
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <a-icon type="tags" />
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/OI" style=color:#00a596>
+                                OI
+                            </a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </a-card>
+        </a-timeline-item>
+    </a-timeline>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

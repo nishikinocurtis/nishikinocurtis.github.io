@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 4035 SG函数</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 4035 SG函数 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/3/1
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>博弈论也不会……</p>
+<p>To Bouvardia: SG函数打表, 翻棋子模型.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>有一个长度为N的数组，甲乙两人在上面进行这样一个游戏：首先，数组上有一些格子是白的，有一些是黑的。然</p>
+<p>后两人轮流进行操作。每次操作选择一个白色的格子，假设它的下标为x。接着，选择一个大小在1~n/x之间的整数</p>
+<p>k，然后将下标为x、2x、…、kx的格子都进行颜色翻转。不能操作的人输。现在甲（先手）有一些询问。每次他</p>
+<p>会给你一个数组的初始状态，你要求出对于这种初始状态他是否有必胜策略。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p><strong>首先这游戏的限制不好满足, 我们转化一步</strong>.(没想到)</p>
+<p>转化成每个格子都可以选, 把格子全弄黑的人就赢了. 分析一下这个游戏. 假如A选了一个黑格子, 并且转换后对A有利的话, B一定可以把局面还原. 如果选白色格子, 对方还原了这个操作(选黑), 那么自己也同样可以再次还原, 也就是谁选黑色格子都没有意义. 也就是在新游戏中双方还是只会选白格子.</p>
+<p>但这时因为随便选, 每个格子就是独立的游戏了. 所以$sg[x] = mex{sg[x] \oplus sg[2x] \oplus \ldots \oplus sg[kx]}$.</p>
+<p>不过这样跑起来不快.</p>
+<p><del>考场上记得打表</del>可以发现当$n / i$相同时值相同, 可以被数论分块, 所以复杂度就变成$O(N)$了, 而且跳转是不满的, 所以常数小.</p>
+<p><del>大概都是膜题解才打的</del>.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxp = 105;
+const int maxb = 1e+5 + 5;
+
+int n, pri[maxb], bck[maxb], ptr;
+int sg[2][maxb];
+int bkt[maxb], val[maxb], cnt, blo;
+
+inline int getv(int x) &#123;
+  return x &gt; blo ? sg[1][n / x] : sg[0][x];
+&#125;
+void init() &#123;
+  int r;
+  for (int i = 1; i &lt;= n; i = r + 1) &#123;
+    r = n / (n / i);
+    // printf(&quot;add %d\n&quot;, i);
+    pri[++ptr] = i;
+    bck[ptr] = r;
+  &#125;
+  blo = sqrt(n);
+  for (int i = ptr; i; --i) &#123;
+    int pos = pri[i];
+    cnt = 0;
+    bkt[0] = 1; val[++cnt] = 0;
+    int xorv = 0;
+    for (int j = (pos &lt;&lt; 1); j &lt;= n; ) &#123;
+      int mul = j;
+      int fpos = n / (n / j) / pos * pos;
+      int num = (fpos - j) / pos + 1;
+      if (!num) continue;
+      int nval = xorv ^ getv(mul);
+      bkt[nval] = 1; val[++cnt] = nval;
+      if (num &amp; 1) xorv = nval;
+      j = fpos + pos;
+    &#125;
+    int v = 0;
+    while (bkt[v]) ++v;
+    if (pos &gt; blo) sg[1][n / pos] = v;
+    else sg[0][pos] = v;//, printf(&quot;solve %d\n&quot;, pos);
+    for (int j = 1; j &lt;= cnt; ++j)
+      bkt[val[j]] = 0;
+  &#125;
+&#125;
+
+int main() &#123;
+  // freopen(&quot;o.out&quot;, &quot;w&quot;, stdout);
+  scanf(&quot;%d&quot;, &amp;n);
+  init();
+  int T; scanf(&quot;%d&quot;, &amp;T);
+  /*for (int i = 1; i &lt;= n; ++i)
+    printf(&quot;%d &quot;, getv(i));
+  fclose(stdout);*/
+  // puts(&quot;&quot;);
+  while (T--) &#123;
+    int m, x, ans = 0; scanf(&quot;%d&quot;, &amp;m);
+    for (int i = 1; i &lt;= m; ++i) &#123;
+      scanf(&quot;%d&quot;, &amp;x); ans ^= getv(x);
+    &#125;
+    puts(ans ? &quot;Yes&quot; : &quot;No&quot;);
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ1488 Burnside引理,置换群计数题</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ1488 Burnside引理,置换群计数题 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/2/23
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>置换群是弱项.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>$n$个点, 本质不同的完全图有多少个.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>可以把$n \choose 2$的每条边视为黑/白, 也就是给完全图做染色了.</p>
+<p>但本题的同构定义在点的置换上, 我们需要做一些转化.</p>
+<p>考虑一个长为$x$的点循环节, 再考虑一条边, 如果两端都在这个循环节里, 那么这条边经过$x$轮就会回到原处(不考虑对称轴). 也就是一个循环途径了$x$条边.</p>
+<p>所以这样产生的边循环节有$\frac{x \choose 2}{x}$个. 大概是$\frac{2}{x}$. 偶数循环还要讨论一下对称轴.</p>
+<p>然后考虑一下不在同一循环节内的边是怎么被置换的, 一条横跨两个循环节的边, 一定经过$lcm(x,y)$轮回到开始, 对于所有横跨这两个循环节的边来说, 就有$\frac{xy}{lcm(x,y)}$个边循环节了, 也就是$gcd(x,y)​$.</p>
+<p>根据Polya就有本质不同的染色方案$\frac{1}{N!}\sum{2^{m}}$, 其中$m$是每种置换的边循环节个数.</p>
+<p>我们有点置换和边置换是一一对应的, 所以用枚举点置换的方法(枚举拆分)就可以算了.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+#define mod 997
+
+using namespace std;
+
+const int maxn = 61;
+
+typedef long long ll;
+
+int n;
+int val[maxn], num[maxn], cnt;
+ll fac[maxn], ans, inv[maxn], facinv[maxn], bin[maxn];
+
+int gcd(int a, int b) &#123;
+  return b ? gcd(b, a % b) : a;
+&#125;
+void init() &#123;
+  fac[0] = fac[1] = 1; inv[1] = 1;
+  facinv[0] = facinv[1] = 1;
+  for (int i = 2; i &lt;= n; ++i) &#123;
+    fac[i] = (fac[i - 1] * i) % mod;
+    inv[i] = inv[mod % i] * (mod - mod / i) % mod;
+    facinv[i] = facinv[i - 1] * inv[i] % mod;
+  &#125;
+&#125;
+inline ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % mod;
+    index &gt;&gt;= 1;
+    base = base * base % mod;
+  &#125;
+  return ret;
+&#125;
+void dfs(int curNum, int left) &#123;
+  if (!left) &#123;
+    ll loopCount = 0, permCount = 1;
+    for (int i = 1; i &lt;= cnt; ++i) &#123;
+      loopCount += (num[i] * (num[i] - 1) / 2 * val[i]) + (val[i] / 2 * num[i]);
+      for (int j = i + 1; j &lt;= cnt; ++j) &#123;
+        loopCount += num[i] * num[j] * gcd(val[i], val[j]);
+      &#125;
+    &#125;
+    for (int i = 1; i &lt;= cnt; ++i) &#123;
+      permCount = permCount * quick_power(val[i], num[i]) % mod * fac[num[i]] % mod;
+    &#125;
+    permCount = quick_power(permCount, mod - 2) * fac[n] % mod;
+    ans = (ans + quick_power(2, loopCount) * permCount % mod) % mod;
+    return;
+  &#125;
+  if (curNum &gt; left) return;
+  dfs(curNum + 1, left);
+  for (int i = 1; i * curNum &lt;= left; ++i) &#123;
+    val[++cnt] = curNum; num[cnt] = i;
+    dfs(curNum + 1, left - i * curNum);
+    --cnt;
+  &#125;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  init();
+  dfs(1, n);
+  ans = ans * facinv[n] % mod;
+  printf(&quot;%lld\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

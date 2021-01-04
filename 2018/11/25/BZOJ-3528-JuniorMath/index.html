@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 3528 Junior Math</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 3528 Junior Math </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/25
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Junior Math.</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a tree or loop-based tree consisting of $N$ points.</p>
+<p>Get the equation of linear regression of a set of points, then calculate the minimum distance from every point to the line.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Write down the expression of the equation of linear regression.</p>
+<p>Then split parts out.</p>
+<p>Image from <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhuohan123/">@zhuohan123</a></p>
+<p><img src="https://images0.cnblogs.com/i/553502/201404/302227119395860.jpg"></p>
+<p>Construct the sum arrays with doubling algorithm.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+const int maxn = 1e+5 + 5;
+const double eps = 1e-7;
+
+struct edge &#123;
+  int to, nxt;
+&#125;e[maxn &lt;&lt; 1];
+int n, m, ptr, lnk[maxn];
+int F[maxn][19], inc[maxn], dep[maxn], w[maxn];
+double x[maxn], y[maxn];
+struct data
+&#123;
+  int n;
+  double x, y, x2, y2, xy;
+  data() &#123;
+    n = 0;
+    x = y = x2 = y2 = xy = 0;
+  &#125;
+  data(double x_, double y_) &#123;
+    n = 1;
+    x = x_; y = y_; 
+    x2 = x * x; y2 = y * y;
+    xy = x * y;
+  &#125;
+  data(int n_, double x_, double y_, double x2_, double y2_, double xy_) &#123;
+    n = n_; x = x_; y = y_; x2 = x2_; y2 = y2_; xy = xy_;
+  &#125;
+  data operator + (const data &amp;rhs) &#123;
+    return data(n + rhs.n, x + rhs.x, y + rhs.y, x2 + rhs.x2, y2 + rhs.y2, xy + rhs.xy);
+  &#125;
+  data operator - (const data &amp;rhs) &#123;
+    return data(n - rhs.n, x - rhs.x, y - rhs.y, x2 - rhs.x2, y2 - rhs.y2, xy - rhs.xy);
+  &#125;
+  inline double AVGx() &#123;
+    return x / (double)n;
+  &#125;
+  inline double AVGy() &#123;
+    return y / (double)n;
+  &#125;
+  inline double A() &#123;
+    double ax = AVGx();
+    return x2 - 2.0 * ax * x + n * ax * ax;
+  &#125;
+  inline double B() &#123;
+    double ax = AVGx(), ay = AVGy();
+    return 2.0 * ay * x + 2.0 * ax * y - 2.0 * xy - 2.0 * n * ax * ay;
+  &#125;
+  inline double C() &#123;
+    double ay = AVGy();
+    return y2 - 2.0 * ay * y + n * ay * ay;
+  &#125;
+  inline double sigma() &#123;
+    if (n == 1) return 0;
+    double a = A(), b = B(), c = C();
+    //printf(&quot;%.6lf %.6lf %.6lf\n&quot;, a, b, c);
+    double sq = sqrt(a * a + b * b + c * c - 2 * a * c);
+    double sig1 = (a + c + sq) / 2, sig2 = (a + c - sq) / 2;
+    if (sig1 &gt; sig2) swap(sig1, sig2);
+    return sig1 &gt; -eps ? sig1 : sig2;
+  &#125;
+&#125;d[maxn];
+
+inline void add(int bgn, int end) &#123;
+  e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+  lnk[bgn] = ptr;
+&#125;
+inline int rd() &#123;
+  register int x = 0, f = 0, c = getchar();
+  while (!isdigit(c)) &#123;
+    if (c == &#39;-&#39;) f = 1;
+    c = getchar();
+  &#125;
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return f ? -x : x;
+&#125;
+
+namespace SolveTree &#123;
+  void dfs(int x) &#123;
+    dep[x] = dep[F[x][0]] + 1;
+    for (int i = 1; i &lt;= 17; ++i) 
+      F[x][i] = F[F[x][i - 1]][i - 1];
+    for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+      int y = e[p].to;
+      if (y == F[x][0]) continue;
+      d[y] = d[y] + d[x];
+      F[y][0] = x;
+      dfs(y);
+    &#125;
+  &#125;
+  inline int lca(int x, int y) &#123;
+    if (dep[x] &gt; dep[y]) swap(x, y);
+    for (int i = 17; ~i; --i) 
+      if (dep[F[y][i]] &gt;= dep[x]) y = F[y][i];
+    if (x == y) return x;
+    for (int i = 17; ~i; --i)
+      if (F[y][i] ^ F[x][i]) y = F[y][i], x = F[x][i];
+    return F[x][0];
+  &#125;
+  void main() &#123;
+    dfs(1);
+    int Q = rd(), u, v;
+    while (Q--) &#123;
+      u = rd(); v = rd(); int LCA = lca(u, v);
+      data res = d[u] + d[v] - d[LCA] - d[F[LCA][0]];
+      printf(&quot;%.5lf\n&quot;, res.sigma());
+    &#125;
+  &#125;
+&#125;
+namespace SolveCycle &#123;
+  int cyc[maxn &lt;&lt; 1], cptr, dfn, rev[maxn];
+  int cid[maxn &lt;&lt; 1];
+  data cyd[maxn &lt;&lt; 1];
+  bool findloop(int x, int fa) &#123;
+    rev[++dfn] = x; inc[x] = 1;
+    for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+      int y = e[p].to;
+      if (y == fa) continue;
+      if (inc[y]) &#123;
+        while (rev[dfn] != y) &#123;
+          cyc[++cptr] = rev[dfn];
+          cid[rev[dfn]] = cptr;
+          --dfn;
+        &#125;
+        cyc[++cptr] = y;
+        cid[y] = cptr;
+        return true;
+      &#125; else if (findloop(y, x)) return true;
+    &#125;
+    dfn--;
+    return (inc[x] = false);
+  &#125;
+  void dfs(int x, int bel) &#123;
+    w[x] = bel;
+    dep[x] = dep[F[x][0]] + 1;
+    for (int i = 1; i &lt;= 17; ++i) 
+      F[x][i] = F[F[x][i - 1]][i - 1];
+    for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+      int y = e[p].to;
+      if (y != F[x][0] &amp;&amp; !cid[y]) &#123;
+        d[y] = d[y] + d[x];
+        F[y][0] = x;
+        dfs(y, bel);
+      &#125;
+    &#125;
+  &#125;
+  inline int lca(int x, int y) &#123;
+    if (dep[x] &gt; dep[y]) swap(x, y);
+    for (int i = 17; ~i; --i) 
+      if (dep[F[y][i]] &gt;= dep[x]) y = F[y][i];
+    if (x == y) return x;
+    for (int i = 17; ~i; --i)
+      if (F[y][i] ^ F[x][i]) y = F[y][i], x = F[x][i];
+    return F[x][0];
+  &#125;
+  void main() &#123;
+    findloop(1, 0);
+    for (int i = 1; i &lt;= cptr; ++i) dfs(cyc[i], cyc[i]);
+    for (int i = 1; i &lt;= cptr; ++i) cyc[i + cptr] = cyc[i];
+    for (int i = 1; i &lt;= 2 * cptr; ++i) cyd[i] = cyd[i - 1] + d[cyc[i]];
+    int Q = rd(), u, v;
+    while (Q--) &#123;
+      u = rd(); v = rd();
+      if (w[u] == w[v]) &#123;
+        int LCA = lca(u, v); 
+        data res = d[u] + d[v] - d[LCA] - d[F[LCA][0]];
+        printf(&quot;%.6lf\n&quot;, res.sigma());
+      &#125; else &#123;
+        int anu = w[u], anv = w[v];
+        data resu = d[u] - d[anu], resv = d[v] - d[anv];
+        if (cid[anu] &gt; cid[anv]) swap(anu, anv);
+        data pre1 = cyd[cid[anv]] - cyd[cid[anu] - 1];
+        data pre2 = cyd[cid[anu] + cptr] - cyd[cid[anv] - 1];
+        printf(&quot;%.5lf\n&quot;, min((resu + resv + pre1).sigma(), (resu + resv + pre2).sigma()));
+      &#125;
+    &#125;
+  &#125;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd();
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    x[i] = rd(); 
+    y[i] = rd();
+    d[i] = data(x[i], y[i]);
+  &#125;
+  int u, v;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    u = rd(); v = rd();
+    add(u, v); 
+    add(v, u);
+  &#125;
+  if (m == n - 1) &#123;
+    SolveTree::main();
+  &#125; else &#123;
+    SolveCycle::main();
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || COLOR Burnside引理,组合数学</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>COLOR Burnside引理,组合数学 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/3/3
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>NULL.</p>
+<a id="more"></a>
+
+<p>每棵树插板法求所有染色+树内置换方案数, 放到环上.</p>
+<p>考虑循环节, 令一个循环节上所有相邻的点比对, 如果不同构则这个置换环失效, 不计算. </p>
+<p>一种合法情形背后的不动点贡献是循环节数$ \times \prod{sum}$, 刚才放到点上的值, 前循环节个数个做连乘积, 这是情况数, 每个可能都贡献循环节数个不动点, 贡献循环节数个置换操作.</p>
+<p>Burnside除一下.</p>
+<p><del>依然有点云里雾里, 貌似没读懂变量</del>.</p>
+<p><del>代码没调过不知道对不对</del>.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+#define mod 1000000007
+
+using namespace std;
+
+const int maxn = 1e+5 + 5;
+
+struct edge &#123;
+  int to, nxt;
+&#125;e[maxn];
+int ptr, lnk[maxn];
+int n, m, strat[maxn], out[maxn], inc[maxn];
+int hsh[maxn], bkt[maxn];
+vector&lt;int&gt; circ;
+
+int gcd(int a, int b) &#123;
+  return b ? gcd(b, a % b) : a;
+&#125;
+inline void add(int bgn, int end) &#123;
+  e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+  lnk[bgn] = ptr;
+&#125;
+inline ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % p;
+    index &gt;&gt;= 1;
+    base = base * base % p;
+  &#125;
+  return ret;
+&#125;
+inline ll C(int N, int M) &#123;
+  ll ret = 1;
+  for (int i = 2; i &lt;= M; ++i) ret = (ret * i) % mod;
+  ret = quick_power(ret, mod - 2);
+  for (int i = N; i &gt; N - M; --i)
+    ret = (ret * i) % mod;
+  return ret;
+&#125;
+typedef map&lt;int, int&gt;::iterator iter;
+void dfs(int x) &#123;
+  static int base = 1233;
+  static ll hs1 = 37ll;
+  static ll hs2 = 43ll;
+  map&lt;int, int&gt; cnt, val;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (inc[y]) continue;
+    dfs(y);
+    cnt[hsh[y]]++;
+    val[hsh[y]] = strat[y];
+  &#125;
+  hsh[x] = base; strat[x] = m;
+  for (iter i = cnt.begin(); i != cnt.end(); ++i) &#123;
+    hsh[x] = (hsh[x] * hs1 + i-&gt;first * hs2 + i-&gt;second) % mod;
+    strat[x] = (strat[x] * C(val[i-&gt;first] + i-&gt;second - 1, i-&gt;second)) % mod;
+  &#125;
+  hsh[x] = (hsh[x] * hs1 + 8761) % mod;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    scanf(&quot;%d&quot;, &amp;out[i]);
+    add(out[i], i);
+  &#125;
+  // replacable : findcircle
+  int o = 1;
+  for (int i = 1; i &lt;= n; ++i) o = out[o];
+  while (!inc[o]) &#123;
+    inc[o] = 1;
+    circ.push_back(o);
+    o = out[o];
+  &#125;
+  int cirsize = circ.size();
+  for (int i = 0; i &lt; cirsize; ++i)
+    dfs(circ[i]);
+  for (int i = 1; i &lt;= cirsize; ++i) &#123;
+    bkt[gcd(i, cirsize)]++;
+  &#125;
+  ll tot = 0, stb = 0;
+  for (int i = 0; i &lt; cirsize; ++i) &#123;
+    if (!i || !(cirsize % i)) &#123;
+      int x = gcd(i, cirsize); ll t = bkt[x];
+      bool sol = true;
+      for (int j = 0; j &lt; cirsize; ++j)
+        if (hsh[j] != hsh[(j + i) % k]) &#123;
+          sol = false;
+          break;
+        &#125;
+      if (sol) &#123;
+        tot = (tot + t) % p;
+        for (int j = 0; j &lt; t; ++j) t = t * strat[cir[j]] % p;
+        stb = (stb + t) % p;
+      &#125;
+    &#125;
+  &#125;
+  tot = stb * quick_power(tot, mod - 2) % p;
+  printf(&quot;%lld\n&quot;, tot); 
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

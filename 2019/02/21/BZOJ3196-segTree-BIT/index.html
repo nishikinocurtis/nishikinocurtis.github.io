@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curtis&#39; Blog || Hello World</title>
+    <title>Curtis&#39; Blog || 模板 BZOJ3196 树套树</title>
     <meta name="author" content="Qiutong Men">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
-    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="icon" href="//images/avatar.jpg">
     <link rel="stylesheet" href="/css/antd.min.css">
     
     <link rel="stylesheet" href="/css/full-theme.css">
@@ -54,35 +54,35 @@
             <span>
                 <a-icon type="home" theme="filled" />
             </span>
-            <span>home</span>
+            <span>Home</span>
         </a>
         
         <a href="/about">
             <span>
                 <a-icon type="idcard" theme="filled" />
             </span>
-            <span>about</span>
+            <span>About</span>
         </a>
         
         <a href="/archives">
             <span>
                 <a-icon type="folder" theme="filled" />
             </span>
-            <span>archives</span>
+            <span>Archives</span>
         </a>
         
-        <a href="/like/categories">
+        <a href="/categories">
             <span>
                 <a-icon type="book" theme="filled" />
             </span>
-            <span>categories</span>
+            <span>Categories</span>
         </a>
         
-        <a href="/like/tags">
+        <a href="/tags">
             <span>
                 <a-icon type="tags" theme="filled" />
             </span>
-            <span>tags</span>
+            <span>Tags</span>
         </a>
         
     </div>
@@ -101,7 +101,7 @@
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="home" theme="filled" />
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
                 </div>
             </a>
             
@@ -110,7 +110,7 @@
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="idcard" theme="filled" />
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
                 </div>
             </a>
             
@@ -119,25 +119,25 @@
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="folder" theme="filled" />
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
                 </div>
             </a>
             
-            <a href="/like/categories">
+            <a href="/categories">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="book" theme="filled" />
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
                 </div>
             </a>
             
-            <a href="/like/tags">
+            <a href="/tags">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="tags" theme="filled" />
                     </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
                 </div>
             </a>
             
@@ -153,31 +153,182 @@
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>Hello World </h1>
+        <h1>模板 BZOJ3196 树套树 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2021/1/4
+            2019/2/21
         </span>
 
         
 
         
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
 
     <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>模板树套树.</p>
+<a id="more"></a>
+
+<h1 id="树状数组套主席树"><a href="#树状数组套主席树" class="headerlink" title="树状数组套主席树"></a>树状数组套主席树</h1><p>主席树维护每个点的前缀权值情况.</p>
+<p>树状数组维护区间.</p>
+<p>想法比较直观.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using namespace std;
+
+const int maxn = 3e+5 + 5;
+const int maxp = maxn * 50;
+
+struct opt
+&#123;
+  int typ, a, b, c;
+&#125;opl[maxn];
+int n, m, lp[maxn], rp[maxn];
+int id[maxn], s[maxn];
+int ls[maxp], rs[maxp], su[maxp], cnt;
+int val[maxn], cpy[maxn], tot;
+
+inline int rd() &#123;
+  register int x = 0, f = 0, c = getchar();
+  while (!isdigit(c)) &#123;
+    if (c == &#39;-&#39;) f = 1;
+    c = getchar();
+  &#125;
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return f ? -x : x;
+&#125;
+inline void init(int l, int r) &#123;
+  for (; l; l -= (l &amp; -l)) lp[l] = id[l];
+  for (; r; r -= (r &amp; -r)) rp[r] = id[r];
+&#125;
+inline void toLeft(int l, int r) &#123;
+  for (; l; l -= (l &amp; -l)) lp[l] = ls[lp[l]];
+  for (; r; r -= (r &amp; -r)) rp[r] = ls[rp[r]];
+&#125;
+inline void toRight(int l, int r) &#123;
+  for (; l; l -= (l &amp; -l)) lp[l] = rs[lp[l]];
+  for (; r; r -= (r &amp; -r)) rp[r] = rs[rp[r]];
+&#125;
+inline int getLeft(int x, int *p) &#123;
+  int ret = 0; for (; x; x -= (x &amp; -x)) ret += su[ls[p[x]]];
+  return ret;
+&#125;
+int update(int lst, int l, int r, int p, int x) &#123;
+  int newrt = ++cnt;
+  ls[newrt] = ls[lst]; rs[newrt] = rs[lst];
+  su[newrt] = su[lst] + x;
+  if (l == r) return newrt;
+  int mid = (l + r) &gt;&gt; 1;
+  if (p &lt;= mid) ls[newrt] = update(ls[lst], l, mid, p, x);
+  else rs[newrt] = update(rs[lst], mid + 1, r, p, x);
+  return newrt;
+&#125;
+int getRank(int l, int r, int L, int R, int x) &#123;
+  if (l == r) return 0;
+  int mid = (l + r) &gt;&gt; 1;
+  if (x &lt;= mid) &#123;
+    toLeft(L, R);
+    return getRank(l, mid, L, R, x);
+  &#125; else &#123;
+    int tmp = getLeft(R, rp) - getLeft(L, lp);
+    toRight(L, R);
+    return getRank(mid + 1, r, L, R, x) + tmp;
+  &#125;
+&#125;
+int getKth(int l, int r, int L, int R, int k) &#123;
+  if (l == r) return cpy[l];
+  int mid = (l + r) &gt;&gt; 1;
+  int tmp = getLeft(R, rp) - getLeft(L, lp);
+  if (k &lt;= tmp) &#123;
+    toLeft(L, R);
+    return getKth(l, mid, L, R, k);
+  &#125; else &#123;
+    toRight(L, R);
+    return getKth(mid + 1, r, L, R, k - tmp);
+  &#125;
+&#125;
+inline void add(int p, int x, int v) &#123;
+  for (; p &lt;= n; p += (p &amp; -p)) id[p] = update(id[p], 1, tot, x, v);
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd();
+  for (int i = 1; i &lt;= n; ++i) val[i] = cpy[i] = rd();
+  tot = n;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    opl[i].typ = rd();
+    if (opl[i].typ == 3) &#123;
+      opl[i].a = rd();
+      opl[i].b = rd();
+      cpy[++tot] = opl[i].b;
+    &#125; else &#123;
+      opl[i].a = rd();
+      opl[i].b = rd();
+      opl[i].c = rd();
+      if (opl[i].typ != 2) cpy[++tot] = opl[i].c;
+    &#125;
+  &#125;
+  sort(cpy + 1, cpy + 1 + tot);
+  tot = unique(cpy + 1, cpy + 1 + tot) - (cpy + 1);
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    int x = lower_bound(cpy + 1, cpy + 1 + tot, val[i]) - cpy;
+    add(i, x, 1);
+  &#125;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    if (opl[i].typ == 3) &#123;
+      int pos = opl[i].a, newval = opl[i].b;
+      int ori = lower_bound(cpy + 1, cpy + 1 + tot, val[pos]) - cpy;
+      int upd = lower_bound(cpy + 1, cpy + 1 + tot, newval) - cpy;
+      add(pos, ori, -1);
+      val[pos] = newval;
+      add(pos, upd, 1);
+    &#125; else &#123;
+      int ql = opl[i].a - 1, qr = opl[i].b, qv;
+      init(ql, qr);
+      if (opl[i].typ != 2) qv = lower_bound(cpy + 1, cpy + 1 + tot, opl[i].c) - cpy;
+      if (opl[i].typ == 1) printf(&quot;%d\n&quot;, getRank(1, tot, ql, qr, qv) + 1);
+      else if (opl[i].typ == 2) printf(&quot;%d\n&quot;, getKth(1, tot, ql, qr, opl[i].c));
+      else if (opl[i].typ == 4) &#123;
+        int k = getRank(1, tot, ql, qr, qv);
+        if (!k) puts(&quot;-2147483647&quot;);
+        else &#123;
+          init(ql, qr);
+          printf(&quot;%d\n&quot;, getKth(1, tot, ql, qr, k));
+        &#125;
+      &#125; else &#123;
+        int k = getRank(1, tot, ql, qr, qv + 1);
+        if (k &gt; opl[i].b - opl[i].a) puts(&quot;2147483647&quot;);
+        else &#123;
+          init(ql, qr);
+          printf(&quot;%d\n&quot;, getKth(1, tot, ql, qr, k + 1));
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+  return 0;
+&#125;</code></pre>
+<h1 id="线段树套平衡树"><a href="#线段树套平衡树" class="headerlink" title="线段树套平衡树"></a>线段树套平衡树</h1><p>等待填坑.</p>
 
     </div>
 
@@ -193,7 +344,7 @@
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 2020 - 2021 Curtis&#39; Blog
+            © 2018 - 2021 Curtis&#39; Blog
             <span class="footer-icon">
                 <a-icon type="flag" theme="filled" /></span>
             @Qiutong Men

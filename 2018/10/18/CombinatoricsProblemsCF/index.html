@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || A series of Combinatorics Problems</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>A series of Combinatorics Problems </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/18
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Problem Set.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>To improve the ability of solving combinatorics problems (with math, dp, graph theory or others), I wrote this to help record experiences.</p>
+<h1 id="Codeforces-57-C-Array"><a href="#Codeforces-57-C-Array" class="headerlink" title="Codeforces 57 C Array"></a>Codeforces 57 C Array</h1><p><a target="_blank" rel="noopener" href="https://bouvardia73.github.io/files/57c.pdf">Solution</a></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 1e+5 + 5;
+const ll p = 1e+9 + 7;
+
+int n;
+ll fac[maxn], inv[maxn], ans;
+
+ll quick_power(ll base, ll index) &#123;
+  ll ret = 1;
+  while (index) &#123;
+    if (index &amp; 1) ret = ret * base % p;
+    base = base * base % p;
+    index &gt;&gt;= 1;
+  &#125;
+  return ret;
+&#125;
+inline ll C(int nn, int mm) &#123;
+  return fac[nn] * inv[mm] % p * inv[nn - mm] % p;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  fac[0] = inv[0] = fac[1] = inv[1] = 1ll;
+  for (int i = 2; i &lt;= n; ++i) &#123;
+    fac[i] = fac[i - 1] * (ll)i % p;
+    inv[i] = quick_power(fac[i], p - 2);
+  &#125;
+  for (int i = 1; i &lt;= n; ++i)&#123;
+    ll tmp = C(n, i) * C(n - 1, i - 1) % p;
+    ans = (ans + tmp) % p;
+  &#125;
+  ans = (ans * 2ll % p - n + p) % p;
+  cout &lt;&lt; ans &lt;&lt; endl;
+  return 0;
+&#125;</code></pre>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Begin solving combinatorics problems today. Need to improve the ability of recognize the model behind the problem. At first, I didn’t realize the way of choosing and using numbers, which leads to the failure of solving problem.</p>
+<h1 id="Codeforces-223-C-Partial-Sums"><a href="#Codeforces-223-C-Partial-Sums" class="headerlink" title="Codeforces 223 C Partial Sums"></a>Codeforces 223 C Partial Sums</h1><p><a target="_blank" rel="noopener" href="https://bouvardia73.github.io/files/223c.pdf">Solution</a></p>
+<h2 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+typedef long long ll;
+const ll p = 1e+9 + 7;
+const int maxn = 2005;
+int n, k;
+ll inv[maxn], a[maxn], c[maxn], s[maxn];
+void init() &#123;
+  inv[1] = 1;
+  for (int i = 2; i &lt;= 2000; ++i) &#123;
+    inv[i] = (-(p/i) + p) * inv[p % i] % p;
+  &#125;
+&#125;
+int main() &#123;
+  init();
+  ios::sync_with_stdio(false);
+  cin.tie(0); cout.tie(0);
+  cin &gt;&gt; n &gt;&gt; k;
+  for (int i = 1; i &lt;= n; ++i) cin &gt;&gt; a[i];
+
+  if(!k) &#123;
+    for(int i = 1; i &lt;= n; ++i) s[i] = a[i];
+  &#125; else &#123;
+    c[1] = 1;
+    for (int i = 2; i &lt;= n; ++i) c[i] = c[i - 1] * (k + i - 2) % p * inv[i - 1] % p;
+    for (int i = 1; i &lt;= n; ++i)
+      for (int j = 1; j &lt;= i; ++j) s[i] = (s[i] + c[i - j + 1] * a[j] % p) % p;
+  &#125;
+  for (int i = 1; i &lt;= n; ++i) cout &lt;&lt; s[i] &lt;&lt; &quot; &quot;;
+  cout &lt;&lt; endl;
+  return 0;
+&#125;</code></pre>
+<h1 id="Codeforces-296-B-Yaroslav-and-Two-Strings"><a href="#Codeforces-296-B-Yaroslav-and-Two-Strings" class="headerlink" title="Codeforces 296 B Yaroslav and Two Strings"></a>Codeforces 296 B Yaroslav and Two Strings</h1><p>Reversing Problem.</p>
+<p><a target="_blank" rel="noopener" href="https://bouvardia73.github.io/files/296b.pdf">Solution</a></p>
+<h2 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+typedef long long ll;
+const int maxn = 1e+5 + 5;
+const ll mod = 1e+9 + 7;
+int n;
+ll tot, sle, wle, equ;
+char s[maxn], w[maxn];
+inline void solve1() &#123;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (s[i] == &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) sle = sle * 55 % mod;
+    else if (s[i] == &#39;?&#39; &amp;&amp; w[i] != &#39;?&#39;) sle = sle * (w[i] - &#39;0&#39; + 1) % mod;
+    else if (s[i] != &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) sle = sle * (10 - (s[i] - &#39;0&#39;)) % mod;
+    else if (s[i] - &#39;0&#39; &gt; w[i] - &#39;0&#39;) &#123;
+      sle = 0; break;
+    &#125;
+  &#125;
+&#125;
+inline void solve2() &#123;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (s[i] == &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) wle = wle * 55 % mod;
+    else if (s[i] == &#39;?&#39; &amp;&amp; w[i] != &#39;?&#39;) wle = wle * (10 - (w[i] - &#39;0&#39;)) % mod;
+    else if (s[i] != &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) wle = wle * (s[i] - &#39;0&#39; + 1) % mod;
+    else if (s[i] - &#39;0&#39; &lt; w[i] - &#39;0&#39;) &#123;
+      wle = 0; break;
+    &#125;
+  &#125;
+&#125;
+inline void solve3() &#123;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (s[i] == &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) equ = equ * 10 % mod;
+    else if (s[i] != &#39;?&#39; &amp;&amp; w[i] == &#39;?&#39;) continue;
+    else if (s[i] == &#39;?&#39; &amp;&amp; w[i] != &#39;?&#39;) continue;
+    else if (s[i] - &#39;0&#39; != w[i] - &#39;0&#39;)  &#123;
+      equ = 0; break;
+    &#125;
+  &#125;
+&#125;
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  scanf(&quot;%s&quot;, s + 1); scanf(&quot;%s&quot;, w + 1);
+  tot = 1;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    if (s[i] == &#39;?&#39;) tot = tot * 10ll % mod;
+    if (w[i] == &#39;?&#39;) tot = tot * 10ll % mod;
+  &#125;
+  sle = 1; wle = 1; equ = 1;
+  solve1(); solve2(); solve3();
+  cout &lt;&lt; (tot - sle - wle + equ + mod) % mod &lt;&lt; endl;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

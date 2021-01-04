@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ 4940 Mo&#39;s Algorithm &amp; Tech of Tree</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ 4940 Mo&#39;s Algorithm &amp; Tech of Tree </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/5/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ff7d73>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>No Abstracts.</p>
+<p>I can still not type Chinese now. sad.</p>
+<a id="more"></a>
+
+<h1 id="Des"><a href="#Des" class="headerlink" title="Des."></a>Des.</h1><p>Giving  you a tree and $Q$ operations, they might be change the root of the  tree or query the number of pairs with the same value in two subtrees.</p>
+<h1 id="Sol"><a href="#Sol" class="headerlink" title="Sol."></a>Sol.</h1><p><strong>Tree Tech:</strong>  We’ve known that changing the root of a tree doesn’t destroy the  structure of the tree, and a subtree will be divided into at most 2  parts, so the questions are still for intervals.</p>
+<p>But how to deal the questions on intervals? It have a prerequisite problem <a target="_blank" rel="noopener" href="https://lydsy.com/JudgeOnline/problem.php?id=5016">BZOJ 5016</a>,  according from it we can convert interval problem to a prefix problem,  as: $P(r_1, r_2) - P(l_1 - 1, r_2) - P(r_1, l_2 - 1) + P(l_1 - 1, l_2 -  1)$, where P is the answer of 2 prefixes. And a prefix problem can be  update in $O(1)$ time, so itcan be solved with Mo’s Algorithm.</p>
+<pre><code class="C++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+
+const int maxn = 1e+5 + 5;
+const int maxm = 5e+5 + 5;
+
+int bel[maxn];
+struct Q &#123;
+  int l, r, tg, id;
+  inline bool operator&lt;(const Q &amp;rhs) const &#123;
+    return bel[l] == bel[rhs.l] ? r &lt; rhs.r : bel[l] &lt; bel[rhs.l];
+  &#125;
+&#125;q[maxm * 9];
+struct edge &#123;
+  int to, nxt;
+&#125;e[maxn &lt;&lt; 1];
+int n, m;
+int a[maxn], ptr, lnk[maxn], dfn[maxn], rev[maxn], idx;
+int cpy[maxn], cnt, out[maxn], dep[maxn], lo2[maxn];
+int F[20][maxn], rt, qs, blo;
+int qu[4], qv[4], typu[4], typv[4];
+ll cur, ans[maxm], bkta[maxn], bktb[maxn];
+
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline void add(const int &amp;bgn, const int &amp;end) &#123;
+  e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+  lnk[bgn] = ptr;
+&#125;
+void dfs(int x, int fa) &#123;
+  dep[x] = dep[fa] + 1;
+  F[0][x] = fa;
+  dfn[x] = ++idx;
+  rev[idx] = a[x];
+  for (int i = 1; i &lt;= 17; ++i)
+    F[i][x] = F[i - 1][F[i - 1][x]];
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123; 
+    int y = e[p].to;
+    if (y == fa) continue;
+    dfs(y, x);
+  &#125;
+  out[x] = idx;
+&#125;
+inline int jmp(int x, int y) &#123;
+  for (int i = lo2[dep[y] - dep[x]]; ~i; --i) &#123;
+    if (dep[y] - dep[x] &gt; (1 &lt;&lt; i)) y = F[i][y];
+  &#125;
+  return y;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd();
+  for (int i = 1; i &lt;= n; ++i)
+    cpy[i] = a[i] = rd();
+  lo2[1] = 0;
+  for (int i = 2; i &lt;= n; ++i)
+    lo2[i] = lo2[i &gt;&gt; 1] + 1;
+  sort(cpy + 1, cpy + 1 + n);
+  cnt = unique(cpy + 1, cpy + 1 + n) - (cpy + 1);
+  for (int i = 1; i &lt;= n; ++i)
+    a[i] = lower_bound(cpy + 1, cpy + 1 + cnt, a[i]) - cpy;
+  int u, v;
+  for (int i = 1; i &lt; n; ++i) &#123;
+    u = rd(); v = rd();
+    add(u, v);
+    add(v, u);
+  &#125;
+  dfs(1, 0);
+  rt = 1;
+  int opt, M = 0;
+  while (m--) &#123;
+    opt = rd();
+    if (opt == 1) &#123;
+      rt = rd();
+    &#125; else &#123;
+      ++M;
+      u = rd(); v = rd();
+      //DEAL U
+      int ptru = 0, t;
+      if (u == rt) typu[ptru] = 1, qu[ptru++] = n;
+      else if (dfn[rt] &lt; dfn[u] || dfn[rt] &gt; out[u]) 
+        typu[ptru] = 1, qu[ptru++] = out[u], typu[ptru] = -1, qu[ptru++] = dfn[u] - 1;
+      else &#123;
+        t = jmp(u, rt);
+        typu[ptru] = 1, qu[ptru++] = n;
+        typu[ptru] = -1, qu[ptru++] = out[t];
+        typu[ptru] = 1, qu[ptru++] = dfn[t] - 1;
+      &#125;
+      //DEAL V
+      int ptrv = 0;
+      if (v == rt) typv[ptrv] = 1, qv[ptrv++] = n;
+      else if (dfn[rt] &lt; dfn[v] || dfn[rt] &gt; out[v]) &#123;
+        typv[ptrv] = 1, qv[ptrv++] = out[v];
+        typv[ptrv] = -1, qv[ptrv++] = dfn[v] - 1;
+      &#125; else &#123;
+        t = jmp(v, rt);
+        typv[ptrv] = 1, qv[ptrv++] = n;
+        typv[ptrv] = -1, qv[ptrv++] = out[t];
+        typv[ptrv] = 1, qv[ptrv++] = dfn[t] - 1;
+      &#125;
+      //GENERATING QUERYS
+      for (int i = 0; i &lt; ptru; ++i)
+        for (int j = 0; j &lt; ptrv; ++j) 
+          if (qu[i] &amp;&amp; qv[j])
+            q[++qs] = (Q)&#123;qu[i], qv[j], typu[i] * typv[j], M&#125;;
+    &#125;
+  &#125;
+  blo = sqrt(n);
+  for (int i = 1; i &lt;= n; ++i)
+    bel[i] = (i - 1) / blo + 1;
+  sort(q + 1, q + 1 + qs);
+  int L = 0, R = 0;
+  for (int i = 1; i &lt;= qs; ++i) &#123;
+    while (L &lt; q[i].l) cur += bktb[rev[++L]], bkta[rev[L]]++;
+    while (R &lt; q[i].r) cur += bkta[rev[++R]], bktb[rev[R]]++;
+    while (L &gt; q[i].l) cur -= bktb[rev[L]], bkta[rev[L--]]--;
+    while (R &gt; q[i].r) cur -= bkta[rev[R]], bktb[rev[R--]]--;
+    ans[q[i].id] += q[i].tg * cur;
+  &#125;
+  for (int i = 1; i &lt;= M; ++i)
+    printf(&quot;%lld\n&quot;, ans[i]);
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

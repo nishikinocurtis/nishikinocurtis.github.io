@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || JZPTREE Falling Factorial</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>JZPTREE Falling Factorial </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/1/7
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#03a9f4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>Falling Factorial, Tree DP</p>
+<a id="more"></a>
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a tree, for every node $x$ compute $\begin{align}\sum_{i=1}^{n}{dist(x,i)^k}\end{align}$.</p>
+<p>$n \le 50000, k \le 500$.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>When we solve $k = 1$ or $k = 2$, we can simply use trick of 2-times DFS, and maintain both sum of distance and sum of square of distance.</p>
+<p>However, when problem becomes harder, the time complexity of this method will get TLE, for its $O(nk^2)$ time to maintain sum of powers using binomial theorem.</p>
+<p>There’re some general ways to deal these sum of power problems, one of which is using falling factorial.</p>
+<ul>
+<li><strong>Definition</strong> : <em>Falling factorial</em> of $x$ at $k$, denoted as $x^{\underline{k}}$, equals to $x(x-1)\cdots (x-k+1)$, which is also known as $P_x ^ k$, where $P$ means permutation.</li>
+</ul>
+<p>And we have: $x^k = \sum_{i=0}^{k}{S(k,i)\times x^{\underline{i}}}$, where $S(k, i)$ is the Stirling Number of the second kind.</p>
+<p>As for $S$, we have a recurrence relation that $S(i,j) = S(i-1, j - 1)+ j \times S(i-1,j) $, we can pre-process all $S$ we need in $O(k^2)$ time.</p>
+<p>Then let’s see how to maintain falling factorial in $O(k)$ time.</p>
+<p>We have a identity of falling factorial that $(x+1)^{\underline{i}} = (x+1)x^{\underline{i-1}} = (x - i + 1 + i)x^{\underline{i-1}} = x^{\underline{i}} + i\times x^{\underline{i-1}}$.</p>
+<p>Another way to prove it is using permutation’s properties.</p>
+<p>Think about when we transfer answer from $son_x$ to $x$ or reversely, what we do is actually add $1$ to all numbers in a set.</p>
+<p>Thus for case that $son_x \rightarrow x$, we have: $ans_x^{k} = ans_x^k + ans_{son}^{k} + k \times ans_{son}^{k-1}$, for all distance in the subtree of $x$ increased.</p>
+<p>As for $fa_x \rightarrow x$, it’s all number in father’s answer increasing, but it is larger than what we need. So we should minus numbers $+2$ in subtree of $x$, for these numbers get $+1$ when calculating father’s answer and this time they get a $+1$ again. Then add original answer in subtree of $x$. That is:</p>
+<p>$(all_{fa}+1)^{\underline{k}} - (all_x + 2)^{\underline{k}} + ans_x^k$. Split the expression out we get:</p>
+<p>$ans_{fa}^k + k \times ans_{fa}^{k-1} - 2k ans_{x}^{k-1} - k(k-1)ans_x^{k-2}$ for all $k \ge 2$.</p>
+<p>When $k = 1$ it’s $ans_x^1 = ans_{fa}^1 + ans_{fa}^0 - 2ans_{x}^{0}$ , and $ans_x^0 = ans_{fa}^0$ for $k = 0$.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 50005;
+const int maxk = 505;
+const int mod = 10007;
+
+struct edge &#123;
+  int to, nxt;
+&#125;e[maxn &lt;&lt; 1];
+int n, k, ptr, lnk[maxn];
+int s[maxk][maxk], downp[maxn][maxk], dep[maxn], ans[maxn][maxk];
+
+void init() &#123;
+  s[0][0] = 1;
+  for (int i = 1; i &lt;= 500; ++i)
+    for (int j = 1; j &lt;= 500; ++j) &#123;
+      s[i][j] = (s[i - 1][j - 1] + j * s[i - 1][j] % mod) % mod;
+    &#125;
+&#125;
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+inline void add(int bgn, int end) &#123;
+  e[++ptr] = (edge)&#123;end, lnk[bgn]&#125;;
+  lnk[bgn] = ptr;
+&#125;
+void dfs(int x, int fa) &#123;
+  ans[x][0] = 1;
+  for (int i = 1; i &lt;= k; ++i) ans[x][i] = 0;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == fa) continue;
+    dfs(y, x);
+    ans[x][0] = (ans[x][0] + ans[y][0]) % mod;
+    for (int i = 1; i &lt;= k; ++i)
+      ans[x][i] = (ans[x][i] + ans[y][i] + i * ans[y][i - 1]) % mod;
+  &#125;
+&#125;
+void dfs2(int x, int fa) &#123;
+  if (fa) &#123;
+    for (int i = k; i &gt;= 2; --i) &#123;
+      ans[x][i] = (ans[fa][i] + i * ans[fa][i - 1] % mod - 
+                   2ll * i * ans[x][i - 1] % mod + mod - 
+                   1ll * i * (i - 1) * ans[x][i - 2] % mod + mod) % mod;
+    &#125;
+    ans[x][1] = (ans[fa][1] + ans[fa][0] - 2 * ans[x][0] % mod + mod) % mod;
+    ans[x][0] = ans[fa][0];
+  &#125;
+  for (int p = lnk[x]; p; p = e[p].nxt) &#123;
+    int y = e[p].to;
+    if (y == fa) continue;
+    dfs2(y, x);
+  &#125;
+&#125;
+
+int main() &#123;
+  init();
+  int T = rd();
+  while (T--) &#123;
+    ptr = 0; memset(lnk, 0, sizeof lnk);
+    n = rd(); k = rd();
+    int u, v;
+    for (int i = 1; i &lt; n; ++i) &#123;
+      u = rd(); v = rd();
+      add(u, v);
+      add(v, u);
+    &#125;
+    dfs(1, 0);
+    dfs2(1, 0);
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      int sum = 0;
+      for (int j = 0; j &lt;= k; ++j)
+        sum = (sum + ans[i][j] * s[k][j] % mod) % mod;
+      printf(&quot;%d\n&quot;, sum);
+    &#125;
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

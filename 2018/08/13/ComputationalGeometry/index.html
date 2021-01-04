@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Computational Geometry</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Computational Geometry </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/8/13
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>This is a BIG set of Computational Geometry related notes.</p>
+<p>Bouvardia的计算几何入门大合集.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>NAN.</p>
+<h2 id="Basic-Element"><a href="#Basic-Element" class="headerlink" title="Basic Element"></a>Basic Element</h2><h4 id="Point"><a href="#Point" class="headerlink" title="Point"></a>Point</h4><p>定义在二维平面上的点.</p>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>基于坐标表示法的向量, 支持向量运算.</p>
+<h4 id="Line"><a href="#Line" class="headerlink" title="Line"></a>Line</h4><p>基于点+向量表示法的直线, 在模板中右侧定义为半平面.</p>
+<h4 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h4><p>定义了坐标(点) 和半径的圆.</p>
+<h4 id="Polygon"><a href="#Polygon" class="headerlink" title="Polygon"></a>Polygon</h4><p>定义了顶点个数和顶点集合的多边形.</p>
+<h2 id="Basic-Option"><a href="#Basic-Option" class="headerlink" title="Basic Option"></a>Basic Option</h2><h4 id="Judging-Direction-Relationship-between-2-Vectors"><a href="#Judging-Direction-Relationship-between-2-Vectors" class="headerlink" title="Judging Direction Relationship between 2 Vectors"></a>Judging Direction Relationship between 2 Vectors</h4><p>叉积$\overrightarrow{a} \times \overrightarrow{b} \le 0$, 则 $a$ 在 $b$ 左侧.</p>
+<h4 id="Getting-Perpendicular-Vector-Right-Hand"><a href="#Getting-Perpendicular-Vector-Right-Hand" class="headerlink" title="Getting Perpendicular Vector (Right Hand)"></a>Getting Perpendicular Vector (Right Hand)</h4><p>$(x, y) \rightarrow (y, -x)$</p>
+<h4 id="Getting-The-Distance-From-Point-to-Line"><a href="#Getting-The-Distance-From-Point-to-Line" class="headerlink" title="Getting The Distance From Point to Line"></a>Getting The Distance From Point to Line</h4><p>面积转换, 定义直线 $l$ , 有$d = \frac{|( P - l.P ) \times l.v|}{|l.v|} $</p>
+<h4 id="快速排斥实验与跨立实验"><a href="#快速排斥实验与跨立实验" class="headerlink" title="快速排斥实验与跨立实验"></a>快速排斥实验与跨立实验</h4><p>判断两线段覆盖矩形是否交, 叉积判断两点是否分立.</p>
+<h4 id="Judging-Direction-Relationship-between-Point-and-Line"><a href="#Judging-Direction-Relationship-between-Point-and-Line" class="headerlink" title="Judging Direction Relationship between Point and Line"></a>Judging Direction Relationship between Point and Line</h4><p>定义向量$a = p - l.p$, 判断向量关系.</p>
+<h4 id="Calculating-2-Lines’-intersection-position"><a href="#Calculating-2-Lines’-intersection-position" class="headerlink" title="Calculating 2 Lines’ intersection position"></a>Calculating 2 Lines’ intersection position</h4><p>对于直线$a, b$: $Point \ P = b.p + b.v * (a.v \times (a.p - b.p)) / (a.v \times b.v)$ , 根据向量叉积面积放缩, 负值可抵消.</p>
+<h4 id="Calculating-the-Area-of-Polygon"><a href="#Calculating-the-Area-of-Polygon" class="headerlink" title="Calculating the Area of Polygon"></a>Calculating the Area of Polygon</h4><p>对于每两个点计算叉积面积并累加, 多余部分可抵消. 叉积计算的是平行四边形面积, 记得$\times 0.5$的说.</p>
+<blockquote>
+<p>Bouvardia有话要说. 对于某些基于整点的多边形面积问题, 或有关问题, 可以想到叉积法求出的面积$\times 2$总是整数, 从而设计状态.</p>
+</blockquote>
+<center>*To Be Continue...*</center>
+
+<h2 id="Half-Plane-Intersection-HPI"><a href="#Half-Plane-Intersection-HPI" class="headerlink" title="Half-Plane Intersection(HPI)"></a>Half-Plane Intersection(HPI)</h2><p>话说Bouvardia做题的时候手贱写成了NOI来的……</p>
+<p>给出二维平面上的若干个半平面, 或者线性规划关系, 通常以直线方向向量向右为可行域. 求半平面的交集, 也即可行域. 问题可能有凸包顶点, 可行域面积等.</p>
+<p>常用的$O(nlogn)$算法是, 对所有直线按<strong>极角排序</strong>, 维护一个双端队列. 每次插入时, 判断队尾&amp;队头两线交点与新线是否合法, 弹队列, 新线插入队尾.</p>
+<p>需要注意的是, 若队列中只有一个元素, 而仍与新线不合法, 则无解.</p>
+<p>做完后我们得到了一个凸包, 利用叉积求面积, 或者做一些其他操作就好了.</p>
+<p>放一个模板, 这是<a target="_blank" rel="noopener" href="http://poj.org/problem?id=2451">POJ 2451</a>.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+const int inf = 10000;
+const int maxn = 20005;
+
+namespace geometric_lib
+&#123;
+    using std::sort;
+    //basic geometry element
+    typedef long double ldb;
+    const ldb eps = 1e-10;
+    struct Vector
+    &#123;
+        ldb x, y;
+        Vector(ldb x_ = 0.0, ldb y_ = 0.0):x(x_), y(y_)&#123;&#125;
+        Vector operator + (Vector rhs)
+        &#123;
+            return Vector(x + rhs.x, y + rhs.y);
+        &#125;
+        Vector operator - (Vector rhs)
+        &#123;
+            return Vector(x - rhs.x, y - rhs.y);
+        &#125;
+        friend Vector operator * (Vector lhs, ldb rhs)
+        &#123;
+            return Vector(rhs * lhs.x, rhs * lhs.y);
+        &#125;
+        ldb operator * (Vector rhs)
+        &#123;
+            return x * rhs.x + y * rhs.y;
+        &#125;
+        ldb operator ^ (Vector rhs)
+        &#123;
+            return x * rhs.y - y * rhs.x;
+        &#125;
+    &#125;;
+    typedef Vector Point;
+    //public functions:
+    int DCMP(ldb x)
+    &#123;
+        return (x &lt; -eps) ? -1 : (x &gt; eps);
+    &#125;
+    struct Line
+    &#123;
+        Point P;
+        Point V;
+        ldb Ang;
+        Line(Point P_ = Point(), Point V_ = Point()):P(P_), V(V_)
+        &#123;Ang = atan2(V_.y, V_.x);&#125;//&#125;
+        /*inline void getAngle()
+        &#123;
+            Ang = atan2(V.y, V.x);
+        &#125;*/
+        bool operator &lt; (const Line &amp;rhs) const
+        &#123;
+            //getAngle(); rhs.getAngle();
+            return Ang &lt; rhs.Ang;
+        &#125;
+    &#125;;
+
+    // half-plane intersection:
+    int n;
+    Point pts[maxn];
+    Line pln[maxn], q[maxn];
+    bool LEGAL(Point P_, Line L_)
+    &#123;
+        return DCMP((P_ - L_.P)^L_.V) &gt;= 0;
+    &#125;
+    Point intersection(Line a, Line b)
+    &#123;
+        return b.P + b.V*((a.V ^ (a.P - b.P))/(a.V ^ b.V));
+    &#125;
+    ldb HPI() //right hand HPI
+    &#123;
+        pln[++n] = Line(Point(0, 0), Point(0, 1));
+        pln[++n] = Line(Point(0, inf), Point(1, 0));
+        pln[++n] = Line(Point(inf, inf), Point(0, -1));
+        pln[++n] = Line(Point(inf, 0), Point(-1, 0));
+        sort(pln + 1, pln + 1 + n);
+        int tot = 0;
+        //unique:
+        for(int i = 1; i &lt;= n; ++i)
+        &#123;
+            if(!tot) pln[++tot] = pln[i];
+            else if(DCMP(pln[tot].Ang - pln[i].Ang) != 0) pln[++tot] = pln[i];
+            else if(LEGAL(pln[i].P, pln[tot])) pln[tot] = pln[i];
+        &#125;
+        n = tot; int hd = 1, tl = 2;
+        q[1] = pln[1]; q[2] = pln[2];
+        for(int i = 3; i &lt;= n; ++i)
+        &#123;
+            while(hd != tl &amp;&amp; !LEGAL(intersection(q[tl], q[tl - 1]), pln[i])) --tl;
+            while(hd != tl &amp;&amp; !LEGAL(intersection(q[hd], q[hd + 1]), pln[i])) ++hd;
+            if(hd == tl &amp;&amp; DCMP(q[hd].V ^ pln[i].V) &lt;= 0) return 0;// No Solution
+            q[++tl] = pln[i];
+        &#125;
+        while(hd != tl &amp;&amp; !LEGAL(intersection(q[tl], q[tl - 1]), q[hd])) --tl;
+        int len = tl - hd + 1;
+        for(int i = 1; i &lt; len; ++i) pts[i] = intersection(q[hd + i], q[hd + i - 1]);
+        pts[0] = pts[len] = intersection(q[tl], q[hd]);
+        ldb area = 0.0;
+        for(int i = 0; i &lt; len; ++i) area += pts[i] ^ pts[i + 1];
+        return area * 0.5;
+    &#125;
+    void HPI_main()
+    &#123;
+        while(scanf(&quot;%d&quot;, &amp;n) != EOF)
+        &#123;
+            ldb x1, x2, y1, y2;
+            for(int i = 1; i &lt;= n; ++i)
+            &#123;
+                scanf(&quot;%Lf%Lf%Lf%Lf&quot;, &amp;x1, &amp;y1, &amp;x2, &amp;y2);
+                Point u(x1, y1), v(x2, y2);
+                pln[i] = Line(v, u - v);
+            &#125;
+            printf(&quot;%.1Lf\n&quot;, HPI());
+        &#125;
+    &#125;
+&#125;;
+
+int main()
+&#123;
+    geometric_lib::HPI_main();
+    return 0;
+&#125;</code></pre>
+<p>似乎有点过度封装了呢……不过Bouvardia还打算继续加入功能的说.</p>
+<h2 id="Rotating-Calipers"><a href="#Rotating-Calipers" class="headerlink" title="Rotating Calipers"></a>Rotating Calipers</h2><h4 id="BOI2011-2circles"><a href="#BOI2011-2circles" class="headerlink" title="BOI2011 2circles"></a>BOI2011 2circles</h4><h5 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h5><p>我们将会研究一个有N 个顶点的凸多边形。我们希望找到一个最大的半径R，使得两个半径为R 的圆能完全地放置在给出的多边形内，并没有重叠。 </p>
+<h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h5><p>最大化不太好做的说. 所以要考虑二分答案.</p>
+<p>那么如何验证呢?</p>
+<p>把多边形向里推, 如果推完后多边形内仍存在一条$\ge 2mid$的线段, 则合法.</p>
+<p>证明:</p>
+<p>所以做法就是二分答案+半平面交+旋转卡壳啦.</p>
+<p>向量的 <strong>Perpendicular, Adjust</strong> 以及直线的 <strong>Translate</strong> 操作已经集成进来啦.</p>
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><p>只有核心代码~</p>
+<pre><code class="c++">//in namespace geometric_lib:
+
+    ldb norm(Point a)
+    &#123;
+        return sqrt(a*a);
+    &#125;
+    ldb dist(Point a, Point b)
+    &#123;
+        return norm(a - b);
+    &#125;
+    Point perpendicular(Point a)
+    &#123;
+        return Point(a.y, -a.x);
+    &#125;
+    Point adjust(Point a, ldb d)
+    &#123;
+        return Point(a*(d/norm(a)));
+    &#125;
+
+    Line translate(Line a, ldb d)//d: &lt;0 left, &gt;0 right
+    &#123;
+        return Line(a.P + adjust(perpendicular(a.V), d), a.V);
+    &#125;
+
+    ldb checking_bound;
+
+    bool rotating_caliper(Point *ps, int ps_count)
+    &#123;
+        ldb mx = 0, x; int pos;
+        for(int i = 2; i &lt;= ps_count; ++i)
+        &#123;
+            x = dist(ps[1], ps[i]);
+            if(x &gt; mx) mx = x, pos = i;
+        &#125;
+        //plug-in: run faster
+        if(mx &gt;= checking_bound) return 1;
+        for(int i = 2; i &lt;= ps_count; ++i)
+        &#123;
+            mx = dist(ps[pos], ps[i]);
+            while(1)
+            &#123;
+                x = dist(ps[pos % ps_count + 1], ps[i]);
+                if(x &gt; mx) mx = x, pos = pos % ps_count +1;
+                else break;
+            &#125;
+            if(mx &gt;= checking_bound) return 1;
+        &#125;
+        return 0;
+    &#125;
+    //addition
+    #define MAX_N 50001
+    Point a[MAX_N];
+    Line tpln[MAX_N];
+
+    bool chk(ldb mid)
+    &#123;
+        //set checking_bound
+        checking_bound = mid * 2.0;
+        for(int i = 1; i &lt;= n; ++i) pln[i] = translate(tpln[i], mid);
+        //int pcnt = HPI();
+        return rotating_caliper(pts, HPI());
+    &#125;
+    void solution_main()
+    &#123;
+        scanf(&quot;%d&quot;, &amp;n);
+        for(int i = 1; i &lt;= n; ++i) scanf(&quot;%Lf%Lf&quot;, &amp;a[i].x, &amp;a[i].y);
+        for(int i = 1; i &lt;= n; ++i)
+        &#123;
+            int j = i % n + 1;
+            tpln[i] = Line(a[j], a[i] - a[j]);
+        &#125;    
+        ldb l = 0.0, r = 20000000.0;
+        while(l &lt; r)
+        &#123;
+            ldb mid = (l + r + 0.001) * 0.5;
+            if(chk(mid)) l = mid;
+            else r = mid - 0.001;
+        &#125;
+        printf(&quot;%.3Lf\n&quot;, l);
+    &#125;
+    #undef MAX_N</code></pre>
+<h2 id="Minimum-Circle-Coverage-Problem"><a href="#Minimum-Circle-Coverage-Problem" class="headerlink" title="Minimum Circle-Coverage Problem"></a>Minimum Circle-Coverage Problem</h2><h4 id="BZOJ-1336-amp-1337"><a href="#BZOJ-1336-amp-1337" class="headerlink" title="BZOJ 1336&amp;1337"></a>BZOJ 1336&amp;1337</h4><p>一种可以在$O(n)$时间内求出覆盖所有点的最小圆的算法.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
+
+namespace geometric_lib
+&#123;
+    const double eps = 1e-10;
+    const int maxn = 1e+5 + 5;
+    using std::srand;
+    using std::time;
+    using std::random_shuffle;
+    struct Vector
+    &#123;
+        double x, y;
+        Vector(double x_ = 0.0, double y_ = 0.0):x(x_), y(y_)&#123;&#125;
+        Vector operator + (Vector rhs)
+        &#123;
+            return Vector(x + rhs.x, y + rhs.y);
+        &#125;
+        Vector operator - (Vector rhs)
+        &#123;
+            return Vector(x - rhs.x, y - rhs.y);
+        &#125;
+        friend Vector operator * (Vector lhs, double rhs)
+        &#123;
+            return Vector(rhs * lhs.x, rhs * lhs.y);
+        &#125;
+        double operator * (Vector rhs)
+        &#123;
+            return x * rhs.x + y * rhs.y;
+        &#125;
+        double operator ^ (Vector rhs)
+        &#123;
+            return x * rhs.y - y * rhs.x;
+        &#125;
+    &#125;;
+    typedef Vector Point;
+    double norm(Point a)
+    &#123;
+        return sqrt(a*a);
+    &#125;
+    struct Circle
+    &#123;
+        Point c;
+        double r;
+        Circle(Point P_ = Point(), double r_ = 0.0):c(P_), r(r_)&#123;&#125; 
+    &#125;;
+
+
+    //Minimal circle-cover
+    int N;
+    Point pts[maxn];
+    Circle o;
+    void circum(Point p, Point q, Point s)
+    &#123;
+        double a = 2 * (q.x - p.x), b = 2 * (q.y - p.y);
+        double c = q.x * q.x + q.y * q.y - p.x * p.x - p.y * p.y;
+        double d = 2 * (s.x - p.x), e = 2 * (s.y - p.y);
+        double f = s.x * s.x + s.y * s.y - p.x * p.x - p.y * p.y;
+        o.c.x = (b * f - e * c) / (b * d - e * a);
+        o.c.y = (d * c - a * f) / (b * d - e * a);
+        o.r = norm(p - o.c);
+    &#125;
+    void cover_main()
+    &#123;
+        srand(time(NULL));
+        scanf(&quot;%d&quot;, &amp;N);
+        for(int i = 1; i &lt;= N; ++i) scanf(&quot;%lf%lf&quot;, &amp;pts[i].x, &amp;pts[i].y);
+        random_shuffle(pts + 1, pts + 1 + N);
+        o.c = pts[1]; o.r = 0.0;
+        for(int i = 2; i &lt;= N; ++i)
+        &#123;
+            if(norm(pts[i] - o.c) &gt; o.r + eps)
+            &#123;
+                o.c = pts[i]; o.r = 0.0;
+                for(int j = 1; j &lt;= i - 1; ++j)
+                &#123;
+                    if(norm(pts[j] - o.c) &gt; o.r + eps)
+                    &#123;
+                        o.c.x = (pts[j].x + pts[i].x) * 0.5;
+                        o.c.y = (pts[j].y + pts[i].y) * 0.5;
+                        o.r = norm(o.c - pts[j]);
+                        for(int k = 1; k &lt;= j - 1; ++k)
+                            if(norm(pts[k] - o.c) &gt; o.r + eps)
+                                circum(pts[i], pts[j], pts[k]);
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        printf(&quot;%.3lf\n&quot;, o.r);
+    &#125;
+&#125;;
+
+int main()
+&#123;
+    geometric_lib::cover_main();
+    return 0;
+&#125;</code></pre>
+<h2 id="Convex-Hull"><a href="#Convex-Hull" class="headerlink" title="Convex Hull"></a>Convex Hull</h2><h4 id="BZOJ-1007"><a href="#BZOJ-1007" class="headerlink" title="BZOJ 1007"></a><a target="_blank" rel="noopener" href="https://www.lydsy.com/JudgeOnline/problem.php?id=1007">BZOJ 1007</a></h4><h5 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h5><p>站在无限高处向下看，计算可见直线的编号。</p>
+<h5 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h5><p>这就是一个维护凸壳的板题啦。首先对直线按极角/斜率排序，单调栈(也可能有其他数据结构的说，建立在直线加入的顺序上)维护凸壳，每次加入新直线，若交点更靠左则弹栈。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+const int maxn = 50005;
+const double eps = 1e-8;
+
+struct Line
+&#123;
+    double k, b;
+    int id;
+    bool operator &lt; (const Line &amp;rhs) const
+    &#123;
+        return k == rhs.k ? b &lt; rhs.b : k &lt; rhs.k;
+    &#125;
+&#125;l[maxn];
+int n, stk[maxn], top, v[maxn];
+
+double intersection(Line p, Line q)
+&#123;
+    return (q.b - p.b) / (p.k - q.k);
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i = 1; i &lt;= n; ++i) 
+        scanf(&quot;%lf%lf&quot;, &amp;l[i].k, &amp;l[i].b), l[i].id = i;
+    sort(l + 1, l + 1 + n);
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        if(l[i].k == l[i + 1].k &amp;&amp; i != n) continue;
+        while(top &gt; 1 &amp;&amp; 
+            intersection(l[i], l[stk[top]]) - intersection(l[stk[top]], l[stk[top - 1]]) &lt;= eps) top--;
+        stk[++top] = i;
+    &#125;
+    for(int i = 1; i &lt;= top; ++i) v[i] = l[stk[i]].id;
+    sort(v + 1, v + 1 + top);
+    for(int i = 1; i &lt;= top; ++i) printf(&quot;%d &quot;, v[i]);
+    return 0;
+&#125;</code></pre>
+<h4 id="51Nod-1543"><a href="#51Nod-1543" class="headerlink" title="51Nod 1543"></a><a target="_blank" rel="noopener" href="http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1543">51Nod 1543</a></h4><h5 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h5><p>铁人两项包含两个部分：游泳和跑步。选手们先跑R米，然后再游S米。胜者是用时最短的人（如果多个人用时最短，那么他们同时获胜）。</p>
+<p>比赛开始之前，我们已经知道有n个人要参加比赛。第i个人游泳的速度是si米每秒，跑步速度是ri米每秒。但是R和S的具体值并不知道，只知道他们是大于0的实数。</p>
+<p>所以我们现在想要知道谁可能获胜。</p>
+<h5 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h5><p>这是Bouvardia上课时听来的题，思路很巧妙呢。</p>
+<p>确定一项的长度，若总长固定，则另一项可定，接着把选手获胜的不等式写出来，发现可以调整为直线的斜截式。但不需要线性规划或者半平面交，我们求一个凸壳就可以了，构成凸壳的直线就是可能的选手。</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;cctype&gt;
+
+using std::min;
+using std::max;
+using std::sort;
+using std::swap;
+using std::memset;
+using std::isdigit;
+
+const int maxn = 2e+5 + 5;
+const double eps = 1e-8;
+
+int n;
+double s[maxn], r[maxn];
+
+struct Point
+&#123;
+    int x, y;
+    //plus
+    int id;
+    Point(int x_ = 0.0, int y_ = 0.0):x(x_), y(y_)&#123;&#125;
+&#125;p[maxn];
+int top, q[maxn], v[maxn];
+
+bool cmp1(Point p_, Point q_)
+&#123;
+    return p_.x == q_.x ? p_.y &gt; q_.y : p_.x &gt; q_.x;
+&#125;
+bool cmp2(Point p_, Point q_)
+&#123;
+    return p_.x == q_.x ? p_.y &gt; q_.y : p_.x &lt; q_.x;
+&#125;
+inline double k(Point p_, Point q_)
+&#123;
+    return (1.0/q_.y - 1.0/p_.y) / (1.0/p_.x - 1.0/q_.x);
+&#125;
+inline int rd()
+&#123;
+    int x = 0; char c = getchar();
+    while(!isdigit(c)) c = getchar();
+    while(isdigit(c))x = x * 10 + (c ^ 48), c = getchar();
+    return x;
+&#125;
+inline void write(int x)
+&#123;
+    int y = 10, len = 1;
+    while(y &lt;= x) y *= 10, ++len;
+    while(len--) &#123;y /= 10; putchar(x / y + 48); x %= y;&#125;
+&#125;
+
+int main()
+&#123;
+    n = rd();
+    for(register int i = 1; i &lt;= n; ++i)
+        p[i].x = rd(), p[i].y = rd(), p[i].id = i;
+    sort(p + 1, p + 1 + n, cmp1);
+    int tot = 0, lst = 0;
+    for(register int i = 1; i &lt;= n; ++i)
+    &#123;
+        if(p[i].y &gt; lst || (p[i].y == lst &amp;&amp; p[i].x == p[tot].x)) p[++tot] = p[i];
+        lst = max(lst, p[i].y);
+    &#125;
+    n = tot;
+    sort(p + 1, p + 1 + n, cmp2);
+    int top = 1; q[1] = 1;
+    for(register int i = 2; i &lt;= n; ++i)
+    &#123;
+        while(top &gt;= 1 &amp;&amp; k(p[i], p[q[top]]) &lt; k(p[q[top]], p[q[top - 1]])) --top;
+        q[++top] = i;
+    &#125;
+    for(register int i = 1; i &lt;= top; ++i) v[i] = p[q[i]].id;
+    sort(v + 1, v + 1 + top);
+    for(register int i = 1; i &lt;= top; ++i) write(v[i]), putchar(&#39; &#39;);
+    return 0;
+&#125;</code></pre>
+<h2 id="Practical-Usage"><a href="#Practical-Usage" class="headerlink" title="Practical Usage"></a>Practical Usage</h2><h4 id="CodeM-2018-Final-F"><a href="#CodeM-2018-Final-F" class="headerlink" title="CodeM 2018 Final F"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/acm/contest/162/F">CodeM 2018 Final F</a></h4><h5 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h5><p>袋鼠先生在玩一个塔防游戏。这个游戏中，一共有n个防御塔，第i个塔位于(xi,yi)的位置，这n个防御塔形成了一个严格的凸多边形。有m道防御网，你可以把第i道防御网看做连接第ui个防御塔和第vi个防御塔的一条线段，穿越它就需要消耗ci的血量。</p>
+<p>袋鼠先生想从(sx, sy)位置走到(tx,ty)位置，他想知道最少要消耗多少血量。 </p>
+<h5 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h5><p>对偶图最短路的点数太多啦.</p>
+<p><u>观察样例, 发现路径分为两种情况: 走出多边形/在多边形内穿过</u></p>
+<p>所以我们可以分别来求.</p>
+<p>对于走出多边形, 一定是到达多边形的某条边. 而障碍一定会覆盖一组连续的边. 差分求前缀和就可以得到到达每条边的代价.</p>
+<p>至于内穿, 计算哪些障碍和直线相交, 代价加和就好了.</p>
+<p>判断是否在多边形内部是一个很有用的技能.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;cctype&gt;
+
+using std::max;
+using std::min;
+using std::swap;
+using std::memset;
+
+typedef long long ll;
+
+const int maxn = 1e+5 + 5;
+const double eps = 1e-6;
+
+int n, m;
+struct point
+&#123;
+    double x, y;
+    point(double x_ = 0, double y_ = 0):x(x_),y(y_)&#123;&#125;
+    point operator + (point rhs)
+    &#123;
+        return point(x + rhs.x, y + rhs.y);
+    &#125;
+    point operator - (point rhs)
+    &#123;
+        return point(x - rhs.x, y - rhs.y);
+    &#125;
+    double operator * (point rhs)
+    &#123;
+        return x * rhs.x + y * rhs.y;
+    &#125;
+    double operator ^ (point rhs)
+    &#123;
+        return x * rhs.y - y * rhs.x;
+    &#125;
+&#125;p[maxn], s, t;
+struct line
+&#123;
+    point p, v;
+    line(point p_ = point(), point v_ = point()):
+        p(p_), v(v_) &#123;&#125;
+&#125;l[maxn];
+ll u[maxn], v[maxn], c[maxn];
+ll val[maxn];
+
+int DCMP(ll x)
+&#123;
+    return x &lt; -eps ? -1 : x &gt; eps;
+&#125;
+inline int rd()
+&#123;
+    int x = 0; bool f = false; char c = getchar();
+    while(!isdigit(c)) &#123; if(c == &#39;-&#39;) f = true; c = getchar();&#125;
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return f ? -x : x;
+&#125;
+inline ll rdll()
+&#123;
+    ll x = 0; bool f = false; char c = getchar();
+    while(!isdigit(c)) &#123; if(c == &#39;-&#39;) f = true; c = getchar();&#125;
+    while(isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+    return f ? -x : x;
+&#125;
+inline bool in(point p_)
+&#123;
+    int cnt = 0;
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        int dir = DCMP((p_ - l[i].p)^l[i].v);
+        int dlt1 = DCMP(p[i + 1].y - p_.y);
+        int dlt2 = DCMP(p[i].y - p_.y);
+        if(dir &gt; 0 &amp;&amp; dlt1 &lt; 0 &amp;&amp; dlt2 &gt;= 0) cnt++;
+        if(dir &lt; 0 &amp;&amp; dlt1 &gt;= 0 &amp;&amp; dlt2 &lt; 0) cnt--;
+        //printf(&quot;%d\n&quot;, cnt);
+        //if()
+    &#125;
+    return cnt;
+&#125;
+inline void pre(point p_)
+&#123;
+    //memset(val, 0, sizeof val);
+    for(int i = 1; i &lt;= n; ++i) val[i] = 0;
+    if(!in(p_)) return;
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        line fnc = line(p[u[i]], p[v[i]] - p[u[i]]);
+        int dir = (p_ - fnc.p) ^ fnc.v;
+        if(dir &gt; 0)
+        &#123;
+            val[1] += c[i]; val[u[i]] -= c[i];
+            val[v[i]] += c[i];
+        &#125;
+        else
+        &#123;
+            val[u[i]] += c[i];
+            val[v[i]] -= c[i];
+        &#125;
+    &#125;
+&#125;
+
+int main()
+&#123;
+    n = rd(); m = rd();
+    for(int i = 1; i &lt;= n; ++i)
+        p[i].x = rdll(), p[i].y = rdll();
+    p[n + 1] = p[1];
+    for(int i = 1; i &lt;= n; ++i)
+    &#123;
+        l[i] = line(p[i], p[i + 1] - p[i]);
+    &#125;
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        u[i] = rdll(), v[i] = rdll();
+        if(u[i] &gt; v[i]) swap(u[i], v[i]);
+        c[i] = rdll();
+    &#125;
+    ll sums = 1e18, sumt = 1e18;
+    s.x = rdll(); s.y = rdll(); pre(s); 
+    for(int i = 1; i &lt;= n; ++i) val[i] += val[i - 1], sums = min(sums, val[i]);
+    t.x = rdll(); t.y = rdll(); pre(t);
+    for(int i = 1; i &lt;= n; ++i) val[i] += val[i - 1], sumt = min(sumt, val[i]);
+    if(!sums)
+    &#123;
+        printf(&quot;%lld\n&quot;, sumt); return 0;
+    &#125;
+    if(!sumt)
+    &#123;
+        printf(&quot;%lld\n&quot;, sums); return 0;
+    &#125;
+    ll ans = 0;
+    for(int i = 1; i &lt;= m; ++i)
+    &#123;
+        int dir1 = DCMP((s - p[u[i]]) ^ (p[v[i]] - p[u[i]]));
+        int dir2 = DCMP((t - p[u[i]]) ^ (p[v[i]] - p[u[i]]));
+        if(dir1 * dir2 &lt; 0) ans += c[i];
+    &#125;
+    ans = min(ans, sums + sumt);
+    printf(&quot;%lld\n&quot;, ans);
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

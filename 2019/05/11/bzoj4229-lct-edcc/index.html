@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Review - BZOJ 4229 LCT, UFS, BCC</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Review - BZOJ 4229 LCT, UFS, BCC </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2019/5/11
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#ffa2c4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>As a Review.</p>
+<p>Typora even cannot deal with $\LaTeX$ in sudo mode?</p>
+<a id="more"></a>
+
+<h1 id="Des"><a href="#Des" class="headerlink" title="Des."></a>Des.</h1><p>Giving  a undirected graph of $N$ nodes and $M$ edges. And you are given $Q$  operations, they might be deleting an edge or ask if there’re at least 2  paths without intersection between 2 nodes.</p>
+<h1 id="Sol"><a href="#Sol" class="headerlink" title="Sol."></a>Sol.</h1><p>The situation in description is exactly what a biconnected-component of a graph is, as what we called BCC.</p>
+<p>However deleting operation is difficult to execute, so we reverse the operation sequence and answer questions off-line. </p>
+<p>When edges on the tree form a loop, a BCC is generated, and we shrink  all nodes on that loop into a specific node, this can be maintained  with a UFS.</p>
+<p>When answering, just check if the two nodes are in the same component.</p>
+<p>Notice that as we shrink nodes, operation with $f[x]$ in LCT should  be modified to $bel[f[i]]$, which is the representing node of one  component.</p>
+<pre><code class="C++">#include &lt;bits/stdc++.h&gt;
+#include &lt;ext/pb_ds/assoc_container.hpp&gt;
+#include &lt;ext/pb_ds/hash_policy.hpp&gt;
+
+using namespace std;
+using namespace __gnu_pbds;
+typedef gp_hash_table&lt;int, int&gt;::iterator iter;
+
+const int maxn = 1e+5 + 5;
+const bool ANSWER_YES = true;
+const bool ANSWER_NO = false;
+
+struct querys &#123;
+  int typ, u, v;
+&#125;q[maxn];
+
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+int n, m, Q, ans[maxn];
+gp_hash_table&lt;int, int&gt; e_to_id[maxn];
+int rev[maxn], ch[maxn][2], f[maxn], bel[maxn], fa[maxn];
+
+int belong(int x) &#123;
+  return bel[x] == x ? x : bel[x] = belong(bel[x]);
+&#125;
+int find(int x) &#123;
+  return fa[x] == x ? x : fa[x] = find(fa[x]);
+&#125;
+inline int getid(int x) &#123;
+  return ch[belong(f[x])][1] == x;
+&#125;
+inline int isroot(int x) &#123;
+  return ch[belong(f[x])][0] != x &amp;&amp; ch[belong(f[x])][1] != x;
+&#125;
+inline void pushdown(int x) &#123;
+  if (rev[x]) &#123;
+    rev[ch[x][0]] ^= 1;
+    rev[ch[x][1]] ^= 1;
+    swap(ch[x][0], ch[x][1]);
+    rev[x] = 0;
+  &#125;
+&#125;
+inline void pushpath(int x) &#123;
+  if (!isroot(x)) pushpath(belong(f[x]));
+  pushdown(x);
+&#125;
+inline void rotate(int x) &#123;
+  int y = belong(f[x]), z = belong(f[y]), k = getid(x);
+  if (!isroot(y)) 
+    ch[z][ch[z][1] == y] = x;
+  ch[y][k] = ch[x][k ^ 1];
+  ch[x][k ^ 1] = y;
+  f[y] = x; f[ch[y][k]] = y; f[x] = z;
+&#125;
+inline void splay(int x) &#123;
+  pushpath(x);
+  for (; !isroot(x); rotate(x)) &#123;
+    int y = belong(f[x]);
+    if (!isroot(y))
+      rotate(getid(y) == getid(x) ? y : x);
+  &#125;
+&#125;
+inline void access(int x) &#123;
+  for (int y = 0; x; y = x, x = belong(f[x]))
+    splay(x), ch[x][1] = y;
+&#125;
+inline void makeroot(int x) &#123;
+  access(x); splay(x); rev[x] ^= 1;
+&#125;
+inline void split(int x, int y) &#123;
+  makeroot(x); access(y); splay(y); 
+&#125;
+inline void link(int x, int y) &#123;
+  makeroot(x); f[x] = y;
+&#125;
+void merge(int x, int y) &#123;
+  bel[belong(x)] = y; pushdown(x);
+  if (ch[x][0]) merge(ch[x][0], y);
+  ch[x][0] = 0;
+  if (ch[x][1]) merge(ch[x][1], y);
+  ch[x][1] = 0;
+&#125;
+inline void add(int x, int y) &#123;
+  x = belong(x); y = belong(y);
+  if (x == y) return;
+  int fx = find(x), fy = find(y);
+  if (fx != fy) &#123;
+    fa[fx] = fy;
+    link(x, y);
+  &#125; else &#123;
+    split(x, y);
+    merge(y, y);
+  &#125;
+&#125;
+inline bool query(int x, int y) &#123;
+  x = belong(x); y = belong(y);
+  if (x == y) return ANSWER_YES;
+  else return ANSWER_NO;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd(); Q = rd();
+  int u, v;
+  for (int i = 1; i &lt;= n; ++i)
+    fa[i] = bel[i] = i;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    u = rd();
+    v = rd();
+    int mn = min(u, v), mx = max(u, v);
+    e_to_id[mn][mx] = i;
+  &#125;
+  char opt[5];
+  for (int i = 1; i &lt;= Q; ++i) &#123;
+    scanf(&quot;%s&quot;, opt);
+    if (opt[0] == &#39;Z&#39;) &#123;
+      q[i].typ = 0;
+      q[i].u = rd(); q[i].v = rd();
+      int mn = min(q[i].u, q[i].v), mx = max(q[i].u, q[i].v);
+      e_to_id[mn][mx] = 0;
+    &#125; else &#123;
+      q[i].typ = 1;
+      q[i].u = rd(); q[i].v = rd();
+    &#125;
+  &#125;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    for (iter p = e_to_id[i].begin(); p != e_to_id[i].end(); ++p) &#123;
+      if (p-&gt;second == 0) continue;
+      else add(i, p-&gt;first);//, printf(&quot;%d %d\n&quot;, i, p.first);
+    &#125;
+  &#125;
+  for (int i = Q; i; --i) &#123;
+    if (q[i].typ == 0) &#123;
+      add(q[i].u, q[i].v);
+    &#125; else &#123;
+      ans[i] = query(q[i].u, q[i].v);
+    &#125;
+  &#125;
+  for (int i = 1; i &lt;= Q; ++i)
+    if (q[i].typ)
+      puts(ans[i] ? &quot;Yes&quot; : &quot;No&quot;);
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

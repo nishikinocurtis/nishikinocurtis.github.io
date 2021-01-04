@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || BZOJ4889 树套树</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>BZOJ4889 树套树 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/11/22
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>树套树 + <strong>卡空间</strong>.</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>给定一个长度为$n$序列, 每个位置上有一个编号$id_i$和一个权$v_i$, 对于一个逆序对(按编号和位置), 贡献是权的和.</p>
+<p>有$m$次交换操作, 计算每次操作后的总贡献.</p>
+<p>$n, m \le 50000$.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>也就是维护一个带权的逆序对.</p>
+<p>50000的数据范围可以跑$log^2$, 也就是树套树了.</p>
+<p>树状数组维护区间, 主席树维护两个和, 分别是权值和出现次数.</p>
+<p>对于每次交换操作$(x, y)$, 假设$x &lt; y$, 有:</p>
+<p>交换前$[x+1, y-1]$中大于$id_x$的位置将产生贡献, 小于的位置贡献将消失.</p>
+<p>$y$反之.</p>
+<p>最后考虑$x,y$是否会互相产生影响, 加入或去掉贡献, 思路还是很清晰的.</p>
+<p>最近写树套树经常遇到空间问题, 对于这种不会回滚的问题, 我们直接修改版本就好了, 没必要可持久化, 可以省下一个$log$.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+
+using namespace std;
+
+const int maxn = 5e+4 + 5;
+const int maxp = maxn * 200;
+const int mod = 1e+9 + 7;
+
+int n, m;
+int lp[maxn], rp[maxn];
+int ls[maxp], rs[maxp], su[maxp], tu[maxp];
+int id[maxn], cnt;
+int val[maxn], a[maxn], tot;
+int ans;
+
+void update(int &amp;lst, int l, int r, int p, int v1, int v2) &#123;
+  if (!lst) lst = ++cnt;
+  tu[lst] = (tu[lst] + v1) % mod;
+  su[lst] = (su[lst] + v2) % mod;
+  if (l == r) return;
+  int mid = (l + r) &gt;&gt; 1;
+  if (p &lt;= mid) update(ls[lst], l, mid, p, v1, v2);
+  else update(rs[lst], mid + 1, r, p, v1, v2);
+&#125;
+void query(int cur, int l, int r, int L, int R, int &amp;ans1, int &amp;ans2) &#123;
+  if (!cur) return;
+  if (L &lt;= l &amp;&amp; r &lt;= R) &#123;
+    ans1 = (ans1 + tu[cur]) % mod;
+    ans2 = (ans2 + su[cur]) % mod;
+    return;
+  &#125;
+  int mid = (l + r) &gt;&gt; 1;
+  if (L &lt;= mid) query(ls[cur], l, mid, L, R, ans1, ans2);
+  if (R &gt; mid) query(rs[cur], mid + 1, r, L, R, ans1, ans2);
+&#125;
+void modify(int x, int v, int v1, int v2) &#123;
+  for (; x &lt;= n; x += (x &amp; -x)) update(id[x], 1, n, v, v1, v2);
+&#125;
+void getAns(int l, int r, int L, int R, int &amp;ans1, int &amp;ans2) &#123;
+  if (L &gt; R) return;
+  int ret1 = 0, ret2 = 0;
+  l = l - 1;
+  for (; l; l -= (l &amp; -l)) query(id[l], 1, n, L, R, ret1, ret2);
+  for (; r; r -= (r &amp; -r)) query(id[r], 1, n, L, R, ans1, ans2);
+  ans1 = (ans1 - ret1 + mod) % mod;
+  ans2 = (ans2 - ret2 + mod) % mod;
+&#125;
+inline int rd() &#123;
+  register int x = 0, c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+
+int main() &#123;
+  n = rd(); m = rd();
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    int valSum = 0, timSum = 0;
+    a[i] = rd(); val[i] = rd();
+    modify(i, a[i], val[i], 1);
+    getAns(1, i - 1, a[i] + 1, n, valSum, timSum);
+    ans = (ans + valSum) % mod;
+    ans = (ans + 1ll * timSum * val[i] % mod) % mod;
+  &#125;
+  while (m--) &#123;
+    int x = rd(), y = rd();
+    int valSum = 0, timSum = 0, valMinus = 0, timMinus = 0;
+    if (x &gt; y) swap(x, y);
+    int idx = a[x], idy = a[y];
+    // x:
+    getAns(x + 1, y - 1, idx + 1, n, valSum, timSum);
+    getAns(x + 1, y - 1, 1, idx - 1, valMinus, timMinus);
+    valSum = (valSum - valMinus + mod) % mod;
+    timSum = (timSum - timMinus + mod) % mod;
+    ans = (ans + valSum) % mod;
+    ans = (ans + 1ll * timSum * val[x]) % mod;
+    // y: 
+    valSum = timSum = valMinus = timMinus = 0;
+    getAns(x + 1, y - 1, 1, idy - 1, valSum, timSum);
+    getAns(x + 1, y - 1, idy + 1, n, valMinus, timMinus);
+    valSum = (valSum - valMinus + mod) % mod;
+    timSum = (timSum - timMinus + mod) % mod;
+    ans = (ans + valSum) % mod;
+    ans = (ans + 1ll * timSum * val[y]) % mod;
+    if (idx &lt; idy) ans = (ans + val[x] + val[y]) % mod;
+    else if (idx &gt; idy) ans = (ans - (val[x] + val[y]) + mod) % mod;
+    modify(x, idx, mod - val[x], mod - 1);
+    modify(y, idx, val[x], 1);
+    modify(y, idy, mod - val[y], mod - 1);
+    modify(x, idy, val[y], 1);
+    swap(a[x], a[y]); swap(val[x], val[y]);
+    printf(&quot;%d\n&quot;, ans);
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

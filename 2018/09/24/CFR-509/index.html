@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || Codeforces Round 509 Div.2</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Codeforces Round 509 Div.2 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/9/24
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00a596>
+                    OI
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Codeforces" style=color:#ff7d73>
+                    Codeforces
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p><del>(马后炮)</del>解题报告</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h2 id="A-Heist"><a href="#A-Heist" class="headerlink" title="A. Heist"></a>A. Heist</h2><p>$\ldots$</p>
+<h2 id="B-Buying-a-TV-Set"><a href="#B-Buying-a-TV-Set" class="headerlink" title="B. Buying a TV Set"></a>B. Buying a TV Set</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>给你$a,b,c,d$，求满足$\frac{x}{y}=\frac{c}{d},x\le a,y\le b$的$x,y$的对数.</p>
+<p>Translation copied from luogu.org</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>约分除一下……</p>
+<h2 id="C-Coffee-Break"><a href="#C-Coffee-Break" class="headerlink" title="C. Coffee Break"></a>C. Coffee Break</h2><h3 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h3><p>给定$n$个数和一个$k$，这$n$个数都不超过$m$</p>
+<p>每次从没被去掉的数里面选一个数$a$，去掉$a$，然后可以任意一个$b(b&gt;a+k)$，然后去掉任意一个$c(c&gt;b+k)$，以此类推.</p>
+<p>问最少能选多少个$a$，然后输出每个数都是选第几个$a$的时候被去掉的.</p>
+<p>Translation copied from luogu.org</p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>贪心+二分.</p>
+<pre><code class="c++">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 2e+5 + 5;
+
+int n, m, d, ans[maxn];
+set&lt;pair&lt;int, int&gt; &gt; cft;
+
+int main()
+&#123;
+    typedef set&lt;pair&lt;int,int&gt; &gt;::iterator iter;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; d;
+    for(register int i = 1; i &lt;= n; ++i)
+    &#123;
+        int x; cin &gt;&gt; x;
+        cft.insert(make_pair(x, i));
+    &#125;
+    int day = 0;
+    while(cft.size())
+    &#123;
+        day++;
+        iter i = cft.begin();
+        iter j = cft.lower_bound(make_pair(i-&gt;first + d + 1, 0));
+        ans[i-&gt;second] = day;
+        cft.erase(i);
+        while(j != cft.end())
+        &#123;
+            iter p = j;
+            j = cft.lower_bound(make_pair(j-&gt;first + d + 1, 0));
+            ans[p-&gt;second] = day;
+            cft.erase(p);
+        &#125;
+    &#125;
+    cout &lt;&lt; day &lt;&lt; endl;
+    for(int i = 1; i &lt;= n; ++i) cout &lt;&lt; ans[i] &lt;&lt; &quot; &quot;;
+    return 0;
+&#125;</code></pre>
+<h2 id="D-Glider"><a href="#D-Glider" class="headerlink" title="D. Glider"></a>D. Glider</h2><h3 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h3><p>你在玩一个吃鸡游戏，你现在要跳伞。你的飞机现在在高度为$h$的空中飞行，你每飞一个单位长度的距离，你就会下落一个单位长度的高度，当然，有些地方是上升气流，你不会下落，你会往前直飞，由于你想在空中就被人打死，求你最远的飞行距离.</p>
+<p>第一行两个正整数$n$，$h$，代表有$n$段上升气流，飞机的高度为$h$。</p>
+<p>接下来$n$行，每行两个数$x_{i1}$，$x_{i2}$。代表$x_{i1}$至$x_{i2}$这段区间为上升气流。</p>
+<p>Translation copied from luogu.org</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>贪心+二分.</p>
+<p>可以证明一定从上升气流的开头开始跳, 对空气做个前缀和, 对上升气流做个前缀和, 二分出落地的位置就行了.</p>
+<pre><code class="c++">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 2e+5 + 5;
+
+struct seg
+&#123;
+    ll l, r;
+&#125;t[maxn];
+int n;
+ll len[maxn], sum[maxn], h;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; h;
+    for(int i = 0; i &lt; n; ++i)
+    &#123;
+        cin &gt;&gt; t[i].l &gt;&gt; t[i].r;
+        len[i] = t[i].r - t[i].l;
+        if(i)
+            sum[i] = t[i].l - t[i-1].r;
+    &#125;
+    for(int i = 1; i &lt; n; ++i)
+        len[i] += len[i-1], sum[i] += sum[i-1];
+    ll ans = 0;
+    for(int i = 0; i &lt; n; ++i)
+    &#123;
+        int pos = lower_bound(sum + i + 1, sum + n, sum[i] + h) - sum;
+        if(i)
+            ans = max(ans, len[pos - 1] - len[i - 1]);
+        else ans = max(ans, len[pos - 1]);
+    &#125;
+    cout &lt;&lt; ans + h &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="E-Tree-Reconstruction"><a href="#E-Tree-Reconstruction" class="headerlink" title="E. Tree Reconstruction"></a>E. Tree Reconstruction</h2><h3 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h3><p>有一棵树，现在给你每条树边被去掉时，形成的两个联通块中点的最大的编号分别是多少，问满足条件的树存不存在.</p>
+<p>Translation copied from luogu.org</p>
+<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p>有意思<del>(没玩出来)</del>的构造.</p>
+<p>首先判无解, 任意一条边一定会把 $n$ 所在集合和另一个集合分开, 如果有一些边没有 $n$, 那么就死了.</p>
+<p>然后考虑较小的一端, 对于一个 $k$, 小于等于 $k$ 的节点最多只有 $k$ 个, 所以对 $a$ 排序, 如果到了第 $i$ 个, 有$i &gt; a_i$, 说明有多于 $a_i$ 个节点要小于 $a_i$. 这样也不合法.</p>
+<p>最后构造答案.</p>
+<p>最小的 $a_i$ 一定是叶子节点, 因为没有一条边会割开更小的节点.</p>
+<p>然后顺次考虑每个 $a_i$, 如果$a_i &gt; a_{i-1}$, 就把上一个点连到这里, 这样当前集合的最大值就变大了.</p>
+<p>如果 $a_i = a_{i - 1}$, 就在没有用过的编号里面找一个最小的, 这样最大值不会变大, 符合相等的条件.</p>
+<p>最后连出一条链.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+const int maxn = 1005;
+
+int n, a[maxn], b[maxn];
+set&lt;int&gt; use;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    bool sol = true;
+    cin &gt;&gt; n;
+    for(int i = 1; i &lt; n; ++i)
+    &#123;
+        cin &gt;&gt; a[i] &gt;&gt; b[i];
+        if(b[i] != n)
+            sol = false;
+    &#125;
+    if(!sol)
+    &#123;
+        cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+        return 0;
+    &#125;
+    sort(a + 1, a + n);
+    for(int i = 1; i &lt; n; ++i) use.insert(i);
+    for(int i = 1; i &lt; n; ++i)
+    &#123;
+        if(use.find(a[i]) != use.end()) use.erase(use.find(a[i]));
+        if(i &gt; a[i]) 
+        &#123;
+            //puts(&quot;NO&quot;);
+            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+            return 0;
+        &#125;
+    &#125;
+    cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+    int lst = a[1];
+    for(int i = 2; i &lt; n; ++i)
+    &#123;
+        if(a[i] &gt; a[i - 1])
+        &#123;
+            printf(&quot;%d %d\n&quot;, lst, a[i]);
+            lst = a[i];
+        &#125;
+        else
+        &#123;
+            int u = *use.begin(); use.erase(use.find(u));
+            printf(&quot;%d %d\n&quot;, lst, u);
+            lst = u;
+        &#125;
+    &#125;
+    printf(&quot;%d %d&quot;, lst, n);
+    return 0;
+&#125;</code></pre>
+<h2 id="F-Ray-in-the-tube"><a href="#F-Ray-in-the-tube" class="headerlink" title="F. Ray in the tube"></a>F. Ray in the tube</h2><h3 id="Description-4"><a href="#Description-4" class="headerlink" title="Description"></a>Description</h3><p>下边界有$n$个给定点，上边界有$m$个给定点，可以从任意一个点发出一条激光，激光碰到边界会反射</p>
+<p>激光到达边界必须打到整数点，问最多可以打到几个给定点.</p>
+<h3 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h3><p>首先不用算斜率, 直接确定 $\Delta x$ 就可以计算答案.</p>
+<p>然后二分一下? DP一下? 要么时间炸要么空间炸.</p>
+<p>事实上, 对于同一侧的点, 如果能被攻击到一定在$(mod,2\Delta x)$下同余, 不同侧的点坐标加上$\Delta x$ 也同余.</p>
+<p>问题是, 怎么确定模数?</p>
+<p>观察发现, 如果$\Delta x = 1$, 那么$3,5,7,\ldots$都没有意义, 因为1一定能到达它们能到达的所有点.</p>
+<p>那么剩下2, 相应地$6, 10, 14\ldots$ 也都没用了.</p>
+<p>那么剩下4, 剩下$8, 16, 32\ldots$ 模数一定是2的幂!</p>
+<p>所以复杂度是$nlog(10^9)logn$的, map维护一下剩余系.</p>
+<pre><code class="c++">//maki
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 1e+5 + 5;
+
+int yup, ydn, n, m, ans;
+ll up[maxn], dn[maxn];
+ll pow2[35];
+
+inline void solve(int index)
+&#123;
+    map&lt;ll, int&gt; mod;
+
+    for(int i = 1; i &lt;= n; ++i)
+        mod[dn[i] % (2ll * pow2[index])]++;
+    for(int i = 1; i &lt;= m; ++i)
+        mod[(up[i] + pow2[index]) % (2ll * pow2[index])]++;
+
+    for(auto p : mod)
+        ans = max(ans, p.second);
+
+&#125;
+
+int main()
+&#123;
+    ios::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+
+    cin &gt;&gt; n &gt;&gt; ydn;
+    for(int i = 1; i &lt;= n; ++i) cin &gt;&gt; dn[i];
+    cin &gt;&gt; m &gt;&gt; yup;
+    for(int i = 1; i &lt;= m; ++i) cin &gt;&gt; up[i];
+    pow2[0] = 1;
+    for(int i = 1; i &lt;= 30; ++i) pow2[i] = (pow2[i-1] &lt;&lt; 1);
+    for(int i = 0; i &lt;= 30; ++i) solve(i);
+
+    if(n == 1 &amp;&amp; m == 1 &amp;&amp; dn[1] == up[1]) ans = max(ans, 2);
+
+    cout &lt;&lt; ans &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>

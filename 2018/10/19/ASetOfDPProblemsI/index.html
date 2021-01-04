@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curtis&#39; Blog || A Set of Linear DP Problems 1</title>
+    <meta name="author" content="Qiutong Men">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Curtis' Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>Home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>About</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>Tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Curtis' Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>A Set of Linear DP Problems 1 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2018/10/19
+        </span>
+
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/OI" style=color:#00bcd4>
+                    OI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>不过不得不说，liu_runda确实很强呢。</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>一种新的思路, 线性DP是在<strong>找合理的拓扑序</strong>.</p>
+<p>同时DP的思路要灵活. 这是一些题目.</p>
+<h1 id="BZOJ-1334-Elect"><a href="#BZOJ-1334-Elect" class="headerlink" title="BZOJ 1334 Elect"></a>BZOJ 1334 Elect</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>$N$个政党要组成一个联合内阁，每个党都有自己的席位数. 现在希望你找出一种方案，你选中的党的席位数要大于</p>
+<p>总数的一半，并且联合内阁的席位数越多越好. 对于一个联合内阁，如果某个政党退出后，其它党的席位仍大于总</p>
+<p>数的一半，则这个政党被称为是多余的，这是不允许的.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>需要使去掉一个政党后, 答案小于总数的一半, 如果直接做的话, 我们不能确定减掉最小的是否符合要求, 不妨排个序.</p>
+<p>那么对于每个物品, 在对她DP时的体积上限就是 $\frac{sum}{2} + a_i$.</p>
+<p>然后我们做一个可达DP, 更新答案就好了.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int maxn = 305;
+const int maxm = 100005;
+
+int n, a[maxn], s, ans;
+bool f[maxm];
+
+bool cmp(int a, int b) &#123;
+  return a &gt; b;
+&#125;
+
+int main() &#123;
+  scanf(&quot;%d&quot;, &amp;n);
+  for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]), s += a[i];
+  sort(a + 1, a + 1 + n, cmp);
+
+  f[0] = true;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    for (int j = s / 2 + a[i]; j &gt;= a[i]; --j) &#123;
+      f[j] |= f[j - a[i]];
+      if (f[j]) ans = max(ans, j);
+    &#125;
+  &#125;
+  printf(&quot;%d\n&quot;, ans);
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-2287-消失之物"><a href="#BZOJ-2287-消失之物" class="headerlink" title="BZOJ 2287 消失之物"></a>BZOJ 2287 消失之物</h1><h2 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h2><p>有$n$个物品, 体积上限为$m$, 计算去掉每个物品$i$, 装满体积上限为$[1,m]$的背包的方案数的最后一位.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>一开始以为是做一遍前缀DP, 做一遍后缀DP, 然后把两边合并起来, 但这样其实是$O(nm^2)$的.</p>
+<p>首先做完一遍DP. 考虑容斥一下, 如果当前枚举的体积$&lt; a_i$, 那么$i$一定不在背包里, 直接复制答案.</p>
+<p>如果$\ge a_i$, 那么答案就是总的方案数减去使用了$i$的方案数, 使用了$i$代表用其他物品填满$j - a_i$, 这个答案是已经求出的, 即$ans_{i,j-a_i}$.</p>
+<p>补集转化的思路, 在正常DP行不通时经常用到. 要加以注意.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstdio&gt;
+
+using namespace std;
+
+const int maxn = 2005;
+
+int n, m, a[maxn], f[maxn];
+int ans[maxn][maxn];
+
+int main() &#123;
+  scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+  f[0] = 1;
+  for (int i = 1; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]);
+  for (int i = 1; i &lt;= n; ++i)
+    for (int j = m; j &gt;= a[i]; --j)
+      f[j] = (f[j] + f[j - a[i]]) % 10;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    ans[i][0] = 1;
+    for (int j = 1; j &lt;= m; ++j) &#123;
+      if (j &lt; a[i]) ans[i][j] = f[j];
+      else ans[i][j] = (f[j] - ans[i][j - a[i]] + 10) % 10;
+    &#125;
+  &#125;
+  for (int i = 1; i &lt;= n; ++i) &#123;
+    for (int j = 1; j &lt;= m; ++j)
+      printf(&quot;%d&quot;,ans[i][j]);
+    putchar(&#39;\n&#39;);
+  &#125; 
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-2794-Cloakroom"><a href="#BZOJ-2794-Cloakroom" class="headerlink" title="BZOJ 2794 Cloakroom"></a>BZOJ 2794 Cloakroom</h1><h2 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h2><p>有$n$件物品，每件物品有三个属性$a[i], b[i], c[i] (a[i]&lt;b[i])$。</p>
+<p>再给出$q$个询问，每个询问由非负整数$m, k, s$组成，问是否能够选出某些物品使得：</p>
+<p>对于每个选的物品$i$，满足$a[i] \le m$且$b[i]&gt;m+s$。</p>
+<p>所有选出物品的$c[i]$的和正好是$k$。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>每次都做一遍DP太慢了, 考虑将问题离线, 按顺序用一遍背包解决所有问题.</p>
+<p>这样就将问题转化成了, 在装满$k$的情况下, 最小的$b_i$大于一个值.</p>
+<p>这是可以DP的, 我们只要求出每次转移时选择该物品的答案较小值, 并更新答案为选或不选的较大值即可.</p>
+<p>每次完成询问时检查$f_k$是否大于要求的值即可.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int maxn = 1005;
+const int maxq = 1e+6 + 5;
+const int maxv = 1e+5 + 5;
+
+inline int rd() &#123;
+  register int x = 0; register char c = getchar();
+  while (!isdigit(c)) c = getchar();
+  while (isdigit(c)) x = x * 10 + (c ^ 48), c = getchar();
+  return x;
+&#125;
+
+class obj &#123;
+ public:
+  int a, b, c;
+  bool operator &lt; (const obj &amp;rhs) const &#123;
+    return a &lt; rhs.a;
+  &#125;
+&#125;;
+class query &#123;
+ public:
+  int M, k, s, id;
+  bool operator &lt; (const query &amp;rhs) const &#123;
+    return M &lt; rhs.M;
+  &#125;
+&#125;;
+int n, m;
+obj t[maxn]; query q[maxq];
+int ans[maxq], f[maxv];
+
+int main() &#123;
+  n = rd();
+  for (int i = 1; i &lt;= n; ++i) //t[i].init();
+    t[i].c = rd(), t[i].a = rd(), t[i].b = rd();
+  m = rd();
+  for (int i = 1; i &lt;= m; ++i) //q[i].init(i);
+    q[i].M = rd(), q[i].k = rd(), q[i].s = rd(), q[i].id = i;
+  sort(t + 1, t + 1 + n);
+  sort(q + 1, q + 1 + m);
+  f[0] = 0x3f3f3f3f;
+  int ptr = 1;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    while (t[ptr].a &lt;= q[i].M &amp;&amp; ptr &lt;= n) &#123;
+      for (int j = 100000; j &gt;= t[ptr].c; --j)
+    f[j] = max(f[j], min(f[j - t[ptr].c], t[ptr].b));
+      ptr++;
+    &#125;
+    // printf(&quot;%d %d\n&quot;, i, f[q[i].k]);
+    if (f[q[i].k] &gt; q[i].M + q[i].s) ans[q[i].id] = 1;
+  &#125;
+  for (int i = 1; i &lt;= m; ++i) &#123;
+    if (ans[i]) puts(&quot;TAK&quot;);
+    else puts(&quot;NIE&quot;);
+  &#125;
+  return 0;
+&#125;</code></pre>
+<h1 id="BZOJ-1190-HNOI2007-梦幻岛宝珠"><a href="#BZOJ-1190-HNOI2007-梦幻岛宝珠" class="headerlink" title="BZOJ 1190 HNOI2007 梦幻岛宝珠"></a>BZOJ 1190 HNOI2007 梦幻岛宝珠</h1><h2 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h2><p>给你$N$颗宝石，每颗宝石都有重量和价值。要你从这些宝石中选取一些宝石，保证总重量不超过$W$，且总价值最大，并输出最大的总价值。</p>
+<p>$ N \le 100, W \le 2^30$,并且保证每颗宝石的重量符合$a \times 2^b（a \le 10, b \le 30)$.</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h2><p>看起来就是一个背包, 但是无论是体积还是背包限制都太大了, 既然题目说满足$a \times 2^b$的性质, 我们就可以从这里入手, 由于$2$的同次幂是可以转移的, 我们只要考虑如何在相邻幂之间做系数的转化.</p>
+<p>可以考虑将高于当前二进制位的数都看作系数， 那么当二进制位继续右移时，系数将变为$ \big\lceil \small{fac - [w, &amp;, (1 &lt;&lt; i)]} \big\rceil$ .</p>
+<p>然后就可以做了.</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+typedef long long ll;
+
+const int maxn = 105;
+
+struct stu &#123;
+  int b, c, v;
+  bool operator &lt; (const stu &amp;rhs) const &#123;
+    return b &lt; rhs.b;
+  &#125;
+&#125;a[maxn];
+int n, w;
+int f[32][1005];
+
+int main() &#123;
+  while (scanf(&quot;%d%d&quot;, &amp;n, &amp;w) &amp;&amp;
+     n != -1 &amp;&amp; w != -1) &#123;
+    memset(a, 0, sizeof a); memset(f, 0, sizeof f);
+    for (int i = 1; i &lt;= n; ++i) &#123;
+      scanf(&quot;%d%d&quot;, &amp;a[i].c, &amp;a[i].v);
+      while (!(a[i].c &amp; 1)) a[i].c &gt;&gt;= 1, a[i].b++;
+    &#125;
+    sort(a + 1, a + 1 + n);
+    int ptr = 1, fac = 0;
+    for (int i = 0; i &lt;= 30; ++i) &#123;
+      while (ptr &lt;= n &amp;&amp; a[ptr].b == i) &#123;
+    fac = min(fac + a[ptr].c, w &gt;&gt; i);
+    for (int j = fac; j &gt;= a[ptr].c; --j)
+      f[i][j] = max(f[i][j], f[i][j - a[ptr].c] + a[ptr].v);
+    ++ptr;
+      &#125;
+      for (int j = 0; j &lt;= fac; ++j)
+    f[i + 1][(j - ((w &amp; (1 &lt;&lt; i))?1:0) + 1) &gt;&gt; 1] =
+      max(f[i + 1][(j - ((w &amp; (1 &lt;&lt; i))?1:0) + 1) &gt;&gt; 1], f[i][j]);
+      fac = (fac - ((w &amp; (1 &lt;&lt; i))?1:0) + 1) &gt;&gt; 1;
+    &#125;
+    printf(&quot;%d\n&quot;, f[31][0]);
+  &#125;
+  return 0;
+&#125;</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2021 Curtis&#39; Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Qiutong Men
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '86c5a666976b577fa186',
+        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
+        repo: 'blog.comments',      // The repository of store comments,
+        owner: 'nishikinocurtis',
+        admin: ['nishikinocurtis'],
+        language: 'en',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+</body>
+
+</html>
