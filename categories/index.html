@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curtis&#39; Blog || BZOJ2565 最长双回文串</title>
+    <title>Curtis&#39; Blog || Categories</title>
     <meta name="author" content="Qiutong Men">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -153,95 +153,23 @@
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>BZOJ2565 最长双回文串 </h1>
+        <h1>Categories </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2018/11/5
+            2021/1/4
         </span>
 
         
 
-        
-
-        <span class="tags">
-            <span class="icon">
-                <a-icon type="tags" theme="filled" />
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/OI" style=color:#00a596>
-                    OI
-                </a>
-            </span>
-            
-        </span>
         
     </div>
 
     <div class="content" v-pre>
-        <p>Manacher.</p>
-<a id="more"></a>
-
-<!-- toc -->
-
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>求一个字符串中最长的由两个回文串拼接的子串。</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>Manacher预处理回文半径，递推每个点作为左/右端点的最长回文子串，除了Manacher更新， 还有：</p>
-<p>$r_i = max(r_i, r_{i+2}-2), l_i = max(l_{i-2} - 2)$.</p>
-<p>然后枚举每个#更新答案就好了.</p>
-<pre><code class="c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-#include &lt;cstdio&gt;
-
-using namespace std;
-
-const int maxn = 1e+5 + 5;
-
-int n;
-char s[maxn], c[maxn &lt;&lt; 1];
-int l[maxn &lt;&lt; 1], r[maxn &lt;&lt; 1], ans;
-int f[maxn &lt;&lt; 1];
-
-void manacher() &#123;
-  int mx = 0, id = 0;
-  int ptr = 0;
-  c[++ptr] = &#39;#&#39;;
-  for (int i = 1; i &lt;= n; ++i) &#123;
-    c[++ptr] = s[i];
-    c[++ptr] = &#39;#&#39;;
-  &#125;
-  for (int i = 1; i &lt;= ptr; ++i) &#123;
-    if (mx &gt; i) f[i] = min(f[2 * id - i], mx - i);
-    else f[i] = 1;
-    while (c[i + f[i]] == c[i - f[i]]) f[i]++;
-    if (i + f[i] &gt; mx) mx = i + f[i], id = i;
-    r[i + f[i] - 1] = max(r[i + f[i] - 1], f[i] - 1);
-    l[i - f[i] + 1] = max(l[i - f[i] + 1], f[i] - 1);
-  &#125;
-  n = ptr;
-&#125;
-
-int main() &#123;
-  scanf(&quot;%s&quot;, s + 1);
-  n = strlen(s + 1);
-  manacher();
-  for (int i = 3; i &lt;= n; i += 2) &#123;
-    l[i] = max(l[i], l[i - 2] - 2);
-  &#125;
-  for (int i = n; i &gt;= 1; i -= 2) &#123;
-    r[i] = max(r[i], r[i + 2] - 2);
-  &#125;
-  for (int i = 1; i &lt;= n; i += 2) 
-    if (l[i] &amp;&amp; r[i]) ans = max(ans, l[i] + r[i]);
-  printf(&quot;%d\n&quot;, ans);
-  return 0;
-&#125;</code></pre>
-
+        
     </div>
 
     
@@ -314,21 +242,6 @@ int main() &#123;
             }
         }
     })
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-    const gitalk = new Gitalk({
-        clientID: '86c5a666976b577fa186',
-        clientSecret: '6e61d497e211f1292c7b85e0c14c7fcdb21b12a5',
-        repo: 'blog.comments',      // The repository of store comments,
-        owner: 'nishikinocurtis',
-        admin: ['nishikinocurtis'],
-        language: 'en',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: true  // Facebook-like distraction free mode
-    })
-    gitalk.render('gitalk-container')
 </script>
 
 </body>
