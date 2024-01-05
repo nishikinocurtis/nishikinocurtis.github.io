@@ -171,16 +171,17 @@
     <url>/2022/10/08/about/</url>
     <content><![CDATA[<p><em>Last updated on Jan. 5 2024</em></p>
 <h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>I am joining ByteDance, Ltd. in Spring 2024 as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department. My BSc in Computer Science at New York University Shanghai will be conferred soon.</p>
+<p>I have been working as a research assistant at NYUSH since winter 2021, participating in two papers in secure network management and configuration sharing, for which I actively contribute in many aspects including system implementation, algorithm design, evaluations, etc. I have been working on fault tolerance on Service Mesh for QoS-aware applications at NYU since summer 2023.</p>
 <p>I am actively looking for research opportunity in Distributed Systems and Networks, I am also willing to explore in PL&#x2F;SE for Systems. Specifically, I am currently interested in:</p>
 <ul>
-<li><p>build efficient and realible cloud clusters through <strong>efficient fault tolerance</strong> and <strong>effective cluster management</strong>.</p>
+<li><p>building efficient and realible cloud clusters through <strong>efficient fault tolerance</strong> and <strong>effective cluster management</strong>.</p>
 </li>
 <li><p>building easy-to-use and extensible <strong>cross-layer acceleration</strong> techniques and interfaces (e.g. optimizing usage of eBPF, smartNIC; isolation of in-network resources in multi-tenant context), and </p>
 </li>
 <li><p>improving the <strong>observability of cloud systems and networks</strong> (e.g. distributed tracing, XDP tracepoints).</p>
 </li>
 </ul>
-<p>I have been working as a research assistant at NYUSH since winter 2021, participating in two papers in secure network management and configuration sharing, for which I actively contribute in many aspects including system implementation, algorithm design, evaluations, etc. I have been working on fault tolerance on Service Mesh for QoS-aware applications at NYU since summer 2023.</p>
+<p>That said, I am open to any interesting problems in the broader Systems area. </p>
 <p>Contact me through the email address in the menu.</p>
 ]]></content>
   </entry>
