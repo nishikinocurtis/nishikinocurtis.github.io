@@ -169,11 +169,10 @@
   <entry>
     <title>about</title>
     <url>/2022/10/08/about/</url>
-    <content><![CDATA[<p><em>Last updated on Dec. 29 2023</em></p>
-<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Senior year Computer Science undergrad at New York University Shanghai.</p>
+    <content><![CDATA[<p><em>Last updated on Jan. 5 2024</em></p>
+<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>I am joining ByteDance, Ltd. in Spring 2024 as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department. My BSc in Computer Science at New York University Shanghai will be conferred soon.</p>
 <p>I am actively looking for research opportunity in Distributed Systems and Networks, I am also willing to explore in PL&#x2F;SE for Systems. Specifically, I am currently interested in effective and verifiable cluster management (e.g. placement, load-balancing, update, migration), building easy-to-use and extensible acceleration techniques (e.g. optimizing usage of eBPF, smartNIC), and improving the observability of complicated microservices (e.g. tracing, kernel tracepoints).</p>
 <p>I have been working as a research assistant at NYUSH since winter 2021, participating in two papers under preparation in secure network management, for which I actively contribute in many aspects including system implementation, algorithm design, evaluations, etc. I have been working on fault tolerance for Service Mesh at NYU from summer 2023.</p>
-<p>I am joining ByteDance, Ltd. in Spring 2024 as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department.</p>
 <p>Contact me through the email address in the menu.</p>
 ]]></content>
   </entry>
