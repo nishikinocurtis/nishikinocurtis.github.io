@@ -170,7 +170,7 @@
     <title>about</title>
     <url>/2022/10/08/about/</url>
     <content><![CDATA[<p><em>Last updated on Aug. 29 2024</em></p>
-<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Hi there! I am a first-year Ph.D. student in Computer Science at NYU Courant. Before that, I worked as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department at ByteDance. I obtained my BSc in Computer Science at New York University Shanghai.</p>
+<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Hi there! I am a first-year Ph.D. student in Computer Science at NYU Courant, advised by Prof. <a href="https://cs.nyu.edu/~apanda/">Aurojit Panda</a>. Before that, I worked as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department at ByteDance. I obtained my BSc in Computer Science at New York University Shanghai, and was advised by Prof. <a href="https://grace-liu.github.io/">Grace Liu</a>.</p>
 <p>Currently I am working on fault tolerance infrastructure for microservices and clustered applications. I have also worked on secure network management for some while.</p>
 <p>I am looking for research opportunity in Distributed Systems and Networks, I am also willing to explore in PL&#x2F;SE for Systems. Specifically, I am currently interested in:</p>
 <ul>
