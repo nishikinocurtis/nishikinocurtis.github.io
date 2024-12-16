@@ -169,16 +169,16 @@
   <entry>
     <title>about</title>
     <url>/2022/10/08/about/</url>
-    <content><![CDATA[<p><em>Last updated on Aug. 29 2024</em></p>
-<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Hi there! I am a first-year Ph.D. student in Computer Science at NYU Courant, advised by Prof. <a href="https://cs.nyu.edu/~apanda/">Aurojit Panda</a>. Before that, I worked as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department at ByteDance. I obtained my BSc in Computer Science at New York University Shanghai, and was advised by Prof. <a href="https://grace-liu.github.io/">Grace Liu</a>.</p>
-<p>Currently I am working on fault tolerance infrastructure for microservices and clustered applications. I have also worked on secure network management for some while.</p>
-<p>I am looking for research opportunity in Distributed Systems and Networks, I am also willing to explore in PL&#x2F;SE for Systems. Specifically, I am currently interested in:</p>
+    <content><![CDATA[<p><em>Last updated on Dec.16 08:40 UTC+0 2024, New York</em></p>
+<h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Hi there! I am a first-year Ph.D. student in Computer Science at NYU Courant, advised by Prof. <a href="https://cs.nyu.edu/~apanda/">Aurojit Panda</a>. Before that, I worked as a full-time Machine Learning Platform R&amp;D Engineer in the Applied Machine Learning(AML) department at ByteDance, where I touched Kubernetes&#x2F;Prometheus ecosystem, industrial cloud infrastructure and large-scale model training. I obtained my BSc in Computer Science at New York University Shanghai, and was advised by Prof. <a href="https://grace-liu.github.io/">Grace Liu</a>.</p>
+<p>Currently my works cover 1) computational systems on CXL disaggregated memory, 2) policy compliance of database-backed systems, and 3) fault tolerance infrastructure for microservice systems. Before that, I have been working on trustworthy network outsourcing for a while with Prof. <a href="https://grace-liu.github.io/">Grace Liu</a>. They gift me the chance to (seriously) play with Ray, Datafusion, Envoy&#x2F;Istio, GNS3 Emulator, etc. </p>
+<p>I envision my research interest as:</p>
 <ul>
-<li><p>building efficient and realible cloud clusters through <strong>efficient fault tolerance</strong> and <strong>effective cluster management</strong>.</p>
+<li><p>building easy-to-use and extensible <strong>cross-layer acceleration</strong> techniques and interfaces (e.g. CXL, smartNIC&#x2F;DPU, eBPF, and P4 switches) for next-generation cloud systems,</p>
 </li>
-<li><p>building easy-to-use and extensible <strong>cross-layer acceleration</strong> techniques and interfaces (e.g. optimizing usage of eBPF, smartNIC; isolation of in-network resources in multi-tenant context), and </p>
+<li><p>building efficient and realible cloud clusters through <strong>efficient fault tolerance</strong> (Analogy: fast backup, sync recovery for programs; better congestion control and multi-path switching for networks) and <strong>effective cluster management</strong> (Analogy: verified control loop for programs; self-healing and self-tuning for infrastructures).</p>
 </li>
-<li><p>improving the <strong>observability of cloud systems and networks</strong> (e.g. distributed tracing, shared logging, event infrastructure, and XDP tracepoints).</p>
+<li><p>improving the <strong>observability of cloud systems and networks</strong> (e.g. distributed tracing, shared logging, event infrastructure, hybrid timeseries databases) and <strong>assisting their reliability</strong>.</p>
 </li>
 </ul>
 <p>That said, I am open to any interesting problems in the broader Systems area. </p>
